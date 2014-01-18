@@ -185,7 +185,10 @@ namespace Democracy3LanguageSelector
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                this.labelGameSourcePath.Text = this.folderBrowserDialogGameSource.SelectedPath;
+                var path = this.folderBrowserDialogGameSource.SelectedPath;
+                if(!path.Contains("\\data"))
+                    path += "\\data"; 
+                this.labelGameSourcePath.Text = path;
                 this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
             }
         }
