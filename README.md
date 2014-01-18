@@ -17,5 +17,5 @@ Enjoy the game in your language!
 
 ## Screenshot
 <p align="center">
-<img src="https://raw.github.com/dragouf/Democracy3TextExtractor/master/doc/screenshot.png" alt="democracy 3 language selector screenshot" />
+<img src="https://raw2.github.com/dragouf/Democracy3LanguageSelector/master/docs/screenshot.png" alt="democracy 3 language selector screenshot" />
 </p>
