@@ -1,7 +1,7 @@
 Democracy 3 Language Selector
 ==========================
 
-Apply transifex translation project to Democracy 3. A simulation game from positech.
+Apply transifex translation to Democracy 3. A simulation game from positech.
 
 Game website : http://positech.co.uk/democracy3/
 
