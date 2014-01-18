@@ -26,6 +26,9 @@ namespace Democracy3LanguageSelector
             this.DownloadingResources = new Dictionary<string, bool>();
             this.comboBoxLanguages.SelectedIndex = 0;
             this.comboBoxLanguages.Enabled = false;
+            this.toolTipGamePath.ToolTipIcon = ToolTipIcon.None;
+            this.toolTipGamePath.IsBalloon = false;
+            this.toolTipGamePath.ShowAlways = true;
 
             // Create cache folder
             this.CreateCacheFolderIfNOtExist();
@@ -95,9 +98,20 @@ namespace Democracy3LanguageSelector
 
         private void LoadGamePath()
         {
-            string InstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\GOG.com\GOGDEMOCRACY3", "PATH", null);
-            if (!string.IsNullOrEmpty(InstallPath))
-                this.labelGameSourcePath.Text = InstallPath + "data";
+            try
+            {
+                string InstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\GOG.com\GOGDEMOCRACY3", "PATH", null);
+                if (!string.IsNullOrEmpty(InstallPath))
+                {
+                    this.labelGameSourcePath.Text = InstallPath + "data";
+                    this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);                    
+                }
+            }
+            catch
+            {
+                this.labelGameSourcePath.Text = AppDomain.CurrentDomain.BaseDirectory;
+                this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
+            }
         }
 
         private async void comboBoxLanguages_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,6 +186,7 @@ namespace Democracy3LanguageSelector
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 this.labelGameSourcePath.Text = this.folderBrowserDialogGameSource.SelectedPath;
+                this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
             }
         }
     }

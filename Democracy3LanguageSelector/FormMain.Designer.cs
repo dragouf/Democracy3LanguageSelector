@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.comboBoxLanguages = new System.Windows.Forms.ComboBox();
             this.buttonApply = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.labelResourcesInfo = new System.Windows.Forms.Label();
             this.progressBarDownlodResources = new System.Windows.Forms.ProgressBar();
             this.folderBrowserDialogGameSource = new System.Windows.Forms.FolderBrowserDialog();
+            this.toolTipGamePath = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // comboBoxLanguages
@@ -90,7 +92,7 @@
             this.labelGameSourcePath.AutoSize = true;
             this.labelGameSourcePath.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGameSourcePath.Location = new System.Drawing.Point(106, 53);
-            this.labelGameSourcePath.MaximumSize = new System.Drawing.Size(330, 14);
+            this.labelGameSourcePath.MaximumSize = new System.Drawing.Size(325, 14);
             this.labelGameSourcePath.Name = "labelGameSourcePath";
             this.labelGameSourcePath.Size = new System.Drawing.Size(79, 14);
             this.labelGameSourcePath.TabIndex = 4;
@@ -201,6 +203,7 @@
         private System.Windows.Forms.Label labelResourcesInfo;
         private System.Windows.Forms.ProgressBar progressBarDownlodResources;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogGameSource;
+        private System.Windows.Forms.ToolTip toolTipGamePath;
     }
 }
 
