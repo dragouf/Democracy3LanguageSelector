@@ -119,7 +119,7 @@ namespace Democracy3LanguageSelector
                     // Calculate file size for progress
                     this.progressBarDownlodResources.Visible = true;
                     this.progressBarDownlodResources.Value = 0;
-                    this.progressBarDownlodResources.Maximum = await connector.GetTotalResouresSize(langCode, this.ProjectInfo.Resources);
+                    this.progressBarDownlodResources.Maximum = connector.GetTotalResouresSize(langCode, this.ProjectInfo.Resources, langDetails.Total_segments);
                     this.progressBarDownlodResources.Step = 1024;
 
                     // Progress reporter

@@ -109,26 +109,26 @@ namespace Democracy3LanguageSelector
             }
         }
 
-        public async Task<int> GetTotalResouresSize(string langCode, List<Resource> resourceList)
+        public int GetTotalResouresSize(string langCode, List<Resource> resourceList, int totalStrings)
         {
-            int total = 0;
+            int total = 165 * totalStrings;
 
             //Parallel.ForEach(resourceList, resource =>   
-            foreach (var resource in resourceList)
-            {
-                var request = "{0}/project/{1}/resource/{2}/translation/{3}/?file".FormatWith(BaseUrl, ProjectSlug, resource.Slug, langCode);
+            //foreach (var resource in resourceList)
+            //{
+            //    var request = "{0}/project/{1}/resource/{2}/translation/{3}/?file".FormatWith(BaseUrl, ProjectSlug, resource.Slug, langCode);
 
-                System.Net.WebRequest client = System.Net.HttpWebRequest.Create(request);
+            //    System.Net.WebRequest client = System.Net.HttpWebRequest.Create(request);
 
-                client.Credentials = GetCrendentials();
-                client.PreAuthenticate = true;
+            //    client.Credentials = GetCrendentials();
+            //    client.PreAuthenticate = true;
 
-                using (System.Net.WebResponse resp = await client.GetResponseAsync())
-                {
-                    total += (int)resp.ContentLength;
-                    resp.Close();
-                }
-            }
+            //    using (System.Net.WebResponse resp = await client.GetResponseAsync())
+            //    {
+            //        total += (int)resp.ContentLength;
+            //        resp.Close();
+            //    }
+            //}
 
             return total;
         }
