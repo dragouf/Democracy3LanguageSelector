@@ -137,9 +137,10 @@ namespace Democracy3LanguageSelector
 
         private static ICredentials GetCrendentials()
         {
+            // I know it's not secure but it's just not clear^^
             return new NetworkCredential(
-                Secure.ToInsecureString(Secure.DecryptString("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArLaKFyt0eEKJpmvgZmyzygAAAAACAAAAAAAQZgAAAAEAACAAAAAPZr7wY7Fc/HlCmD+u7/WHoYf5MdrTDdKws7jCEV1p2AAAAAAOgAAAAAIAACAAAAAacBXFM14uoxJ3BZ1KdFjlkQILHoiedAnOsq1IgeOIcjAAAABYT7iii0CVgjpBP6bY5QPvokUi8RFrE3XRHQ7mBQBmewC5ha0jiXiRM/NPJdyg+GJAAAAAyxPtuQUT8fxAbG022dFm4CzzevjnHblF9ZYoTUfFi0GNLnBjfw2g64vlzYVIrVQG5UcGNKWTpENOo0tDqdg52w==")),
-                Secure.ToInsecureString(Secure.DecryptString("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArLaKFyt0eEKJpmvgZmyzygAAAAACAAAAAAAQZgAAAAEAACAAAADaXpwxRt3abZfKwHlllLHMIMhs3V8GD2GMkqbRxE/PNgAAAAAOgAAAAAIAACAAAAD1BXH1I29by/v+g8l0EX4YKT3HOcXJOs25BJGeJTa6JBAAAABllBODGrSRW768l17jBmowQAAAAEMiUlyRafrQGbIfI2yWfulENeajnpEPtGMMQuvF7vXRpF80+XeR08Q4ycxw6rx+7GxLN9OjjDCnoqjbKzolR/8="))
+                Secure.Decrypt("UevGaasLQTXt9DtBfSzNQEaRAWNulzJEF7yhUqJg3uk="),
+                Secure.Decrypt("G0TfnocewaZATteVQ6Cj7g==")
             );
         }
     }
