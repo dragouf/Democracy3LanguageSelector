@@ -75,6 +75,8 @@ namespace Democracy3LanguageSelector
             // Write progression to data file
             WriteDataFile(isEnglish ? "en" : langCode, langDetails.Translated_segments);
 
+            langDetails.LanguageCode = langCode;
+
             return langDetails;
         }
 

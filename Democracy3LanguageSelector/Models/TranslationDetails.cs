@@ -16,6 +16,7 @@ namespace Democracy3LanguageSelector
         public int Reviewed_segments { get; set; }
         public int Total_segments { get; set; }
         public int Translated_words { get; set; }
+        public string LanguageCode { get; set; }
 
         public double PercentProgression
         {

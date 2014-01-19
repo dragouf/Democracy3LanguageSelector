@@ -17,6 +17,7 @@ namespace Democracy3LanguageSelector
     public partial class FormMain : Form
     {
         public Project ProjectInfo { get; set; }
+        public TranslationDetails CurrentTranslationInfo { get; set; }
         public Dictionary<string, bool> DownloadingResources { get; set; }
 
         public FormMain()
@@ -38,7 +39,7 @@ namespace Democracy3LanguageSelector
             LoadGamePath();
         }
 
-        private void buttonApply_Click(object sender, EventArgs e)
+        private async void buttonApply_Click(object sender, EventArgs e)
         {
             if (comboBoxLanguages.SelectedItem is Language)
             {
@@ -46,6 +47,15 @@ namespace Democracy3LanguageSelector
                 {
                     MessageBox.Show("Please select a valid game path...", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
+                }
+
+                // if force download redownload
+                if (this.checkBoxForceDl.Checked)
+                {
+                    this.buttonApply.Visible = false;
+                    await this.DownloadTranslationFile(this.CurrentTranslationInfo.LanguageCode, this.CurrentTranslationInfo.Total_segments);
+                    this.buttonApply.Visible = true;
+                    this.progressBarDownlodResources.Visible = false;
                 }
 
                 try
@@ -122,42 +132,47 @@ namespace Democracy3LanguageSelector
                 this.labelProgression.Text = "Loading transifex translations files...";
                 var langCode = ((Language)comboBoxLanguages.SelectedItem).Code;
                 int previousProgression = TransifexConnector.GetLastProgressionFromDataFile(langCode);
-                var langDetails = await TransifexConnector.TranslationDetails(langCode);
+                this.CurrentTranslationInfo =  await TransifexConnector.TranslationDetails(langCode);
 
                 // Download and Cache files if not currently downloading
                 if (!this.DownloadingResources[langCode])
                 {
                     // Check if new translations occured
-                    if (previousProgression != langDetails.Translated_segments || this.checkBoxForceDl.Checked)
+                    if (previousProgression != this.CurrentTranslationInfo.Translated_segments || this.checkBoxForceDl.Checked)
                     {
-                        this.DownloadingResources[langCode] = true;
-
-                        // Calculate file size for progress
-                        this.progressBarDownlodResources.Visible = true;
-                        this.progressBarDownlodResources.Value = 0;
-                        this.progressBarDownlodResources.Maximum = TransifexConnector.GetTotalResouresSize(langCode, this.ProjectInfo.Resources, langDetails.Total_segments);
-                        this.progressBarDownlodResources.Step = 1024;
-
-                        // Progress reporter
-                        var progress = new Progress<int>();
-                        progress.ProgressChanged += (s, percent) =>
-                        {
-                            progressBarDownlodResources.PerformStep();
-                        };
-
-                        // Download file
-                        await TransifexConnector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
-
-                        this.DownloadingResources[langCode] = false;                        
+                        await this.DownloadTranslationFile(langCode, this.CurrentTranslationInfo.Total_segments);
                     }
                 }
 
                 this.buttonApply.Visible = true;
                 this.progressBarDownlodResources.Visible = false;
 
-                this.labelProgression.Text = langDetails.PercentProgression.ToString() + " %";
-                this.labelResourcesInfo.Text = ProjectInfo.Resources.Count + " files and " + langDetails.Translated_segments.ToString() + "/" + langDetails.Total_segments.ToString() + " translated sentences";
+                this.labelProgression.Text = this.CurrentTranslationInfo.PercentProgression.ToString() + " %";
+                this.labelResourcesInfo.Text = ProjectInfo.Resources.Count + " files and " + this.CurrentTranslationInfo.Translated_segments.ToString() + "/" + this.CurrentTranslationInfo.Total_segments.ToString() + " translated sentences";
             }
+        }
+
+        private async Task DownloadTranslationFile(string langCode, int totalSegments)
+        {
+            this.DownloadingResources[langCode] = true;
+
+            // Calculate file size for progress
+            this.progressBarDownlodResources.Visible = true;
+            this.progressBarDownlodResources.Value = 0;
+            this.progressBarDownlodResources.Maximum = TransifexConnector.GetTotalResouresSize(langCode, this.ProjectInfo.Resources, totalSegments);
+            this.progressBarDownlodResources.Step = 1024;
+
+            // Progress reporter
+            var progress = new Progress<int>();
+            progress.ProgressChanged += (s, percent) =>
+            {
+                progressBarDownlodResources.PerformStep();
+            };
+
+            // Download file
+            await TransifexConnector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
+
+            this.DownloadingResources[langCode] = false;
         }
 
         void progress_ProgressChanged(object sender, int e)
