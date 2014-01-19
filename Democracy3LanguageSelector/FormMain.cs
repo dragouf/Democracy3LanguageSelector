@@ -53,9 +53,9 @@ namespace Democracy3LanguageSelector
                     // list all file from lang cache folder
                     var langCode = ((Language)comboBoxLanguages.SelectedItem).Code;
 
-                    var files = Directory.EnumerateFiles(@"cache\{0}\".FormatWith(langCode));
+                    var files = Directory.EnumerateFiles(@"cache\{0}\".FormatWith(langCode), "*.ini");
 
-                    var gameInjector = new DemocracyStringHandling(null, null, this.labelGameSourcePath.Text);
+                    var gameInjector = new DemocracyStringHandling(null, null, this.labelGameSourcePath.Text, this.checkBoxRemoveSC.Checked);
 
                     // For each file extract and inject
                     foreach (var file in files)
@@ -83,8 +83,7 @@ namespace Democracy3LanguageSelector
 
         private async void LoadLanguagesList()
         {
-            var transifexConnector = new TransifexConnector();
-            this.ProjectInfo = await transifexConnector.ProjectDetails();
+            this.ProjectInfo = await TransifexConnector.ProjectDetails();
 
             this.ProjectInfo.Teams.ForEach(t => this.DownloadingResources.Add(t, false));
 
@@ -122,36 +121,42 @@ namespace Democracy3LanguageSelector
             {
                 this.labelProgression.Text = "Loading transifex translations files...";
                 var langCode = ((Language)comboBoxLanguages.SelectedItem).Code;
-                var connector = new TransifexConnector();
-                var langDetails = await connector.TranslationDetails(langCode);
+                int previousProgression = TransifexConnector.GetLastProgressionFromDataFile(langCode);
+                var langDetails = await TransifexConnector.TranslationDetails(langCode);
 
-                // Download and Cache files
+                // Download and Cache files if not currently downloading
                 if (!this.DownloadingResources[langCode])
                 {
-                    this.DownloadingResources[langCode] = true;
+                    // Check if new translations occured
+                    if (previousProgression != langDetails.Translated_segments)
+                    {
+                        this.DownloadingResources[langCode] = true;
 
-                    // Calculate file size for progress
-                    this.progressBarDownlodResources.Visible = true;
-                    this.progressBarDownlodResources.Value = 0;
-                    this.progressBarDownlodResources.Maximum = connector.GetTotalResouresSize(langCode, this.ProjectInfo.Resources, langDetails.Total_segments);
-                    this.progressBarDownlodResources.Step = 1024;
+                        // Calculate file size for progress
+                        this.progressBarDownlodResources.Visible = true;
+                        this.progressBarDownlodResources.Value = 0;
+                        this.progressBarDownlodResources.Maximum = TransifexConnector.GetTotalResouresSize(langCode, this.ProjectInfo.Resources, langDetails.Total_segments);
+                        this.progressBarDownlodResources.Step = 1024;
 
-                    // Progress reporter
-                    var progress = new Progress<int>();
-                    progress.ProgressChanged += (s, percent) => { 
-                        progressBarDownlodResources.PerformStep(); 
-                    };
+                        // Progress reporter
+                        var progress = new Progress<int>();
+                        progress.ProgressChanged += (s, percent) =>
+                        {
+                            progressBarDownlodResources.PerformStep();
+                        };
 
-                    // Download file
-                    await connector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
+                        // Download file
+                        await TransifexConnector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
 
-                    this.DownloadingResources[langCode] = false;
-                    this.buttonApply.Visible = true;
-                    this.progressBarDownlodResources.Visible = false;
-
-                    this.labelProgression.Text = langDetails.PercentProgression.ToString() + " %";
-                    this.labelResourcesInfo.Text = ProjectInfo.Resources.Count + " files and " + langDetails.Translated_segments.ToString() + "/" + langDetails.Total_segments.ToString() + " translated sentences";
+                        this.DownloadingResources[langCode] = false;                        
+                    }
                 }
+
+                this.buttonApply.Visible = true;
+                this.progressBarDownlodResources.Visible = false;
+
+                this.labelProgression.Text = langDetails.PercentProgression.ToString() + " %";
+                this.labelResourcesInfo.Text = ProjectInfo.Resources.Count + " files and " + langDetails.Translated_segments.ToString() + "/" + langDetails.Total_segments.ToString() + " translated sentences";
             }
         }
 

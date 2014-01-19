@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace Democracy3LanguageSelector
 {
-    public class TransifexConnector
+    public static class TransifexConnector
     {
         private const string BaseUrl = "https://www.transifex.com/api/2";
         private const string ProjectSlug = "democracy-3";
 
-        public async Task<Project> ProjectDetails()
+        public static async Task<Project> ProjectDetails()
         {
             var request = "{0}/project/{1}/?details".FormatWith(BaseUrl, ProjectSlug);
 
@@ -41,7 +41,7 @@ namespace Democracy3LanguageSelector
             return model;
         }
 
-        public async Task<TranslationDetails> TranslationDetails(string langCode)
+        public static async Task<TranslationDetails> TranslationDetails(string langCode)
         {
             bool isEnglish = false;
             if (langCode == "en")
@@ -72,12 +72,14 @@ namespace Democracy3LanguageSelector
                 langDetails.Translated_segments = langDetails.Total_segments;
             }
 
+            // Write progression to data file
+            WriteDataFile(isEnglish ? "en" : langCode, langDetails.Translated_segments);
+
             return langDetails;
         }
 
-        public async Task DownloadTranslationResources(string langCode, List<Resource> resourceList, IProgress<int> progress)
+        public static async Task DownloadTranslationResources(string langCode, List<Resource> resourceList, IProgress<int> progress)
         {
-            //Parallel.ForEach(resourceList, resource =>
             foreach (var resource in resourceList)
             {
                 var request = "{0}/project/{1}/resource/{2}/translation/{3}/?file".FormatWith(BaseUrl, ProjectSlug, resource.Slug, langCode);
@@ -109,33 +111,36 @@ namespace Democracy3LanguageSelector
             }
         }
 
-        public int GetTotalResouresSize(string langCode, List<Resource> resourceList, int totalStrings)
+        public static int GetTotalResouresSize(string langCode, List<Resource> resourceList, int totalStrings)
         {
             int total = 165 * totalStrings;
-
-            //Parallel.ForEach(resourceList, resource =>   
-            //foreach (var resource in resourceList)
-            //{
-            //    var request = "{0}/project/{1}/resource/{2}/translation/{3}/?file".FormatWith(BaseUrl, ProjectSlug, resource.Slug, langCode);
-
-            //    System.Net.WebRequest client = System.Net.HttpWebRequest.Create(request);
-
-            //    client.Credentials = GetCrendentials();
-            //    client.PreAuthenticate = true;
-
-            //    using (System.Net.WebResponse resp = await client.GetResponseAsync())
-            //    {
-            //        total += (int)resp.ContentLength;
-            //        resp.Close();
-            //    }
-            //}
 
             return total;
         }
 
-        private ICredentials GetCrendentials()
+        public static void WriteDataFile(string langCode, int translatedStrings)
         {
-            return new NetworkCredential("lili22@yopmail.com", "ilil22");
+            File.WriteAllText("cache\\{0}\\data".FormatWith(langCode), translatedStrings.ToString());
+        }
+
+        public static int GetLastProgressionFromDataFile(string langCode)
+        {
+            int total = 0;
+
+            if (File.Exists("cache\\{0}\\data".FormatWith(langCode)))
+            {
+                Int32.TryParse(File.ReadAllText("cache\\{0}\\data".FormatWith(langCode)).Trim(), out total);
+            }
+
+            return total;
+        }
+
+        private static ICredentials GetCrendentials()
+        {
+            return new NetworkCredential(
+                Secure.ToInsecureString(Secure.DecryptString("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArLaKFyt0eEKJpmvgZmyzygAAAAACAAAAAAAQZgAAAAEAACAAAAAPZr7wY7Fc/HlCmD+u7/WHoYf5MdrTDdKws7jCEV1p2AAAAAAOgAAAAAIAACAAAAAacBXFM14uoxJ3BZ1KdFjlkQILHoiedAnOsq1IgeOIcjAAAABYT7iii0CVgjpBP6bY5QPvokUi8RFrE3XRHQ7mBQBmewC5ha0jiXiRM/NPJdyg+GJAAAAAyxPtuQUT8fxAbG022dFm4CzzevjnHblF9ZYoTUfFi0GNLnBjfw2g64vlzYVIrVQG5UcGNKWTpENOo0tDqdg52w==")),
+                Secure.ToInsecureString(Secure.DecryptString("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArLaKFyt0eEKJpmvgZmyzygAAAAACAAAAAAAQZgAAAAEAACAAAADaXpwxRt3abZfKwHlllLHMIMhs3V8GD2GMkqbRxE/PNgAAAAAOgAAAAAIAACAAAAD1BXH1I29by/v+g8l0EX4YKT3HOcXJOs25BJGeJTa6JBAAAABllBODGrSRW768l17jBmowQAAAAEMiUlyRafrQGbIfI2yWfulENeajnpEPtGMMQuvF7vXRpF80+XeR08Q4ycxw6rx+7GxLN9OjjDCnoqjbKzolR/8="))
+            );
         }
     }
 }

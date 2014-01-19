@@ -11,7 +11,7 @@ namespace Democracy3LanguageSelector
     {
         private readonly static Regex nonSpacingMarkRegex =
         new Regex(@"\p{Mn}", RegexOptions.Compiled);
-
+        
         public static string RemoveDiacritics(this string text)
         {
             if (text == null)
@@ -23,6 +23,11 @@ namespace Democracy3LanguageSelector
             return nonSpacingMarkRegex.Replace(normalizedText, string.Empty);
         }
 
+        public static string SanitizeQuotes(this string text)
+        {
+            return text.Replace("_QQ_\"", "");
+        }
+
         public static string DeleteAccentAndSpecialsChar(this string OriginalText)
         {
             string strTemp = OriginalText;
@@ -31,7 +36,7 @@ namespace Democracy3LanguageSelector
             Regex regAA = new Regex("[Ã|À|Â|Ä|Á|Å]");
             Regex regE = new Regex("[é|è|ê|ë]");
             Regex regEE = new Regex("[É|È|Ê|Ë]");
-            Regex regI = new Regex("[í|ì|î|ï]");            
+            Regex regI = new Regex("[í|ì|î|ï,ı]");            
             Regex regII = new Regex("[Í|Ì|Î|Ï]");
             Regex regL = new Regex("[ł]");
             Regex regLL = new Regex("[Ł]");
@@ -109,6 +114,15 @@ namespace Democracy3LanguageSelector
         public static string FormatWith(this string source, params object[] parameters)
         {
             return string.Format(source, parameters);
+        }
+
+        public static string Utf8ToAnsi(this string chaineUTF8)
+        {
+            var ansi = Encoding.GetEncoding(1252); 
+            byte[] utf8Bytes = Encoding.UTF8.GetBytes(chaineUTF8);
+            byte[] ansiBytes = Encoding.Convert(Encoding.UTF8, ansi, utf8Bytes);
+            string chaineANSI = ansi.GetString(ansiBytes)/*.ToString()*/;
+            return chaineANSI;
         }
     }
 }

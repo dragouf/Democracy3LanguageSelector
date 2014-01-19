@@ -43,6 +43,8 @@
             this.progressBarDownlodResources = new System.Windows.Forms.ProgressBar();
             this.folderBrowserDialogGameSource = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTipGamePath = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBoxRemoveSC = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxLanguages
@@ -60,7 +62,7 @@
             // 
             this.buttonApply.Location = new System.Drawing.Point(432, 10);
             this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(112, 23);
+            this.buttonApply.Size = new System.Drawing.Size(108, 23);
             this.buttonApply.TabIndex = 1;
             this.buttonApply.Text = "Apply Translation";
             this.buttonApply.UseVisualStyleBackColor = true;
@@ -81,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 53);
+            this.label2.Location = new System.Drawing.Point(12, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 14);
             this.label2.TabIndex = 3;
@@ -91,18 +93,18 @@
             // 
             this.labelGameSourcePath.AutoSize = true;
             this.labelGameSourcePath.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGameSourcePath.Location = new System.Drawing.Point(106, 53);
-            this.labelGameSourcePath.MaximumSize = new System.Drawing.Size(325, 14);
+            this.labelGameSourcePath.Location = new System.Drawing.Point(106, 81);
+            this.labelGameSourcePath.MaximumSize = new System.Drawing.Size(326, 14);
             this.labelGameSourcePath.Name = "labelGameSourcePath";
-            this.labelGameSourcePath.Size = new System.Drawing.Size(79, 14);
+            this.labelGameSourcePath.Size = new System.Drawing.Size(326, 14);
             this.labelGameSourcePath.TabIndex = 4;
-            this.labelGameSourcePath.Text = "Loading path...";
+            this.labelGameSourcePath.Text = resources.GetString("labelGameSourcePath.Text");
             this.labelGameSourcePath.UseMnemonic = false;
             // 
             // linkLabelGamePath
             // 
             this.linkLabelGamePath.AutoSize = true;
-            this.linkLabelGamePath.Location = new System.Drawing.Point(429, 53);
+            this.linkLabelGamePath.Location = new System.Drawing.Point(493, 81);
             this.linkLabelGamePath.Name = "linkLabelGamePath";
             this.linkLabelGamePath.Size = new System.Drawing.Size(47, 13);
             this.linkLabelGamePath.TabIndex = 5;
@@ -114,7 +116,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 90);
+            this.label3.Location = new System.Drawing.Point(12, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 14);
             this.label3.TabIndex = 6;
@@ -124,7 +126,7 @@
             // 
             this.labelProgression.AutoSize = true;
             this.labelProgression.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgression.Location = new System.Drawing.Point(106, 90);
+            this.labelProgression.Location = new System.Drawing.Point(106, 114);
             this.labelProgression.MaximumSize = new System.Drawing.Size(330, 14);
             this.labelProgression.Name = "labelProgression";
             this.labelProgression.Size = new System.Drawing.Size(93, 14);
@@ -136,7 +138,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 127);
+            this.label4.Location = new System.Drawing.Point(12, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 14);
             this.label4.TabIndex = 8;
@@ -146,7 +148,7 @@
             // 
             this.labelResourcesInfo.AutoSize = true;
             this.labelResourcesInfo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResourcesInfo.Location = new System.Drawing.Point(106, 127);
+            this.labelResourcesInfo.Location = new System.Drawing.Point(106, 147);
             this.labelResourcesInfo.MaximumSize = new System.Drawing.Size(330, 14);
             this.labelResourcesInfo.Name = "labelResourcesInfo";
             this.labelResourcesInfo.Size = new System.Drawing.Size(0, 14);
@@ -155,17 +157,40 @@
             // 
             // progressBarDownlodResources
             // 
-            this.progressBarDownlodResources.Location = new System.Drawing.Point(109, 127);
+            this.progressBarDownlodResources.Location = new System.Drawing.Point(109, 147);
             this.progressBarDownlodResources.Name = "progressBarDownlodResources";
             this.progressBarDownlodResources.Size = new System.Drawing.Size(317, 14);
             this.progressBarDownlodResources.TabIndex = 10;
             this.progressBarDownlodResources.Visible = false;
             // 
+            // checkBoxRemoveSC
+            // 
+            this.checkBoxRemoveSC.AutoSize = true;
+            this.checkBoxRemoveSC.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxRemoveSC.Location = new System.Drawing.Point(109, 48);
+            this.checkBoxRemoveSC.Name = "checkBoxRemoveSC";
+            this.checkBoxRemoveSC.Size = new System.Drawing.Size(169, 17);
+            this.checkBoxRemoveSC.TabIndex = 11;
+            this.checkBoxRemoveSC.Text = "Remove before string injection";
+            this.checkBoxRemoveSC.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 48);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 14);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Specials chars";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 160);
+            this.ClientSize = new System.Drawing.Size(546, 192);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.checkBoxRemoveSC);
             this.Controls.Add(this.progressBarDownlodResources);
             this.Controls.Add(this.labelResourcesInfo);
             this.Controls.Add(this.label4);
@@ -179,8 +204,6 @@
             this.Controls.Add(this.comboBoxLanguages);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(568, 199);
-            this.MinimumSize = new System.Drawing.Size(568, 199);
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Democracy 3 Language Selector";
@@ -204,6 +227,8 @@
         private System.Windows.Forms.ProgressBar progressBarDownlodResources;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogGameSource;
         private System.Windows.Forms.ToolTip toolTipGamePath;
+        private System.Windows.Forms.CheckBox checkBoxRemoveSC;
+        private System.Windows.Forms.Label label5;
     }
 }
 

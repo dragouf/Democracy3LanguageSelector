@@ -21,17 +21,19 @@ namespace Democracy3LanguageSelector
         public string TransifexFilePath { get; set; }
         public string OutputExtractFolderPath { get; set; }
         public string GameFolderPath { get; set; }
+        private bool RemoveSpecialsChars { get; set; }
 
-        public DemocracyStringHandling(string outputFolder, string transifexFile, string gameFolder)
+        public DemocracyStringHandling(string outputFolder, string transifexFile, string gameFolder, bool removeSpecialChars)
         {
             this.TransifexFilePath = transifexFile;
             this.GameFolderPath = gameFolder;
             this.OutputExtractFolderPath = outputFolder;
+            this.RemoveSpecialsChars = removeSpecialChars;
         }
 
-        public DemocracyStringHandling()
+        public DemocracyStringHandling(bool removeSpecialChars)
         {
-
+            this.RemoveSpecialsChars = removeSpecialChars;
         }
 
         #region Extraction
@@ -147,7 +149,7 @@ namespace Democracy3LanguageSelector
             }
 
             var parser = new IniParser.FileIniDataParser();
-            parser.SaveFile(outputFilePath, iniData);
+            parser.SaveFile(outputFilePath, iniData, Encoding.Default);
 
             //MessageBox.Show("You can now send the file to transifex website\nFile path : " + outputFilePath, "Extraction finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -209,7 +211,7 @@ namespace Democracy3LanguageSelector
             }
 
             var parser = new IniParser.FileIniDataParser();
-            parser.SaveFile(outputFilePath, iniData);
+            parser.SaveFile(outputFilePath, iniData, Encoding.Default);
 
             //MessageBox.Show("You can now send the file to transifex website\nFile path : " + outputFilePath, "Extraction finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         
@@ -482,7 +484,9 @@ namespace Democracy3LanguageSelector
                         if (sectionData.Keys.Any(k => ExtractKeyFromString(k.KeyName) == key))
                         {
                             var keyData = sectionData.Keys.First(k => ExtractKeyFromString(k.KeyName) == key);
-                            ligne[valueIndex] = RemoveSurroundedQuotes(keyData.Value).DeleteAccentAndSpecialsChar().RemoveDiacritics();
+                            ligne[valueIndex] = RemoveSurroundedQuotes(keyData.Value).SanitizeQuotes();
+                            if (this.RemoveSpecialsChars)
+                                ligne[valueIndex] = ligne[valueIndex].DeleteAccentAndSpecialsChar().RemoveDiacritics().Utf8ToAnsi();
                         }
                     }
 
@@ -512,7 +516,7 @@ namespace Democracy3LanguageSelector
             var stringIniParser = new IniParser.FileIniDataParser();
             stringIniParser.Parser.Configuration.SkipInvalidLines = true;
 
-            var strinInidata = stringIniParser.ReadFile(sourceFilePath);
+            var strinInidata = stringIniParser.ReadFile(sourceFilePath, Encoding.Default);
 
             // Recherche dans les sections...
             foreach (var iniSection in strinInidata.Sections)
@@ -539,13 +543,15 @@ namespace Democracy3LanguageSelector
             stringIniParser.Parser.Configuration.AllowDuplicateKeys = true;
             stringIniParser.Parser.Configuration.SkipInvalidLines = true;
 
-            var strinInidata = stringIniParser.ReadFile(sourceFilePath);
+            var strinInidata = stringIniParser.ReadFile(sourceFilePath, Encoding.Default);
 
             foreach (var sectionKey in translatedSectionData.Keys)
             {
                 var section = sectionKey.KeyName.Split('@').First();
                 var key = sectionKey.KeyName.Split('@').Last();
-                var value = sectionKey.Value.DeleteAccentAndSpecialsChar().RemoveDiacritics();
+                var value = sectionKey.Value.SanitizeQuotes();
+                if(this.RemoveSpecialsChars)
+                    value = value.DeleteAccentAndSpecialsChar().RemoveDiacritics().Utf8ToAnsi();
 
                 if (strinInidata.Sections.Any(s => s.SectionName == section))
                 {
@@ -557,7 +563,7 @@ namespace Democracy3LanguageSelector
                 }
             }
 
-            stringIniParser.SaveFile(sourceFilePath, strinInidata);
+            stringIniParser.SaveFile(sourceFilePath, strinInidata, Encoding.Default);
         }    
         #endregion
 
