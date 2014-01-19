@@ -128,7 +128,7 @@ namespace Democracy3LanguageSelector
                 if (!this.DownloadingResources[langCode])
                 {
                     // Check if new translations occured
-                    if (previousProgression != langDetails.Translated_segments)
+                    if (previousProgression != langDetails.Translated_segments || this.checkBoxForceDl.Checked)
                     {
                         this.DownloadingResources[langCode] = true;
 

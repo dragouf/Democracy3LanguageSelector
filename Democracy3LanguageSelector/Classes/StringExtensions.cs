@@ -9,24 +9,24 @@ namespace Democracy3LanguageSelector
 {
     public static class StringExtensions
     {
-        private readonly static Regex nonSpacingMarkRegex =
-        new Regex(@"\p{Mn}", RegexOptions.Compiled);
+        private readonly static Regex nonSpacingMarkRegex = new Regex(@"\p{Mn}", RegexOptions.Compiled);
         
         public static string RemoveDiacritics(this string text)
         {
             if (text == null)
                 return string.Empty;
+            text = text.Replace("é", "@@@");
+            var normalizedText = text.Normalize(NormalizationForm.FormD);
+                   
+            var cleanText = nonSpacingMarkRegex.Replace(normalizedText, string.Empty);
 
-            var normalizedText =
-                text.Normalize(NormalizationForm.FormD);
-
-            return nonSpacingMarkRegex.Replace(normalizedText, string.Empty);
+            return cleanText.Replace("@@@", "é");
         }
 
         public static string SanitizeQuotes(this string text)
         {
             return text.Replace("_QQ_\"", "");
-        }
+        }        
 
         public static string DeleteAccentAndSpecialsChar(this string OriginalText)
         {
@@ -34,8 +34,8 @@ namespace Democracy3LanguageSelector
             // Regex creation
             Regex regA = new Regex("[ã|à|â|ä|á|å]");
             Regex regAA = new Regex("[Ã|À|Â|Ä|Á|Å]");
-            Regex regE = new Regex("[é|è|ê|ë]");
-            Regex regEE = new Regex("[É|È|Ê|Ë]");
+            Regex regE = new Regex("[ê]");
+            Regex regEE = new Regex("[Ê]");
             Regex regI = new Regex("[í|ì|î|ï,ı]");            
             Regex regII = new Regex("[Í|Ì|Î|Ï]");
             Regex regL = new Regex("[ł]");
