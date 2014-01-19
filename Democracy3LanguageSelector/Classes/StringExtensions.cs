@@ -111,6 +111,21 @@ namespace Democracy3LanguageSelector
             return value;
         }
 
+        public static string RemoveSurroundedQuotes(this string value)
+        {
+            if (value.StartsWith("\""))
+            {
+                value = value.Substring(1);
+            }
+
+            if (value.EndsWith("\""))
+            {
+                value = value.Substring(0, value.Length - 1);
+            }
+
+            return value;
+        }
+
         public static string FormatWith(this string source, params object[] parameters)
         {
             return string.Format(source, parameters);
@@ -123,6 +138,17 @@ namespace Democracy3LanguageSelector
             byte[] ansiBytes = Encoding.Convert(Encoding.UTF8, ansi, utf8Bytes);
             string chaineANSI = ansi.GetString(ansiBytes)/*.ToString()*/;
             return chaineANSI;
+        }
+
+        public static string Utf8ToLatin1(this string chaineUTF8)
+        {
+            Encoding iso = Encoding.GetEncoding("ISO-8859-1");
+            Encoding utf8 = Encoding.UTF8;
+            byte[] utfBytes = utf8.GetBytes(chaineUTF8);
+            byte[] isoBytes = Encoding.Convert(utf8, iso, utfBytes);
+            string msg = iso.GetString(isoBytes);
+
+            return msg;
         }
     }
 }

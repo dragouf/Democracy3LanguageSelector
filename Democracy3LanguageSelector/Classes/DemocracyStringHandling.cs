@@ -144,7 +144,7 @@ namespace Democracy3LanguageSelector
                 foreach (var filePath in files)
                 {
                     var fileName = filePath.Replace(path, "") + ".txt";
-                    ParseIni(filePath, fileName, iniData, new List<string> { "description", "guiname" });
+                    ParseIni(filePath + "\\" + fileName, fileName, iniData, new List<string> { "description", "guiname" });
                 }
             }
 
@@ -236,7 +236,6 @@ namespace Democracy3LanguageSelector
             else
                 throw new InvalidOperationException("File not currently supported");
         }
-
         private void InjectMain()
         {
             var transifexFileParser = new IniParser.FileIniDataParser();
@@ -436,7 +435,7 @@ namespace Democracy3LanguageSelector
             }
 
             //MessageBox.Show("Titles and buttons are now translated.", "Injection finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        }        
         #endregion
 
         #region CSV
@@ -458,9 +457,10 @@ namespace Democracy3LanguageSelector
         private void InjectCsv(string filePath, string fileName, IniParser.Model.SectionData sectionData, int keyIndex, int valueIndex)
         {
             //var fileWriter = File.OpenWrite(filePath + ".new");
-            var writer = new StreamWriter(filePath + ".new");
+            var writer = new StreamWriter(filePath + ".new", false, Encoding.Default);
             var csvWriter = new CsvHelper.CsvWriter(writer);
-            var csvReader = new CsvHelper.CsvReader(File.OpenText(filePath));
+            StreamReader reader = new StreamReader(filePath, Encoding.Default);
+            var csvReader = new CsvHelper.CsvReader(reader);
 
             while (csvReader.Read())
             {
@@ -484,9 +484,9 @@ namespace Democracy3LanguageSelector
                         if (sectionData.Keys.Any(k => ExtractKeyFromString(k.KeyName) == key))
                         {
                             var keyData = sectionData.Keys.First(k => ExtractKeyFromString(k.KeyName) == key);
-                            ligne[valueIndex] = RemoveSurroundedQuotes(keyData.Value).SanitizeQuotes();
+                            ligne[valueIndex] = keyData.Value.RemoveSurroundedQuotes().SanitizeQuotes();
                             if (this.RemoveSpecialsChars)
-                                ligne[valueIndex] = ligne[valueIndex].DeleteAccentAndSpecialsChar().RemoveDiacritics().Utf8ToAnsi();
+                                ligne[valueIndex] = ligne[valueIndex].DeleteAccentAndSpecialsChar().RemoveDiacritics();
                         }
                     }
 
@@ -498,10 +498,13 @@ namespace Democracy3LanguageSelector
                 }
             }
 
+            reader.Close();
+            reader.Dispose();
             csvReader.Dispose();
             writer.Close();
+            writer.Dispose();
 
-            // replace olde file
+            // replace old file
             File.Delete(filePath);
             File.Move(filePath + ".new", filePath);
         }
@@ -551,7 +554,7 @@ namespace Democracy3LanguageSelector
                 var key = sectionKey.KeyName.Split('@').Last();
                 var value = sectionKey.Value.SanitizeQuotes();
                 if(this.RemoveSpecialsChars)
-                    value = value.DeleteAccentAndSpecialsChar().RemoveDiacritics().Utf8ToAnsi();
+                    value = value.DeleteAccentAndSpecialsChar().RemoveDiacritics();
 
                 if (strinInidata.Sections.Any(s => s.SectionName == section))
                 {
@@ -597,21 +600,6 @@ namespace Democracy3LanguageSelector
         {
             var parsed = value.Split('@');
             return parsed.Last();
-        }
-        
-        private string RemoveSurroundedQuotes(string value)
-        {
-            if (value.StartsWith("\""))
-            {
-                value = value.Substring(1);
-            }
-
-            if (value.EndsWith("\""))
-            {
-                value = value.Substring(0, value.Length - 1);
-            }
-
-            return value;
         }
         #endregion        
     }
