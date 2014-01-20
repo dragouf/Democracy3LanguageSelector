@@ -41,7 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelResourcesInfo = new System.Windows.Forms.Label();
             this.progressBarDownlodResources = new System.Windows.Forms.ProgressBar();
-            this.folderBrowserDialogGameSource = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialogGameSource = new Democracy3LanguageSelector.FolderBrowserDialogEx();
             this.toolTipGamePath = new System.Windows.Forms.ToolTip(this.components);
             this.checkBoxRemoveSC = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -165,6 +165,18 @@
             this.progressBarDownlodResources.TabIndex = 10;
             this.progressBarDownlodResources.Visible = false;
             // 
+            // folderBrowserDialogGameSource
+            // 
+            this.folderBrowserDialogGameSource.Description = "";
+            this.folderBrowserDialogGameSource.DontIncludeNetworkFoldersBelowDomainLevel = false;
+            this.folderBrowserDialogGameSource.NewStyle = true;
+            this.folderBrowserDialogGameSource.RootFolder = System.Environment.SpecialFolder.Desktop;
+            this.folderBrowserDialogGameSource.SelectedPath = "";
+            this.folderBrowserDialogGameSource.ShowBothFilesAndFolders = false;
+            this.folderBrowserDialogGameSource.ShowEditBox = true;
+            this.folderBrowserDialogGameSource.ShowFullPathInEditBox = true;
+            this.folderBrowserDialogGameSource.ShowNewFolderButton = false;
+            // 
             // checkBoxRemoveSC
             // 
             this.checkBoxRemoveSC.AutoSize = true;
@@ -236,6 +248,7 @@
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Democracy 3 Language Selector";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +267,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelResourcesInfo;
         private System.Windows.Forms.ProgressBar progressBarDownlodResources;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogGameSource;
+        private FolderBrowserDialogEx folderBrowserDialogGameSource;
         private System.Windows.Forms.ToolTip toolTipGamePath;
         private System.Windows.Forms.CheckBox checkBoxRemoveSC;
         private System.Windows.Forms.Label label5;

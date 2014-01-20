@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Classes\DemocracyStringHandling.cs" />
     <Compile Include="Classes\Secure.cs" />
+    <Compile Include="FolderBrowserDialogEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

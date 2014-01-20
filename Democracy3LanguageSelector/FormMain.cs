@@ -35,8 +35,9 @@ namespace Democracy3LanguageSelector
             this.CreateCacheFolderIfNOtExist();
 
             // Chargement
-            LoadLanguagesList();
             LoadGamePath();
+            LoadAppSettings();
+            LoadLanguagesList();
         }
 
         private async void buttonApply_Click(object sender, EventArgs e)
@@ -103,6 +104,12 @@ namespace Democracy3LanguageSelector
             this.comboBoxLanguages.ValueMember = "Code";
             this.comboBoxLanguages.Text = string.Empty;
             this.comboBoxLanguages.Enabled = true;
+
+            // Previous selected language
+            var previousLanguageCode = Properties.Settings.Default.SelectedLanguage;
+            var previousSelection = comboBoxLanguages.Items.Cast<Language>().ToList().FirstOrDefault(i => i.Code == previousLanguageCode);
+            if (previousSelection != null)
+                comboBoxLanguages.SelectedItem = previousSelection;
         }
 
         private void LoadGamePath()
@@ -211,6 +218,37 @@ namespace Democracy3LanguageSelector
                 this.labelGameSourcePath.Text = path;
                 this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
             }
+        }
+
+        #region App Settings
+        private void LoadAppSettings()
+        {
+            Properties.Settings.Default.Upgrade();
+
+            this.checkBoxRemoveSC.Checked = Properties.Settings.Default.RemoveSpecialChars;
+            this.checkBoxForceDl.Checked = Properties.Settings.Default.ForceDownload;
+            this.labelGameSourcePath.Text = string.IsNullOrWhiteSpace(Properties.Settings.Default.GamePath) ? this.labelGameSourcePath.Text : Properties.Settings.Default.GamePath;
+        }
+
+        private void SaveAppSettings()
+        {
+            if (comboBoxLanguages.SelectedItem is Language)
+            {
+                var langCode = ((Language)comboBoxLanguages.SelectedItem).Code;
+                Properties.Settings.Default.SelectedLanguage = langCode;
+            }
+
+            Properties.Settings.Default.RemoveSpecialChars = this.checkBoxRemoveSC.Checked;
+            Properties.Settings.Default.ForceDownload = this.checkBoxForceDl.Checked;
+            Properties.Settings.Default.GamePath = this.labelGameSourcePath.Text; 
+
+            Properties.Settings.Default.Save();
+        }
+        #endregion
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveAppSettings();
         }
     }
 }
