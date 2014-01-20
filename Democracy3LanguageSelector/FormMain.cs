@@ -144,8 +144,8 @@ namespace Democracy3LanguageSelector
                 // Download and Cache files if not currently downloading
                 if (!this.DownloadingResources[langCode])
                 {
-                    // Check if new translations occured
-                    if (previousProgression != this.CurrentTranslationInfo.Translated_segments || this.checkBoxForceDl.Checked)
+                    // Check if new translations occured (if force download, download will happen when user click apply...)
+                    if (previousProgression != this.CurrentTranslationInfo.Translated_segments && !this.checkBoxForceDl.Checked)
                     {
                         await this.DownloadTranslationFile(langCode, this.CurrentTranslationInfo.Total_segments);
                     }
