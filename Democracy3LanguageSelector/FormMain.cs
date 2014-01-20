@@ -53,8 +53,11 @@ namespace Democracy3LanguageSelector
                 // if force download redownload
                 if (this.checkBoxForceDl.Checked)
                 {
+                    var previousText = this.labelProgression.Text;
+                    this.labelProgression.Text = "Loading transifex translations files...";
                     this.buttonApply.Visible = false;
                     await this.DownloadTranslationFile(this.CurrentTranslationInfo.LanguageCode, this.CurrentTranslationInfo.Total_segments);
+                    this.labelProgression.Text = previousText;
                     this.buttonApply.Visible = true;
                     this.progressBarDownlodResources.Visible = false;
                 }
