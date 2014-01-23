@@ -98,20 +98,20 @@
             this.labelGameSourcePath.Location = new System.Drawing.Point(106, 111);
             this.labelGameSourcePath.MaximumSize = new System.Drawing.Size(326, 14);
             this.labelGameSourcePath.Name = "labelGameSourcePath";
-            this.labelGameSourcePath.Size = new System.Drawing.Size(326, 14);
+            this.labelGameSourcePath.Size = new System.Drawing.Size(162, 14);
             this.labelGameSourcePath.TabIndex = 4;
-            this.labelGameSourcePath.Text = resources.GetString("labelGameSourcePath.Text");
+            this.labelGameSourcePath.Text = "Please select valid game path...";
             this.labelGameSourcePath.UseMnemonic = false;
             // 
             // linkLabelGamePath
             // 
             this.linkLabelGamePath.AutoSize = true;
-            this.linkLabelGamePath.Location = new System.Drawing.Point(493, 111);
+            this.linkLabelGamePath.Location = new System.Drawing.Point(489, 111);
             this.linkLabelGamePath.Name = "linkLabelGamePath";
-            this.linkLabelGamePath.Size = new System.Drawing.Size(47, 13);
+            this.linkLabelGamePath.Size = new System.Drawing.Size(51, 13);
             this.linkLabelGamePath.TabIndex = 5;
             this.linkLabelGamePath.TabStop = true;
-            this.linkLabelGamePath.Text = "Modify...";
+            this.linkLabelGamePath.Text = "Browse...";
             this.linkLabelGamePath.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGamePath_LinkClicked);
             // 
             // label3

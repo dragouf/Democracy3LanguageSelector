@@ -40,6 +40,11 @@ namespace Democracy3LanguageSelector
             LoadLanguagesList();
         }
 
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveAppSettings();
+        }
+
         private async void buttonApply_Click(object sender, EventArgs e)
         {
             if (comboBoxLanguages.SelectedItem is Language)
@@ -94,45 +99,7 @@ namespace Democracy3LanguageSelector
                 }
             }
         }
-
-        private async void LoadLanguagesList()
-        {
-            this.ProjectInfo = await TransifexConnector.ProjectDetails();
-
-            this.ProjectInfo.Teams.ForEach(t => this.DownloadingResources.Add(t, false));
-
-            this.CreateLangueCacheFolderIfNOtExist(this.ProjectInfo.Teams);
-            this.comboBoxLanguages.DataSource = new BindingSource(this.ProjectInfo.Languages, null);
-            this.comboBoxLanguages.DisplayMember = "Name";
-            this.comboBoxLanguages.ValueMember = "Code";
-            this.comboBoxLanguages.Text = string.Empty;
-            this.comboBoxLanguages.Enabled = true;
-
-            // Previous selected language
-            var previousLanguageCode = Properties.Settings.Default.SelectedLanguage;
-            var previousSelection = comboBoxLanguages.Items.Cast<Language>().ToList().FirstOrDefault(i => i.Code == previousLanguageCode);
-            if (previousSelection != null)
-                comboBoxLanguages.SelectedItem = previousSelection;
-        }
-
-        private void LoadGamePath()
-        {
-            try
-            {
-                string InstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\GOG.com\GOGDEMOCRACY3", "PATH", null);
-                if (!string.IsNullOrEmpty(InstallPath))
-                {
-                    this.labelGameSourcePath.Text = InstallPath + "data";
-                    this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);                    
-                }
-            }
-            catch
-            {
-                this.labelGameSourcePath.Text = AppDomain.CurrentDomain.BaseDirectory;
-                this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
-            }
-        }
-
+        
         private async void comboBoxLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.buttonApply.Visible = false;
@@ -162,6 +129,26 @@ namespace Democracy3LanguageSelector
             }
         }
 
+        #region Transifex API
+        private async void LoadLanguagesList()
+        {
+            this.ProjectInfo = await TransifexConnector.ProjectDetails();
+
+            this.ProjectInfo.Teams.ForEach(t => this.DownloadingResources.Add(t, false));
+
+            this.CreateLangueCacheFolderIfNOtExist(this.ProjectInfo.Teams);
+            this.comboBoxLanguages.DataSource = new BindingSource(this.ProjectInfo.Languages, null);
+            this.comboBoxLanguages.DisplayMember = "Name";
+            this.comboBoxLanguages.ValueMember = "Code";
+            this.comboBoxLanguages.Text = string.Empty;
+            this.comboBoxLanguages.Enabled = true;
+
+            // Previous selected language
+            var previousLanguageCode = Properties.Settings.Default.SelectedLanguage;
+            var previousSelection = comboBoxLanguages.Items.Cast<Language>().ToList().FirstOrDefault(i => i.Code == previousLanguageCode);
+            if (previousSelection != null)
+                comboBoxLanguages.SelectedItem = previousSelection;
+        }
         private async Task DownloadTranslationFile(string langCode, int totalSegments)
         {
             this.DownloadingResources[langCode] = true;
@@ -184,28 +171,7 @@ namespace Democracy3LanguageSelector
 
             this.DownloadingResources[langCode] = false;
         }
-
-        void progress_ProgressChanged(object sender, int e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CreateCacheFolderIfNOtExist()
-        {
-            if (!Directory.Exists("cache"))
-            {
-                Directory.CreateDirectory("cache");
-            }
-        }
-
-        private void CreateLangueCacheFolderIfNOtExist(List<string> languagesCode)
-        {
-            foreach (var code in languagesCode)
-            {
-                if (!Directory.Exists("cache\\" + code))
-                    Directory.CreateDirectory("cache\\" + code);
-            }
-        }
+        #endregion
 
         private void linkLabelGamePath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -249,9 +215,54 @@ namespace Democracy3LanguageSelector
         }
         #endregion
 
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        #region Tools
+        private void LoadGamePath()
         {
-            SaveAppSettings();
+            try
+            {
+                string steamInstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 245470", "InstallLocation", null);
+                string gogInstallPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\GOG.com\GOGDEMOCRACY3", "PATH", null);
+                if (!string.IsNullOrEmpty(steamInstallPath) || !string.IsNullOrEmpty(gogInstallPath))
+                {
+                    if (!string.IsNullOrEmpty(steamInstallPath))
+                    {
+                        this.labelGameSourcePath.Text = steamInstallPath + "\\data";
+                        this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
+                    }
+                    else
+                    {
+                        this.labelGameSourcePath.Text = gogInstallPath + "data";
+                        this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
+                    }
+                }
+                else
+                {
+                    this.labelGameSourcePath.Text = @"C:\Program Files (x86)\Steam\SteamApps\common\Democracy 3\data";
+                    this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
+                }
+            }
+            catch
+            {
+                this.labelGameSourcePath.Text = AppDomain.CurrentDomain.BaseDirectory;
+                this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
+            }
         }
+        private void CreateCacheFolderIfNOtExist()
+        {
+            if (!Directory.Exists("cache"))
+            {
+                Directory.CreateDirectory("cache");
+            }
+        }
+
+        private void CreateLangueCacheFolderIfNOtExist(List<string> languagesCode)
+        {
+            foreach (var code in languagesCode)
+            {
+                if (!Directory.Exists("cache\\" + code))
+                    Directory.CreateDirectory("cache\\" + code);
+            }
+        }
+        #endregion        
     }
 }
