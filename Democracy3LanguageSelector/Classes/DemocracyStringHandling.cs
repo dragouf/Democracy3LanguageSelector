@@ -234,7 +234,9 @@ namespace Democracy3LanguageSelector
             else if (type == FileType.Titles)
                 InjectTitles();
             else
-                throw new InvalidOperationException("File not currently supported");
+            {
+                //throw new InvalidOperationException("File not currently supported");
+            }
         }
         private void InjectMain()
         {
@@ -544,9 +546,10 @@ namespace Democracy3LanguageSelector
         {
             var stringIniParser = new IniParser.FileIniDataParser();
             stringIniParser.Parser.Configuration.AllowDuplicateKeys = true;
-            stringIniParser.Parser.Configuration.SkipInvalidLines = true;
+            stringIniParser.Parser.Configuration.SkipInvalidLines = true;            
+            stringIniParser.Parser.Configuration.CommentRegex = new System.Text.RegularExpressions.Regex("^;.*");
 
-            var strinInidata = stringIniParser.ReadFile(sourceFilePath, Encoding.Default);
+            var stringInidata = stringIniParser.ReadFile(sourceFilePath, Encoding.Default);
 
             foreach (var sectionKey in translatedSectionData.Keys)
             {
@@ -556,9 +559,9 @@ namespace Democracy3LanguageSelector
                 if(this.RemoveSpecialsChars)
                     value = value.DeleteAccentAndSpecialsChar().RemoveDiacritics();
 
-                if (strinInidata.Sections.Any(s => s.SectionName == section))
+                if (stringInidata.Sections.Any(s => s.SectionName == section))
                 {
-                    var iniSectionData = strinInidata.Sections.GetSectionData(section);
+                    var iniSectionData = stringInidata.Sections.GetSectionData(section);
                     if (iniSectionData.Keys.Any(k => k.KeyName == key))
                     {
                         iniSectionData.Keys.GetKeyData(key).Value = value;
@@ -566,7 +569,7 @@ namespace Democracy3LanguageSelector
                 }
             }
 
-            stringIniParser.SaveFile(sourceFilePath, strinInidata, Encoding.Default);
+            stringIniParser.SaveFile(sourceFilePath, stringInidata, Encoding.Default);
         }    
         #endregion
 
@@ -585,7 +588,7 @@ namespace Democracy3LanguageSelector
             {
                 fileType = FileType.MainSentences;
             }
-            else if (!transifexInidata.Sections.Select(s => s.SectionName).Contains("strings.ini") && !transifexInidata.Sections.Select(s => s.SectionName).Contains("mods"))
+            else if (!transifexInidata.Sections.Select(s => s.SectionName).Contains("strings.ini") && !transifexInidata.Sections.Select(s => s.SectionName).Contains("mods") && transifexInidata.Sections.Select(s => s.SectionName).Contains("tutorial.csv"))
             {
                 fileType = FileType.Titles;
             }
