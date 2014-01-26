@@ -214,6 +214,15 @@ namespace Democracy3LanguageSelector
             } 
         }
 
+        private void linkLabelOnline_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (comboBoxLanguages.SelectedItem is Language)
+            {
+                var langCode = ((Language)comboBoxLanguages.SelectedItem).Code;
+                System.Diagnostics.Process.Start("https://www.transifex.com/projects/p/democracy-3/language/{0}/".FormatWith(langCode));
+            }
+        }
+
         #region App Settings
         private void LoadAppSettings()
         {
@@ -321,6 +330,6 @@ namespace Democracy3LanguageSelector
             foreach (var directory in Directory.GetDirectories(sourceDir))
                 CopyAllFiles(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
         }
-        #endregion 
+        #endregion                 
     }
 }

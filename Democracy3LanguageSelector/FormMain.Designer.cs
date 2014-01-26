@@ -41,13 +41,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelResourcesInfo = new System.Windows.Forms.Label();
             this.progressBarDownlodResources = new System.Windows.Forms.ProgressBar();
-            this.folderBrowserDialogGameSource = new Democracy3LanguageSelector.FolderBrowserDialogEx();
             this.toolTipGamePath = new System.Windows.Forms.ToolTip(this.components);
             this.checkBoxRemoveSC = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBoxForceDl = new System.Windows.Forms.CheckBox();
             this.linkLabelRestore = new System.Windows.Forms.LinkLabel();
+            this.linkLabelOnline = new System.Windows.Forms.LinkLabel();
+            this.folderBrowserDialogGameSource = new Democracy3LanguageSelector.FolderBrowserDialogEx();
             this.SuspendLayout();
             // 
             // comboBoxLanguages
@@ -166,18 +167,6 @@
             this.progressBarDownlodResources.TabIndex = 10;
             this.progressBarDownlodResources.Visible = false;
             // 
-            // folderBrowserDialogGameSource
-            // 
-            this.folderBrowserDialogGameSource.Description = "";
-            this.folderBrowserDialogGameSource.DontIncludeNetworkFoldersBelowDomainLevel = false;
-            this.folderBrowserDialogGameSource.NewStyle = true;
-            this.folderBrowserDialogGameSource.RootFolder = System.Environment.SpecialFolder.Desktop;
-            this.folderBrowserDialogGameSource.SelectedPath = "";
-            this.folderBrowserDialogGameSource.ShowBothFilesAndFolders = false;
-            this.folderBrowserDialogGameSource.ShowEditBox = true;
-            this.folderBrowserDialogGameSource.ShowFullPathInEditBox = true;
-            this.folderBrowserDialogGameSource.ShowNewFolderButton = false;
-            // 
             // checkBoxRemoveSC
             // 
             this.checkBoxRemoveSC.AutoSize = true;
@@ -233,11 +222,35 @@
             this.linkLabelRestore.Text = "Restore Originals...";
             this.linkLabelRestore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRestore_LinkClicked);
             // 
+            // linkLabelOnline
+            // 
+            this.linkLabelOnline.AutoSize = true;
+            this.linkLabelOnline.Location = new System.Drawing.Point(422, 143);
+            this.linkLabelOnline.Name = "linkLabelOnline";
+            this.linkLabelOnline.Size = new System.Drawing.Size(118, 13);
+            this.linkLabelOnline.TabIndex = 16;
+            this.linkLabelOnline.TabStop = true;
+            this.linkLabelOnline.Text = "Help Translate Online...";
+            this.linkLabelOnline.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOnline_LinkClicked);
+            // 
+            // folderBrowserDialogGameSource
+            // 
+            this.folderBrowserDialogGameSource.Description = "";
+            this.folderBrowserDialogGameSource.DontIncludeNetworkFoldersBelowDomainLevel = false;
+            this.folderBrowserDialogGameSource.NewStyle = true;
+            this.folderBrowserDialogGameSource.RootFolder = System.Environment.SpecialFolder.Desktop;
+            this.folderBrowserDialogGameSource.SelectedPath = "";
+            this.folderBrowserDialogGameSource.ShowBothFilesAndFolders = false;
+            this.folderBrowserDialogGameSource.ShowEditBox = true;
+            this.folderBrowserDialogGameSource.ShowFullPathInEditBox = true;
+            this.folderBrowserDialogGameSource.ShowNewFolderButton = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 212);
+            this.Controls.Add(this.linkLabelOnline);
             this.Controls.Add(this.linkLabelRestore);
             this.Controls.Add(this.checkBoxForceDl);
             this.Controls.Add(this.label6);
@@ -287,6 +300,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBoxForceDl;
         private System.Windows.Forms.LinkLabel linkLabelRestore;
+        private System.Windows.Forms.LinkLabel linkLabelOnline;
     }
 }
 
