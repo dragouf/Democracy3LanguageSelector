@@ -1,0 +1,19 @@
+[dilemma]
+name=ViolentVideoGames
+guiname=Violent Video Games
+description= Concerns have been raised in the press about the impact that violent video games have on the nations youth. Some of these games are being described as 'murder simulators', and links have been suggested between the games and violent crime. there is a proposal to ban certain games and restrict the sale of others to those over 18 years old.
+
+[influences]
+0 = _default_,0+(0.2*x)
+1 = CrimeRate,0+(0.6*x)
+2 = PovertyRate,0+(0.4*x)
+
+[option0]
+Name = Leave unchanged
+Description = There is scant hard evidence that shows any real direct link between video games and violence. In fact, there is a possibility they act as a catharsis that even prevents young people being violent. This is a knee jerk response from people looking for a simple solution to violence in society, violence that existed long before the first video game was created.
+OnImplement = CreateGrudge(Violent Video Games,ViolentVideoGames,Liberal,0.1,0.9f);CreateGrudge(Violent Video Games,ViolentVideoGames,Conservatives,-0.12,0.9f);CreateGrudge(Violent Video Games,ViolentVideoGames,Young,0.1,0.9f);
+
+[option1]
+Name = Censor games
+Description = There may be no direct proven link, but you don't have to play many of these games to see how the influence they have on impressionable young people must be having a negative impact on society. Video games are an interactive medium and are likely to have a far more direct effect on impressionable minds that passive entertainment such as books, television or movies. Something needs to be done.
+OnImplement = CreateGrudge(Violent Video Games,ViolentVideoGames,Liberal,-0.08,0.9f);CreateGrudge(Violent Video Games,ViolentVideoGames,Conservatives,0.1,0.9f);CreateGrudge(Violent Video Games,ViolentVideoGames,Young,-0.12,0.9f);

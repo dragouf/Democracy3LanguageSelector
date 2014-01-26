@@ -1,0 +1,17 @@
+[dilemma]
+name=BanAnimalTesting
+guiname=Ban Animal Testing
+description=A proposal to ban all animal experimentation has been placed before government by pressure groups. We currently have quite a few people working in industries that use animal testing, but it is also a highly unpopular practice.
+
+[influences]
+0 = _random_,0.42,0.9
+
+[option0]
+Name = Ban it
+Description = In this day and age there is no good reason to test any products on animals, especially cosmetics. The practices used are often incredibly cruel, and a ban would have widespread public support and little real impact on industry.
+OnImplement = CreateGrudge(Ban Animal Testing,BanAnimalTesting,Environmentalist,0.08,0.9f);CreateGrudge(Ban Animal Testing,BanAnimalTesting,GDP,-0.02,0.9f);CreateGrudge(Ban Animal Testing,BanAnimalTesting,Unemployment,0.01,0.9f);
+
+[option1]
+Name = No change
+Description = Products are only tested on animals in order to ensure there is no chance of danger to humans, and it's only done as a last resort under controlled conditions. If we impose such a drastic ban it will hit our cosmetics and pharmaceutical industries badly.
+OnImplement = CreateGrudge(Ban Animal Testing,BanAnimalTesting,Environmentalist,-0.07,0.9f);CreateGrudge(Ban Animal Testing,BanAnimalTesting,Liberal,-0.02,0.9f);

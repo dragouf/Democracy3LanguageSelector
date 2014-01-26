@@ -1,0 +1,12 @@
+[config]
+Name = PrisonRiot
+GUIName = Prison Riot
+Texture ="event_prisonbreak.jpg"
+Description = One of our largest prisons is the focus of tonight's news as prisoners have gone on the rampage, setting fires and shouting protests from the rooftops of some prison buildings. The prisoners aren't getting much sympathy in the press, but its also pretty clear that we need to spend some more money on the prison service if we are going to prevent this happening again
+GUISound = d3_riot.ogg
+OnImplement = CreateGrudge(Prison Riot,PrisonRiot,Liberal,-0.400,0.910);CreateGrudge(Prison Riot,PrisonRiot,Conservatives,-0.200,0.960);CreateGrudge(Prison Riot,PrisonRiot,PrisonRiot,-0.700,0.700);
+[influences]
+0 = "_random_,0.550,0.990"
+1 = "Prisons,0-(0.4*x)"
+2 = "PrivatePrisons,0-(0.4*x)"
+

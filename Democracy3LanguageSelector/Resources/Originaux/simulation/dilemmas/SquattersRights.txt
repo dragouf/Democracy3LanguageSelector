@@ -1,0 +1,19 @@
+[dilemma]
+name=SQUATTERS RIGHTS
+guiname=Squatters rights
+description=A large empty house in one of the best neighborhoods of the capital has been taken over by homeless people. The house has been unused and empty for years, and lawyers are now arguing over whether or not the 'squatters' have a right to remain in the property. The landlord wishes to have them evicted.
+
+[influences]
+0 = _random_,0.3,0.9
+1 = PovertyRate,0+(0.4*x)
+2 = Equality,0-(0.6*x)
+
+[option0]
+Name = Give property to squatters
+Description = If people have become so wealthy that they can own multiple houses and leave some empty, whilst meanwhile we have some citizens with nowhere to live, then it is only right and fair that these homes be put to good use. The landlord has obviously had no need of the property for many years and it should be now legally given to the occupiers.
+OnImplement = CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Socialist,0.16,0.9f);CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Capitalist,-0.13,0.9f);CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Wealthy,-0.27,0.9f);CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Poor,0.09,0.9f);
+
+[option1]
+Name = Evict the squatters
+Description = Its a dangerous precedent if you effectively hand someone's property to thieves. If the owner is wealthy enough to have empty properties, then this is his decision. Nobody is preventing these 'squatters' from saving up and buying a house legally just like the landlord did. Send in the police and throw these people out.
+OnImplement = CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Socialist,-0.12,0.9f);CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Capitalist,0.03,0.9f);CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Wealthy,0.17,0.9f);CreateGrudge(Squatters rights,SQUATTERS RIGHTS,Poor,-0.08,0.9f);

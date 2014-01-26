@@ -1,0 +1,13 @@
+[config]
+Name = ForeignInvestment
+GUIName = Foreign Investment
+Texture = "event_skyscrapers.jpg"
+Description = Asia Investments Corp, a huge multinational, has announced that it is building a new factory and regional headquarters in our country. This is a great boost for our jobs and economy, and a sign that foreign investors see us a country that has a business-friendly tax environment and welcomes inward investment.
+GUISound = d3_crowd_applause.ogg
+OnImplement = CreateGrudge(Foreign Investment,ForeignInvestment,Capitalist,0.100,0.82);CreateGrudge(Foreign Investment,ForeignInvestment,GDP,0.030,0.95);CreateGrudge(Flagship Company Leaves,ForeignInvestment,ForeignInvestment,-1.000,0.950);
+[influences]
+0 = "_random_,0.800,1.000"
+1 = "CorporationTax,0-(0.5*x)"
+2 = "CapitalGainsTax,0-(0.5*x)"
+3 = "ForeignInvestorTaxBreaks,0+(0.25*x)"
+4 = "ForeignRelations,-0.2+(0.2*x)"

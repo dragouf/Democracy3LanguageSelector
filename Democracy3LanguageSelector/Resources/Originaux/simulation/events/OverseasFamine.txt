@@ -1,0 +1,11 @@
+[config]
+Name = OverseasFamine
+GUIName = Overseas Famine
+Texture = "event_famine.jpg"
+Description = TV news is showing blanket coverage of the dreadful famine happening in Molvania. Liberals will be horrified that our government has not done more to provide overseas aid to poor countries like this. Our foreign affairs department is already being heavily criticized by the liberal media.
+GUISound = d3_crickets.ogg
+OnImplement = CreateGrudge(Overseas Famine,OverseasFamine,Liberal,-0.600,0.800);CreateGrudge(Overseas Famine,OverseasFamine,OverseasFamine,-0.900,0.800);CreateGrudge(Overseas Famine,OverseasFamine,ForeignRelations,-0.2,0.8);
+[influences]
+0 = "_random_,0.00,0.600"
+1 = "ForeignAid,0-(0.7*x)"
+1 = "_winning_,0.5*(x^2)"

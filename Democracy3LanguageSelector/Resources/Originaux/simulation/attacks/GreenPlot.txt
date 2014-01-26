@@ -1,0 +1,13 @@
+[config]
+Name = GreenPlot
+GUIName = Green Plot!
+UsedBy = WarriorsOfGaia
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Undercover operatives have infiltrated an extremist eco-terror group known as 'Warriors Of Gaia'. this organization is committed to striking at the very heart of government, possibly even a direct assassination attempt, and it is a threat we should take seriously. There is no imminent danger, but we should keep the situation under close watch."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

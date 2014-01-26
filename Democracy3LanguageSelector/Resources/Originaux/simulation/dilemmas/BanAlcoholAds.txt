@@ -1,0 +1,20 @@
+[dilemma]
+name=BAN ALCOHOL ADVERTS
+guiname=Ban Alcohol Adverts
+description=There is a proposal for a law to outlaw the advertising of alcohol on television. Although it would remain legal to advertise on radio, billboards and other means, a TV ban is seen as a potential way to reduce alcohol intake by our citizens.
+
+[influences]
+0 = _default_,0.7+(0*x)
+1 = Health,0-(0.5*x)
+2 = CrimeRate,0+(0.15*x)
+3 = AlcoholConsumption,0+(0.4*x)
+
+[option0]
+Name = Reject Ban
+Description = This law is crazy. Either you have a ban on a product or you do not. Alcohol is perfectly legal and enjoyed by millions of citizens without ill effect. Banning advertising of a product on a particular medium is a token gesture for the anti-alcohol zealots which does nothing but interfere in the free market.
+OnImplement = CreateGrudge(Ban Alcohol Adverts,BAN ALCOHOL ADVERTS,Liberal,0.13,0.9f);
+
+[option1]
+Name = Approve Ban
+Description = It might not stop alcoholism overnight, but a TV ad ban is a step in the right direction. Advertisers have been increasingly aggressive in their advertising, with a worrying tendency towards marketing their products at the youth market. Anything we can do to reduce alcohol consumption is worth trying.
+OnImplement = CreateGrudge(Ban Alcohol Adverts,BAN ALCOHOL ADVERTS,Liberal,-0.19,0.9f);CreateGrudge(Ban Alcohol Adverts,BAN ALCOHOL ADVERTS,AlcoholConsumption,-0.19,1.0f);

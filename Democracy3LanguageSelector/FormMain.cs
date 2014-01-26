@@ -38,6 +38,9 @@ namespace Democracy3LanguageSelector
             LoadGamePath();
             LoadAppSettings();
             LoadLanguagesList();
+
+            // Test 
+            IsFirstLaunch();
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,6 +84,13 @@ namespace Democracy3LanguageSelector
                     {
                         gameInjector.TransifexFilePath = file;
                         gameInjector.InjectTransifexFile();
+                    }
+
+                    // Copy additional files if french
+                    if (langCode == "fr")
+                    {
+                        File.Copy(@"Resources\fr\partynames.txt", Path.Combine(this.labelGameSourcePath.Text, "partynames.txt"), overwrite: true);
+                        File.Copy(@"Resources\fr\quotes.csv", Path.Combine(this.labelGameSourcePath.Text, "quotes.csv"), overwrite: true);
                     }
 
                     var dialogResult = MessageBox.Show("Game is now translated in {0}\r\nLaunch game ?".FormatWith(((Language)comboBoxLanguages.SelectedItem).Name), "Translation successful...", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -189,6 +199,21 @@ namespace Democracy3LanguageSelector
             }
         }
 
+        private void linkLabelRestore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.RestoreOriginalFiles();
+
+            var dialogResult = MessageBox.Show("Originals game files are now restore\r\nLaunch game ?", "Revert changes success", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                var exePath = this.labelGameSourcePath.Text.Replace("\\data", "") + "\\Democracy3.exe";
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = exePath;
+                psi.WorkingDirectory = System.IO.Path.GetDirectoryName(psi.FileName);
+                System.Diagnostics.Process.Start(psi);
+            } 
+        }
+
         #region App Settings
         private void LoadAppSettings()
         {
@@ -247,6 +272,32 @@ namespace Democracy3LanguageSelector
                 this.toolTipGamePath.SetToolTip(this.labelGameSourcePath, this.labelGameSourcePath.Text);
             }
         }
+        private void RestoreOriginalFiles()
+        {
+            string sourceDir = "Resources\\Originaux\\";
+            string targetDir = this.labelGameSourcePath.Text;
+            try
+            {
+                CopyAllFiles(sourceDir, targetDir);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void IsFirstLaunch()
+        {
+            if (Properties.Settings.Default.IsFirstLaunch)
+            {
+                var dialogResult = MessageBox.Show("Since it's first time you are using this version it is recommand to restore original files\r\nDo you want to proceed ?", "First launch actions", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.RestoreOriginalFiles();
+                }
+            }
+
+            Properties.Settings.Default.IsFirstLaunch = false;
+        }
         private void CreateCacheFolderIfNOtExist()
         {
             if (!Directory.Exists("cache"))
@@ -254,7 +305,6 @@ namespace Democracy3LanguageSelector
                 Directory.CreateDirectory("cache");
             }
         }
-
         private void CreateLangueCacheFolderIfNOtExist(List<string> languagesCode)
         {
             foreach (var code in languagesCode)
@@ -263,6 +313,14 @@ namespace Democracy3LanguageSelector
                     Directory.CreateDirectory("cache\\" + code);
             }
         }
-        #endregion        
+        private void CopyAllFiles(string sourceDir, string targetDir)
+        {
+            foreach (var file in Directory.GetFiles(sourceDir))
+                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)), overwrite:true);
+
+            foreach (var directory in Directory.GetDirectories(sourceDir))
+                CopyAllFiles(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+        }
+        #endregion 
     }
 }

@@ -1,0 +1,17 @@
+[dilemma]
+name=Whaling
+guiname=Whaling
+description=A resolution is before the government proposing the re-introduction of small scale commercial whaling in Japanese waters. Whale meat is a prized local delicacy and commercial whaling would create many jobs.
+
+[influences]
+0 = _random_,0.12,0.9
+
+[option0]
+Name = Resume whaling
+Description = Whales consume an enormous amount of fish, and may be responsible for a drop in fish catches that affect our economy. Whaling would also provide a welcome boost to our economy. Not every species of whale is endangered, and commercial whaling can go ahead without danger of causing extinction.
+OnImplement = CreateGrudge(Whaling,Whaling,Capitalist,0.06,0.9f);CreateGrudge(Whaling,Whaling,Environmentalist,-0.09,0.9f);CreateGrudge(Whaling,Whaling,GDP,0.02,0.9f);CreateGrudge(Whaling,Whaling,Liberal,-0.04,0.9f);CreateGrudge(Whaling,Whaling,Conservatives,0.05,0.9f);CreateGrudge(Whaling,Whaling,Farmers,0.05,0.9f);CreateGrudge(Whaling,Whaling,ForeignRelations,-0.05,0.9f);
+
+[option1]
+Name = Keep ban in place
+Description = Whales are generally accepted to be amongst the most intelligent non-human species on earth, they maintain a crucial position in the aquatic food-chain and yet have been hunted close to extinction. Restarting commercial whaling would be incredibly destructive, as well as potentially causing a drop in tourism. We should refocus our efforts on whale watching rather than hunting.
+OnImplement = CreateGrudge(Whaling,Whaling,Capitalist,-0.01,0.9f);CreateGrudge(Whaling,Whaling,Environmentalist,0.04,0.9f);CreateGrudge(Whaling,Whaling,Liberal,0.03,0.9f);CreateGrudge(Whaling,Whaling,Conservatives,-0.06,0.9f);CreateGrudge(Whaling,Whaling,Farmers,-0.05,0.9f);

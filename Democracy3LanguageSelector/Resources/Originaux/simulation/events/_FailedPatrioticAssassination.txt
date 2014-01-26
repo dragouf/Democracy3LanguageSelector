@@ -1,0 +1,10 @@
+[config]
+Name = FailedPatrioticAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "Those gunshots you heard in this morning's meeting were no training exercise, but a real live attempt to assassinate you by a group of heavily armed terrorists calling themselves 'The True Way'. Apparently, some sort of ultra-patriotic paramilitary organization, they have recently become more and more aggressive in their criticisms of the government. Today, we managed to catch them before they got any closer. We may not be so lucky next time."
+GUISound = d3_ak47.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

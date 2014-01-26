@@ -1,0 +1,18 @@
+[dilemma]
+name=HOSTAGE SITUATION
+guiname=Hostage Situation
+description=A group of religious extremists have taken some hostages at gunpoint and are threatening to kill them unless demands regarding foreign policy are not met. The demands they make are not that extreme, but it might be dangerous to be seen to negotiate.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = CrimeRate,0+(0.6*x)
+
+[option0]
+Name = Give in to demands
+Description = The best thing we can do here is to be reasonable and give in at least partially to their demands. That way we can ensure nobody gets hurt, and the situation doesn't spiral out of control. Taking extreme action against these people could only cause racial tension.
+OnImplement = CreateGrudge(hostage situation,HOSTAGE SITUATION,Religious,0.15,0.9f);CreateGrudge(hostage situation,HOSTAGE SITUATION,_Terrorism,0.3,0.9f);
+
+[option1]
+Name = Send in the police
+Description = There is no negotiating with hostage takers. To do so would open the floodgates to total chaos. Its unfortunate for those citizens taken hostage, but we need to storm the building right now and try and get those people freed. If that means shooting the hostage takers and losing a few hostages, that's the price we have to pay.
+OnImplement = CreateGrudge(hostage situation,HOSTAGE SITUATION,Religious,-0.15,0.9f);CreateGrudge(hostage situation,HOSTAGE SITUATION,Liberal,-0.15,0.9f);

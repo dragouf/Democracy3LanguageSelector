@@ -1,0 +1,83 @@
+[config]
+currency = "$"
+population = 16738
+economic_cycle_start = 0.28
+min_income = 8000
+max_income = 150000
+min_gdp = 882500
+max_gdp = 2627500
+wealth_mod = 1.26
+starting_debt = 1080000
+name  = canada
+guiname = "Canada"
+names_file = "data\names\canadanames.txt"
+term_length = 20
+max_terms = -1
+details_image = "canada_details.jpg"
+description = "Canada became a self-governing dominion in 1867 while retaining ties to the British crown. The government is a parliamentary democracy and a constitutional monarchy, with Queen Elizabeth II as head of state. The country is officially bilingual and multicultural. The economy is one of the largest in the world, relying primarily on its rich natural resources. Canada is a member of the G8, NATO, the Commonwealth of Nations and the UN."
+flag = "flag_canada.jpg"
+apathy = 0.41
+jobtitle = "Prime Minister"
+GUID = 5
+
+[options]
+EARTHQUAKES
+HURRICANES
+MONARCHY
+
+[stats]
+Population: = "33,476,688 (2011)"
+Size: = "9,984,670 sq km"
+Life expectancy: = "81.57 years"
+Gini(inequality): = "32.1"
+GDP per capita: = "$41,500"
+Poverty: = "9.4%"
+Ethnicity: = "British 28% French 23% Mixed 26%"
+Religion: = "Christian(70.3%)"
+Moose population: = "est 750,000"
+Maple syrup consumption: =  0.26kg/person
+Big Mac Index: = "$4.63"
+
+[policies]
+CorporationTax = 0.39
+SalesTax = 0.29
+PetrolTax = 0.12
+UnemployedBenefit = 0.2
+StateHealthService = 0.74
+StateSchools = 0.68
+UniversityGrants = 0.48
+PropertyTax = 0.3
+RailSubsidies = 0.31
+TobaccoTax = 0.4
+AlcoholTax = 0.4
+CapitalGainsTax = 0.4
+InheritanceTax = 0.4
+IncomeTax = 0.45
+ForeignAid = 0.26
+ArmedPolice = 0.24
+StatePensions = 0.6
+ChildBenefit = 0.5
+JuryTrial = 0.5
+ScienceFunding = 0.32
+CitizenshipTests = 0.5
+RaceDiscriminationAct = 0.8
+LegalAid = 0.5
+CCTVCameras = 0.35
+StateHousing = 0.59
+AbortionLaw = 1.0
+LegaliseProstitution = 0.01
+PhoneTapping = 0.01
+MaternityLeave = 0.65
+MicrogenerationGrants = 0.5
+CleanEnergySubsidies = 0.25
+Gambling = 0.5
+HandgunLaws = 0.4
+PublicLibraries = 0.5
+TollRoads = 0.25
+SchoolBuses = 0.75
+TechnologyGrants = 0.75
+ForeignInvestorTaxBreaks = 0.1
+FaithSchoolSubsidies = 0.32
+SchoolPrayers = 0.12
+RuralDevelopmentGrants = 0.20
+AgricultureSubsidies = 0.21

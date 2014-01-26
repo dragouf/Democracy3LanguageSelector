@@ -1,0 +1,11 @@
+[config]
+Name = TrainCrash
+GUIName = Train Crash
+Texture = "event_railcrash.jpg"
+Description = For years people have complained about under-investment in our rail network and today they were vindicated when a packed commuter train came off the rails at high speed. At least 15 people have been killed and over a hundred injured, but its likely that this will be a sore point with every rail commuter in the country. It will be difficult to put off investment in the rail system under these circumstances.
+GUISound = d3_traincrash.ogg
+OnImplement = "CreateGrudge(Train Crash,TrainCrash,Commuter,-0.590,0.650);CreateGrudge(Train Crash,TrainCrash,TrainCrash,-0.800,0.800);CreateGrudge(Train Crash,TrainCrash,Commuter_freq,-0.10,0.50);CreateGrudge(Train Crash,TrainCrash,GDP,-0.050,0.10);"
+
+[influences]
+0 = "_random_,0.500,0.800"
+1 = "RailSubsidies,0-(0.55*x)"

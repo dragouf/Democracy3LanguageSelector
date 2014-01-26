@@ -1,0 +1,80 @@
+[config]
+currency = "€"
+population = 40578
+economic_cycle_start = 0.6
+min_income = 8000
+max_income = 150000
+min_gdp = 600000
+max_gdp = 1800000
+wealth_mod = 3.475
+starting_debt = 905853
+name  = germany
+guiname = "Germany"
+names_file = "data\names\germannames.txt"
+term_length = 16
+max_terms = -1
+details_image = "germany_details.jpg"
+description = "Germany is the most populous member state in the European Union. As well as a founder member of the EU, it is also a member of the United Nations, NATO, the G8, OECD and the Council of Europe. The German economy is the fourth largest economy in the world, the second largest exporter and third largest importer of goods. Germany is also the biggest net contributor to the EU budget. The head of state is the president, but the chancellor is the head of government and exercises executive power."
+flag = "flag_germany.jpg"
+apathy = 0.322
+jobtitle = "Chancellor"
+GUID = 3
+
+[options]
+
+[stats]
+Population: = "81,157,264 (July 2013)"
+Size: = "357,022 sq km"
+Life expectancy: = "80.32 years"
+Gini(inequality): = "27"
+GDP per capita: = "$39,100"
+Poverty: = "15.5% (2006)"
+Ethnicity: = "91.5% white"
+Religion: = "Christian(68.0%)"
+Obesity Rate: = "12.9%"
+Beer Consumption: = "119 litres/person/year"
+Sausage consumption: = "60lb/person/year"
+
+[policies]
+CorporationTax = 0.21
+SalesTax = 0.43
+PetrolTax = 0.3
+UnemployedBenefit = 0.47
+StateHealthService = 0.71
+StateSchools = 0.7
+PropertyTax = 0.4
+RailSubsidies = 0.7
+TobaccoTax = 0.25
+StatePensions = 0.7
+InheritanceTax = 0.3
+AlcoholTax = 0.2
+RaceDiscriminationAct = 0.7
+PollutionControls = 0.85
+Narcotics = 0
+JuryTrial = 0.7
+LegalAid = 0.7
+IncomeTax = 0.45
+ForeignAid = 0.31
+CleanEnergySubsidies = 0.86
+Recycling = 1.0
+ScienceFunding = 0.55
+MilitarySpending = 0.32
+AlcoholLaw = 0.16
+AirlineTax = 0.12
+Creationism = 0.4
+MicrogenerationGrants = 0.95
+IDCards = 0.6
+LegaliseProstitution = 0.5
+TechnologyGrants = 0.74
+PoliceForce = 0.8
+CommunityPolicing = 0.55
+ChildBenefit = 0.85
+TechnologyColleges = 0.72
+UniversityGrants = 0.78
+CarEmmissionsLimits = 0.75
+AgricultureSubsidies = 0.75
+OrganicSubsidy = 0.7
+LabourLaws = 0.75
+DisabilityBenefit = 0.67
+MaternityLeave = 0.84
+BanSundayShopping = 0.74

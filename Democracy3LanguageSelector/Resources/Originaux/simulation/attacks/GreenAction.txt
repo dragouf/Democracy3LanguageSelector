@@ -1,0 +1,13 @@
+[config]
+Name = GreenAction
+GUIName = Eco-Campaigners Action
+UsedBy = WarriorsOfGaia
+MinStrength = 6
+Type = ACTION
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "A group of campaigners calling themselves the 'Warriors Of Gaia' took part in a sudden attempted break-in to the parliament building in the early hours of the morning. The protest was noisy and aggressive and several of them were arrested in attempts to climb fences and breach security. This was not a normal political demonstration, but an extremist movement that believes in violent direct action. This time the demonstration was contained by the police, but we should keep an eye on further threats from even more extreme groups."
+OnSuccess = CreateNamedGrudge(Green protest,Environmentalist_freq,0.08,0.9);PlaySound(crowd_angry.ogg);
+FailureText = ""
+OnFailure = 

@@ -1,0 +1,13 @@
+[config]
+Name = FarmersPlot
+GUIName = Farmers Plot!
+UsedBy = TheLandArmy
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Recent meetings by members of the pro-farmers movement 'The Land Army' have demonstrated a major shift towards a desire for direct action, almost certainly of a violent nature. Some in this group are actually talking about taking up arms against the government. Although we consider the immediate threat to be low, we should keep an eye on this organization, and the farmers movement as a whole."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

@@ -1,0 +1,10 @@
+[config]
+Name = ReligiousEndorsement
+GUIName = Religious Endorsement
+Texture = "event_religion.jpg"
+Description = The head of our countries most popular church has called upon its followers to support you in the next election. You have been described as a deeply religious and spiritual leader who has kept religion in mind when setting government policy.
+GUISound = d3_church.ogg
+OnImplement = CreateGrudge(Religious Endorsement,ReligiousEndorsement,ReligiousEndorsement,-0.900,0.900);
+[influences]
+0 = "_random_,0.100,0.150"
+1 = "Religious,0+(0.7*x)"

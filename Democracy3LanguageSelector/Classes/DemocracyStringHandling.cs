@@ -12,7 +12,6 @@ namespace Democracy3LanguageSelector
     public enum FileType
     {
         MainSentences,
-        Titles,
         Mods,
         None
     }
@@ -37,7 +36,7 @@ namespace Democracy3LanguageSelector
         }
 
         #region Extraction
-        public void ExtractMainSentences()
+        public void ExtractAllSentences()
         {
             //this.textBoxOutputFolder.Text == OutputExtractFolderPath
             // this.textBoxSource.Text == GameFolderPath
@@ -64,7 +63,7 @@ namespace Democracy3LanguageSelector
                 }
                 else if (fileName == "tutorial.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 2, 11);
+                    ParseCsv(filePath, fileName, iniData, 2, new List<int> { 11, 3 });
                 }
             }
 
@@ -76,27 +75,31 @@ namespace Democracy3LanguageSelector
                 var fileName = filePath.Replace(path, "");
                 if (fileName == "achievements.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, 4);
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 2 });
                 }
                 else if (fileName == "policies.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, 4);
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 2 });
                 }
                 else if (fileName == "pressuregroups.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, 8);
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 3, 9, 10 });
                 }
                 else if (fileName == "simulation.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, 3);
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 3, 2 });
                 }
                 else if (fileName == "situations.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, 3);
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 3, 2, 6, 7 });
                 }
                 else if (fileName == "votertypes.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, 8);
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 2 });
+                }
+                else if (fileName == "situations.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 5, 6, 7, 8, 9, 10 });
                 }
             }
 
@@ -120,7 +123,7 @@ namespace Democracy3LanguageSelector
                 foreach (var filePath in files)
                 {
                     var fileName = filePath.Replace(path, "");
-                    ParseIni(filePath, fileName, iniData, new List<string> { "description" });
+                    ParseIni(filePath, fileName, iniData, new List<string> { "description", "guiname", "name" });
                 }
             }
 
@@ -149,73 +152,11 @@ namespace Democracy3LanguageSelector
             }
 
             var parser = new IniParser.FileIniDataParser();
-            parser.SaveFile(outputFilePath, iniData, Encoding.Default);
+            parser.WriteFile(outputFilePath, iniData, Encoding.UTF8);
 
             //MessageBox.Show("You can now send the file to transifex website\nFile path : " + outputFilePath, "Extraction finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public void ExtractTitlesAndButtonsText()
-        {
-            if (!Directory.Exists(this.OutputExtractFolderPath))
-            {
-                throw new InvalidOperationException("You must choose an extraction path");
-            }
 
-            string outputFilePath = this.OutputExtractFolderPath + "\\Democracy3TitlesExtractedText.ini";
-            if (File.Exists(outputFilePath))
-                File.Delete(outputFilePath);
-
-            var iniData = new IniParser.Model.IniData();
-
-            // RACINE
-            string path = this.GameFolderPath + "\\";
-            var files = Directory.GetFiles(path);
-            foreach (var filePath in files)
-            {
-                var fileName = filePath.Replace(path, "");
-                if (fileName == "tutorial.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 2, 3);
-                }
-            }
-
-            // SIMULATION
-            path = this.GameFolderPath + "\\simulation\\";
-            files = Directory.GetFiles(path);
-            foreach (var filePath in files)
-            {
-                var fileName = filePath.Replace(path, "");
-                if (fileName == "achievements.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 1, 2);
-                }
-                else if (fileName == "policies.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 1, 2);
-                }
-                else if (fileName == "pressuregroups.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 1, 3);
-                }
-                else if (fileName == "simulation.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 1, 2);
-                }
-                else if (fileName == "situations.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 1, 2);
-                }
-                else if (fileName == "votertypes.csv")
-                {
-                    ParseCsv(filePath, fileName, iniData, 1, 2);
-                }
-            }
-
-            var parser = new IniParser.FileIniDataParser();
-            parser.SaveFile(outputFilePath, iniData, Encoding.Default);
-
-            //MessageBox.Show("You can now send the file to transifex website\nFile path : " + outputFilePath, "Extraction finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
-        }
         #endregion
 
         #region Injection
@@ -231,8 +172,10 @@ namespace Democracy3LanguageSelector
 
             if (type == FileType.MainSentences)
                 InjectMain();
-            else if (type == FileType.Titles)
-                InjectTitles();
+            else if (type == FileType.Mods)
+            {
+                //InjectTitles();
+            }
             else
             {
                 //throw new InvalidOperationException("File not currently supported");
@@ -260,7 +203,7 @@ namespace Democracy3LanguageSelector
                     }
                     else if (fileName == "tutorial.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 2, 11);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
 
                 }
@@ -279,27 +222,27 @@ namespace Democracy3LanguageSelector
 
                     if (fileName == "achievements.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 1, 4);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
                     else if (fileName == "policies.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 1, 4);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
                     else if (fileName == "pressuregroups.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 1, 8);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
                     else if (fileName == "simulation.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 1, 3);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
                     else if (fileName == "situations.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 1, 3);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
                     else if (fileName == "votertypes.csv")
                     {
-                        InjectCsv(filePath, fileName, fileSection, 1, 8);
+                        InjectCsv(filePath, fileName, fileSection);
                     }
                 }
             }
@@ -374,74 +317,10 @@ namespace Democracy3LanguageSelector
 
             //MessageBox.Show("Main game sentences are now translated.", "Injection finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void InjectTitles()
-        {
-            var transifexFileParser = new IniParser.FileIniDataParser();
-            var transifexInidata = transifexFileParser.ReadFile(this.TransifexFilePath, Encoding.UTF8);
-
-            // RACINE
-            string path = this.GameFolderPath + "\\";
-            var files = Directory.GetFiles(path);
-            foreach (var filePath in files)
-            {
-                var fileName = filePath.Replace(path, "");
-                // try to find file section in transifex file
-                if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
-                {
-                    var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
-
-                    if (fileName == "tutorial.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 2, 3);
-                    }
-
-                }
-            }
-
-            // SIMULATION
-            path = this.GameFolderPath + "\\simulation\\";
-            files = Directory.GetFiles(path);
-            foreach (var filePath in files)
-            {
-                var fileName = filePath.Replace(path, "");
-                // try to find file section in transifex file
-                if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
-                {
-                    var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
-
-                    if (fileName == "achievements.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 1, 2);
-                    }
-                    else if (fileName == "policies.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 1, 2);
-                    }
-                    else if (fileName == "pressuregroups.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 1, 3);
-                    }
-                    else if (fileName == "simulation.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 1, 2);
-                    }
-                    else if (fileName == "situations.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 1, 2);
-                    }
-                    else if (fileName == "votertypes.csv")
-                    {
-                        InjectCsv(filePath, fileName, fileSection, 1, 2);
-                    }
-                }
-            }
-
-            //MessageBox.Show("Titles and buttons are now translated.", "Injection finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }        
         #endregion
 
         #region CSV
-        private void ParseCsv(string filePath, string fileName, IniParser.Model.IniData iniData, int keyIndex, int valueIndex)
+        private void ParseCsv(string filePath, string fileName, IniParser.Model.IniData iniData, int keyIndex, List<int> listValueIndex)
         {
             iniData.Sections.AddSection(fileName);
 
@@ -450,13 +329,18 @@ namespace Democracy3LanguageSelector
             while (csv.Read())
             {
                 var key = csv.GetField(keyIndex);
-                var value = csv.GetField(valueIndex).SurroundWithQuotes();
-                if (!string.IsNullOrWhiteSpace(key))
-                    iniData.Sections.GetSectionData(fileName).Keys.AddKey(fileName + "@" + key, value);
+                foreach (var valueIndex in listValueIndex)
+                {
+                    var value = csv.GetField(valueIndex).SurroundWithQuotes();
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        if (!string.IsNullOrWhiteSpace(key))
+                            iniData.Sections.GetSectionData(fileName).Keys.AddKey(valueIndex + "@" + fileName + "@" + key, value);
+                    }
+                }
             }
         }
-
-        private void InjectCsv(string filePath, string fileName, IniParser.Model.SectionData sectionData, int keyIndex, int valueIndex)
+        private void InjectCsv(string filePath, string fileName, IniParser.Model.SectionData sectionData)
         {
             //var fileWriter = File.OpenWrite(filePath + ".new");
             var writer = new StreamWriter(filePath + ".new", false, Encoding.Default);
@@ -480,15 +364,19 @@ namespace Democracy3LanguageSelector
 
                 if (ligne != null)
                 {
-                    if (ligne.Length > valueIndex)
+                    foreach (var sectionKey in sectionData.Keys)
                     {
-                        var key = ligne[keyIndex];
-                        if (sectionData.Keys.Any(k => ExtractKeyFromString(k.KeyName) == key))
+                        int valueIndex = ExtractCsvValueIndexFromString(sectionKey.KeyName);
+                        string key = ExtractKeyFromString(sectionKey.KeyName);
+
+                        if (ligne.Length > valueIndex)
                         {
-                            var keyData = sectionData.Keys.First(k => ExtractKeyFromString(k.KeyName) == key);
-                            ligne[valueIndex] = keyData.Value.RemoveSurroundedQuotes().SanitizeQuotes();
-                            if (this.RemoveSpecialsChars)
-                                ligne[valueIndex] = ligne[valueIndex].DeleteAccentAndSpecialsChar().RemoveDiacritics();
+                            if (ligne.Any(k => k == key))
+                            {
+                                ligne[valueIndex] = sectionKey.Value.RemoveSurroundedQuotes().SanitizeQuotes();
+                                if (this.RemoveSpecialsChars)
+                                    ligne[valueIndex] = ligne[valueIndex].DeleteAccentAndSpecialsChar().RemoveDiacritics();
+                            }
                         }
                     }
 
@@ -516,10 +404,13 @@ namespace Democracy3LanguageSelector
         private void ParseIni(string sourceFilePath, string sectionName, IniData iniData, List<string> searchedKeys = null)
         {
             iniData.Sections.AddSection(sectionName);
-            searchedKeys = searchedKeys.Select(s => s.ToLower().Trim()).ToList();
+            if (searchedKeys != null)
+                searchedKeys = searchedKeys.Select(s => s.ToLower().Trim()).ToList();
 
             var stringIniParser = new IniParser.FileIniDataParser();
+            stringIniParser.Parser.Configuration.AllowDuplicateKeys = true;
             stringIniParser.Parser.Configuration.SkipInvalidLines = true;
+            stringIniParser.Parser.Configuration.CommentRegex = new System.Text.RegularExpressions.Regex("^;.*");
 
             var strinInidata = stringIniParser.ReadFile(sourceFilePath, Encoding.Default);
 
@@ -527,11 +418,11 @@ namespace Democracy3LanguageSelector
             foreach (var iniSection in strinInidata.Sections)
             {
                 // ... toutes les cles ou...
-                var iniSectionKeys = iniSection.Keys.ToList();
+                var iniSectionKeys = iniSection.Keys.Where(k => k.KeyName != "name").ToList();
 
                 // ...les cles demandées
                 if (searchedKeys != null)
-                    iniSectionKeys = iniSection.Keys.Where(k => searchedKeys.Contains(k.KeyName.ToLower().Trim())).ToList();
+                    iniSectionKeys = iniSectionKeys.Where(k => searchedKeys.Contains(k.KeyName.ToLower().Trim())).ToList();
 
                 foreach (var stringIniKey in iniSectionKeys)
                 {
@@ -546,7 +437,7 @@ namespace Democracy3LanguageSelector
         {
             var stringIniParser = new IniParser.FileIniDataParser();
             stringIniParser.Parser.Configuration.AllowDuplicateKeys = true;
-            stringIniParser.Parser.Configuration.SkipInvalidLines = true;            
+            stringIniParser.Parser.Configuration.SkipInvalidLines = true;
             stringIniParser.Parser.Configuration.CommentRegex = new System.Text.RegularExpressions.Regex("^;.*");
 
             var stringInidata = stringIniParser.ReadFile(sourceFilePath, Encoding.Default);
@@ -556,7 +447,7 @@ namespace Democracy3LanguageSelector
                 var section = sectionKey.KeyName.Split('@').First();
                 var key = sectionKey.KeyName.Split('@').Last();
                 var value = sectionKey.Value.SanitizeQuotes();
-                if(this.RemoveSpecialsChars)
+                if (this.RemoveSpecialsChars)
                     value = value.DeleteAccentAndSpecialsChar().RemoveDiacritics();
 
                 if (stringInidata.Sections.Any(s => s.SectionName == section))
@@ -569,8 +460,8 @@ namespace Democracy3LanguageSelector
                 }
             }
 
-            stringIniParser.SaveFile(sourceFilePath, stringInidata, Encoding.Default);
-        }    
+            stringIniParser.WriteFile(sourceFilePath, stringInidata, Encoding.Default);
+        }
         #endregion
 
         #region Tools
@@ -588,10 +479,10 @@ namespace Democracy3LanguageSelector
             {
                 fileType = FileType.MainSentences;
             }
-            else if (!transifexInidata.Sections.Select(s => s.SectionName).Contains("strings.ini") && !transifexInidata.Sections.Select(s => s.SectionName).Contains("mods") && transifexInidata.Sections.Select(s => s.SectionName).Contains("tutorial.csv"))
-            {
-                fileType = FileType.Titles;
-            }
+            //else if (!transifexInidata.Sections.Select(s => s.SectionName).Contains("strings.ini") && !transifexInidata.Sections.Select(s => s.SectionName).Contains("mods") && transifexInidata.Sections.Select(s => s.SectionName).Contains("tutorial.csv"))
+            //{
+            //    fileType = FileType.Titles;
+            //}
             else if (transifexInidata.Sections.Select(s => s.SectionName).Contains("mods"))
             {
                 fileType = FileType.Mods;
@@ -604,6 +495,11 @@ namespace Democracy3LanguageSelector
             var parsed = value.Split('@');
             return parsed.Last();
         }
-        #endregion        
+        private int ExtractCsvValueIndexFromString(string value)
+        {
+            var parsed = value.Split('@');
+            return Convert.ToInt32(parsed.First());
+        }
+        #endregion
     }
 }

@@ -1,0 +1,18 @@
+[config]
+Name = LiberalAssassination
+GUIName = Assassination!
+UsedBy = FreedomLeague
+Type = ASSASSINATION
+MinStrength = 40
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "You have been the victim of a carefully planned assassination. A group of extremists known as 'The Freedom League', opposed to your governments anti-liberal agenda, have got hold of explosives which were detonated in a building in which you were giving a press conference. You, and a number of your ministerial aides have been killed. You turned a blind eye to the concerns of the liberals, and they made you pay the ultimate price."
+OnSuccess = GameOver(LiberalAssassination);
+GUISound = d3_explosion.ogg
+protaginist_texture = voter_liberal.dds
+FailureText = ""
+OnFailure = CreateGrudge(LiberalAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedLiberalAssassination);
+
+[prereqs]
+LiberalPlot

@@ -1,0 +1,18 @@
+[dilemma]
+name=DebtProtectionLaw
+guiname=Debt Protection Law
+description=Debt collection agencies have been in the news because of the aggresive methods they are using to extract payment from people who owe large sums of money. These debt collection agencies provide credit to people whom larger more respectable companies will not lend money. A law is proposed to limit the ways in which such agencies can operate.
+
+[influences]
+0 = _default_,0.9+(0*x)
+1 = _LowIncome,0-(0.4*x)
+
+[option0]
+Name = Limit agency activity
+Description = These agencies are preying on the weakest and poorest in our society, often tricking them into borrowing money at exorbitant rates that can never be repaid. This is little more than extortion and the government should act at once to limit severely the activities of such unscrupulous companies.
+OnImplement = CreateGrudge(Debt Protection Law,DebtProtectionLaw,Socialist,0.09,0.9f);CreateGrudge(Debt Protection Law,DebtProtectionLaw,Poor,0.19,0.9f);CreateGrudge(Debt Protection Law,DebtProtectionLaw,SelfEmployed,-0.08,0.9f);CreateGrudge(Debt Protection Law,DebtProtectionLaw,Capitalist,-0.06,0.9f);
+
+[option1]
+Name = Allow agencies to operate
+Description = Nobody forces people to borrow money they can't repay, and to restrict the rights of debt agencies to recover legitimate debts would be counter productive. People need to learn to live within their means and not expect the state to bail them out of trouble if they cannot learn to do so.
+OnImplement = CreateGrudge(Debt Protection Law,DebtProtectionLaw,Socialist,-0.09,0.9f);CreateGrudge(Debt Protection Law,DebtProtectionLaw,Poor,-0.13,0.9f);CreateGrudge(Debt Protection Law,DebtProtectionLaw,SelfEmployed,0.04,0.9f);CreateGrudge(Debt Protection Law,DebtProtectionLaw,Capitalist,0.04,0.9f);

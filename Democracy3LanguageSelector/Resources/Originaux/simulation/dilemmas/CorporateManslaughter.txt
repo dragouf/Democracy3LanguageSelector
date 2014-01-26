@@ -1,0 +1,17 @@
+[dilemma]
+name=CorporateManslaughter
+guiname=Corporate Manslaughter Bill
+description=A new bill is proposed that will allow a corporate entity to be prosecuted for manslaughter when they have been found guilty of negligence resulting in loss of life.
+
+[influences]
+0 = _random_,0.1,0.9
+
+[option0]
+Name = Pass the law
+Description = This law is necessary to deter companies from cutting corners when it comes to the safety of their employees and members of the public. Too many people die every year in industrial accidents, and often there are no lessons learned and no blame apportioned. This law will be a step forward for corporate responsibility.
+OnImplement = CreateGrudge(Corporate Manslaughter Bill,CorporateManslaughter,Capitalist,-0.05,0.9f);CreateGrudge(Corporate Manslaughter Bill,CorporateManslaughter,Liberal,0.03,0.9f);CreateGrudge(Corporate Manslaughter Bill,CorporateManslaughter,TradeUnionist,0.06,0.9f);
+
+[option1]
+Name = Block this law
+Description = This law is unenforceable. With large companies employing many subcontractors, the legal complexities involved in applying blame for accidents are considerable. This law may be well intentioned, but in practice it will be an expensive waste of time that serves to line the pockets of lawyers whilst failing to achieve any real change in corporate behavior.
+OnImplement = CreateGrudge(Corporate Manslaughter Bill,CorporateManslaughter,Capitalist,0.05,0.9f);CreateGrudge(Corporate Manslaughter Bill,CorporateManslaughter,Liberal,-0.03,0.9f);CreateGrudge(Corporate Manslaughter Bill,CorporateManslaughter,TradeUnionist,-0.07,0.9f);

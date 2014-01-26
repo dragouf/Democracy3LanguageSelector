@@ -1,0 +1,18 @@
+[dilemma]
+name=ForeignPresident
+guiname=Foreign Presidential Visit
+description=The president of a nation with a fast growing economy has invited you to an official state visit. The visit could be an excellent opportunity to encourage trade with that country which would be great for jobs, but the country's record on human rights is highly questionable.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = _random_,0,0.5
+
+[option0]
+Name = Turn down offer
+Description = This foreign leader has an appalling record on both human rights, and attitudes to non-whites within his country. There will be widespread anger amongst both ethnic minorities, and human rights campaigners here, and in the international community if you carry out the visit, which is effectively an endorsement of this mans brutal policies.
+OnImplement = CreateGrudge(Foreign Presidential Visit,ForeignPresident,Liberal,0.04,0.9f);CreateGrudge(Foreign Presidential Visit,ForeignPresident,ForeignRelations,-0.12,0.9f);CreateGrudge(Foreign Presidential Visit,ForeignPresident,EthnicMinorities,0.09,0.9f);
+
+[option1]
+Name = Accept offer
+Description = The visit should go ahead. Firstly it would be great for the economy, potentially creating jobs amongst the very minorities who oppose the visit, secondly we cannot possibly influence the behavior of other nations if we refuse even to meet with their leaders.
+OnImplement = CreateGrudge(Foreign Presidential Visit,ForeignPresident,Liberal,-0.1,0.9f);CreateGrudge(Foreign Presidential Visit,ForeignPresident,GDP,0.02,0.9f);CreateGrudge(Foreign Presidential Visit,ForeignPresident,EthnicMinorities,-0.06,0.9f);

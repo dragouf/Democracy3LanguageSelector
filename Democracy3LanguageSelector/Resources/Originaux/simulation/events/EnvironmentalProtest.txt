@@ -1,0 +1,10 @@
+[config]
+Name = EnvironmentalProtest
+GUIName = Environmental Protest
+Texture = "event_protest.jpg"
+Description = A green pressure group has staged a dramatic protest outside our government buildings calling the media's attention to the poor air quality in our cities. The leader of the greens is blaming you personally for failing to put the environment at the top of the government's agenda.
+GUISound = d3_crowd_angry_2.ogg
+OnImplement = CreateGrudge(Environmental Protest,EnvironmentalProtest,EnvironmentalProtest,-0.900,0.900);
+[influences]
+0 = "_random_,0.000,0.140"
+1 = "Environment,0.9-(x*0.7)"

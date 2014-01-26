@@ -1,0 +1,17 @@
+[dilemma]
+name=BanLivestockImports
+guiname=Ban livestock Imports
+description=One of our neighboring countries has had a publicly announced case of 'foot and mouth' disease in its cattle. Although the chances of the disease being spread to us is very low, you are being lobbied by farmers groups to ban the import of cattle from that country as a precaution.
+
+[influences]
+0 = _random_,0.2,0.9
+
+[option0]
+Name = Reject Ban
+Description = There is no statistical or scientific basis for a blanket ban on livestock imports from that country. The outbreak is highly contained and poses little real risk. This will be an unpopular move overseas, which will be seen as blatant protectionism. This would be an unfair and unjustified embargo of foreign goods.
+OnImplement = CreateGrudge(Ban livestock Imports,BanLivestockImports,Farmers,-0.11,0.9);
+
+[option1]
+Name = Approve Ban
+Description = It's just not worth the risk, however slight it may be, of us importing this disease to our country. The only way to deal with it is the mass slaughter of cattle, and our agricultural industry would not survive that. This may seem over cautious, but better to be safe than sorry. If the situation was reversed, they would do the same to us.
+OnImplement = CreateGrudge(Ban livestock Imports,BanLivestockImports,Farmers,0.16,0.9);CreateGrudge(Ban livestock Imports,BanLivestockImports,ForeignRelations,-0.13,0.74);CreateGrudge(Ban livestock Imports,BanLivestockImports,InternationalTrade,-0.05,0.75);

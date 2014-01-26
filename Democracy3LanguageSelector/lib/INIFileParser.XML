@@ -66,16 +66,16 @@
             <remarks>
                 Uses <see cref="P:System.Text.Encoding.Default"/> codification for the file.
             </remarks>
-            <param name="fileName">
-                Name of the file.
+            <param name="filePath">
+                Path to the file
             </param>
         </member>
         <member name="M:IniParser.FileIniDataParser.ReadFile(System.String,System.Text.Encoding)">
             <summary>
                 Implements reading ini data from a file.
             </summary>
-            <param name="fileName">
-                Name of the file.
+            <param name="filePath">
+                Path to the file
             </param>
             <param name="fileEncoding">
                 File's encoding.
@@ -88,19 +88,19 @@
             <remarks>
                 Creats an ASCII encoded file by default.
             </remarks>
-            <param name="fileName">
-                Name of the file.
+            <param name="filePath">
+                Path to the file.
             </param>
             <param name="parsedData">
                 IniData to be saved as an INI file.
             </param>
         </member>
-        <member name="M:IniParser.FileIniDataParser.SaveFile(System.String,IniParser.Model.IniData,System.Text.Encoding)">
+        <member name="M:IniParser.FileIniDataParser.WriteFile(System.String,IniParser.Model.IniData,System.Text.Encoding)">
             <summary>
-                Saves INI data to a file.
+                Writes INI data to a text file.
             </summary>
-            <param name="fileName">
-                Name of the file.
+            <param name="filePath">
+                Path to the file.
             </param>
             <param name="parsedData">
                 IniData to be saved as an INI file.
@@ -436,31 +436,57 @@
                 You can also define how the parser should treat errors, or how liberal
                 or conservative should it be when parsing files with "strange" formats.
         </member>
+        <member name="M:IniParser.Model.Configuration.IIniParserConfiguration.Clone">
+            <summary>
+             Clones this instance.
+            </summary>
+        </member>
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowDuplicateKeys">
+            <summary>
+                If set to <c>false</c> and the <see cref="T:IniParser.Parser.IniDataParser"/> finds duplicate keys in a
+                section the parser will stop with an error.
+                If set to <c>true</c>, duplicated keys are allowed in the file. The value
+                of the duplicate key will be the last value asigned to the key in the file.
+            </summary>
+            <remarks>
+                Defaults to <c>false</c>.
+            </remarks>
+        </member>
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowDuplicateSections">
+            <summary>
+                If set to <c>false</c> and the <see cref="T:IniParser.Parser.IniDataParser"/> finds a duplicate section
+                the parser will stop with an error.
+                If set to <c>true</c>, duplicated sections are allowed in the file, but only a 
+                <see cref="T:IniParser.Model.SectionData"/> element will be created in the <see cref="P:IniParser.Model.IniData.Sections"/>
+                collection.
+            </summary>
+            <remarks>
+                Defaults to <c>false</c>.
+            </remarks>
+        </member>
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowKeysWithoutSection">
+            <summary>
+                Allows having keys in the file that don't belong to any section.
+                i.e. allows defining keys before defining a section.
+                If set to <c>false</c> and keys without a section are defined, 
+                the <see cref="T:IniParser.Parser.IniDataParser"/> will stop with an error.
+            </summary>
+            <remarks>
+                Defaults to <c>true</c>.
+            </remarks>
+        </member>
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AssigmentSpacer">
+            <summary>
+                Sets the string around KeyValuesAssignmentChar
+            </summary>
+            <remarks>
+                Defaults to string ' '
+            </remarks>
+        </member>
         <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.CommentRegex">
             <summary>
                 Regular expression used to match a comment string
             </summary>
-        </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SectionRegex">
-            <summary>
-                Regular expression used to match a section string
-            </summary>
-        </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SectionStartChar">
-            <summary>
-                Sets the char that defines the start of a section name.
-            </summary>
-            <remarks>
-                Defaults to character '['
-            </remarks>
-        </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SectionEndChar">
-            <summary>
-                Sets the char that defines the end of a section name.
-            </summary>
-            <remarks>
-                Defaults to character ']'
-            </remarks>
         </member>
         <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.CommentChar">
             <summary>
@@ -479,61 +505,38 @@
                 Defaults to character '='
             </remarks>
         </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowKeysWithoutSection">
-            <summary>
-                Allows having keys in the file that don't belong to any section.
-                i.e. allows defining keys before defining a section.
-                If set to <c>false</c> and keys without a section are defined, 
-                the <see cref="T:IniParser.Parser.IniDataParser"/> will stop with an error.
-            </summary>
-            <remarks>
-                Defaults to <c>true</c>.
-            </remarks>
-        </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowDuplicateKeys">
-            <summary>
-                If set to <c>false</c> and the <see cref="T:IniParser.Parser.IniDataParser"/> finds duplicate keys in a
-                section the parser will stop with an error.
-                If set to <c>true</c>, duplicated keys are allowed in the file. The value
-                of the duplicate key will be the last value asigned to the key in the file.
-            </summary>
-            <remarks>
-                Defaults to <c>false</c>.
-            </remarks>
-        </member>
         <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.OverrideDuplicateKeys">
             <summary>
                 Only used if <see cref="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowDuplicateKeys"/> is also <c>true</c> 
                 If set to <c>true</c> when the parser finds a duplicate key, it overrites
                 the previous value, so the key will always contain the value of the 
-                last key readed in the file
-                If set to <c>false</c> the first readed value is preserved, so the key will
-                always contain the value of the first key readed in the file
+                last key read in the file
+                If set to <c>false</c> the first  value is preserved, so the key will
+                always contain the value of the first key read in the file
             </summary>
             <remarks>
                 Defaults to <c>false</c>.
             </remarks>
         </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.ThrowExceptionsOnError">
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SectionEndChar">
             <summary>
-                If <c>true</c> the <see cref="T:IniParser.Parser.IniDataParser"/> instance will thrown an exception
-                if an error is found. 
-                If <c>false</c> the parser will just stop execution and return a null value.
+                Sets the char that defines the end of a section name.
             </summary>
             <remarks>
-                Defaults to <c>true</c>.
+                Defaults to character ']'
             </remarks>
         </member>
-        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.AllowDuplicateSections">
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SectionRegex">
             <summary>
-                If set to <c>false</c> and the <see cref="T:IniParser.Parser.IniDataParser"/> finds a duplicate section
-                the parser will stop with an error.
-                If set to <c>true</c>, duplicated sections are allowed in the file, but only a 
-                <see cref="T:IniParser.Model.SectionData"/> element will be created in the <see cref="P:IniParser.Model.IniData.Sections"/>
-                collection.
+                Regular expression used to match a section string
+            </summary>
+        </member>
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SectionStartChar">
+            <summary>
+                Sets the char that defines the start of a section name.
             </summary>
             <remarks>
-                Defaults to <c>false</c>.
+                Defaults to character '['
             </remarks>
         </member>
         <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.SkipInvalidLines">
@@ -545,6 +548,16 @@
             </summary>
             <remarks>
                 Defaults to <c>false</c>
+            </remarks>
+        </member>
+        <member name="P:IniParser.Model.Configuration.IIniParserConfiguration.ThrowExceptionsOnError">
+            <summary>
+                If <c>true</c> the <see cref="T:IniParser.Parser.IniDataParser"/> instance will thrown an exception
+                if an error is found. 
+                If <c>false</c> the parser will just stop execution and return a null value.
+            </summary>
+            <remarks>
+                Defaults to <c>true</c>.
             </remarks>
         </member>
         <member name="M:IniParser.Model.Configuration.BaseIniParserConfiguration.#ctor">
@@ -610,6 +623,14 @@
             </summary>
             <remarks>
                 Defaults to character '='
+            </remarks>
+        </member>
+        <member name="P:IniParser.Model.Configuration.BaseIniParserConfiguration.AssigmentSpacer">
+            <summary>
+                Sets the string around KeyValuesAssignmentChar
+            </summary>
+            <remarks>
+                Defaults to string ' '
             </remarks>
         </member>
         <member name="P:IniParser.Model.Configuration.BaseIniParserConfiguration.AllowKeysWithoutSection">

@@ -1,0 +1,19 @@
+[dilemma]
+name=PeopleSmuggling
+guiname=People Smuggling
+description=A large number of people have been caught entering our country hidden inside cargo containers, in an organized attempt at people-smuggling. The criminals who masterminded the scheme have been arrested, but there is debate as to whether those people who are now on our shores should be sent back to their country of origin.
+
+[influences]
+0 = _random_,0.2,0.4
+1 = GDP,0+(0.3*x)
+2 = BorderControls,0+(0.7*x)
+
+[option0]
+Name = Allow them to stay
+Description = There is strong evidence that these people were desperate to flee persecution, poverty or even death in their own country. These are desperate people as we can see from the lengths they went to in order to get here. It would be inhumane to deport them now they are here.
+OnImplement = CreateGrudge(People Smuggling,PeopleSmuggling,Liberal,0.05,0.9f);CreateGrudge(People Smuggling,PeopleSmuggling,Conservatives,-0.05,0.9f);CreateGrudge(People Smuggling,PeopleSmuggling,Patriot,-0.08,0.9f);CreateGrudge(People Smuggling,PeopleSmuggling,EthnicMinorities,0.08,0.09);
+
+[option1]
+Name = Deport them
+Description = Letting these people stay would send out entirely the wrong signal to people who want to come here illegally. We have enough of a problem with illegal economic migrants as it is. Unfortunate though it may be, the only sensible choice is to send them back.
+OnImplement = CreateGrudge(People Smuggling,PeopleSmuggling,Liberal,-0.09,0.9f);CreateGrudge(People Smuggling,PeopleSmuggling,Conservatives,0.05,0.9f);CreateGrudge(People Smuggling,PeopleSmuggling,Patriot,0.08,0.9f);CreateGrudge(People Smuggling,PeopleSmuggling,EthnicMinorities,-0.11,0.09);

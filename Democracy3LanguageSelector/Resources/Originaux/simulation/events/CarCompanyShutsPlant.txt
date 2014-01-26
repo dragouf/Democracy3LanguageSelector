@@ -1,0 +1,11 @@
+[config]
+Name = CarCompanyShutsPlant
+GUIName = Car Company Shuts plant
+Texture = "event_emptywarehouse.jpg"
+Description = A major employer in our nation has just shut down one of its car factories making a thousand citizens redundant. A drop in car usage by our citizens as well as poor labor productivity are being cited as the major causes for the shutdown which reflects badly on your government.
+GUISound = d3_gate_slams.ogg
+OnImplement = CreateGrudge(Car Company Shuts plant,CarCompanyShutsPlant,CarCompanyShutsPlant,-0.800,0.900);CreateGrudge(Car Company Shuts plant,CarCompanyShutsPlant,Unemployment,0.060,0.690);CreateGrudge(Car Company Shuts plant,CarCompanyShutsPlant,GDP,-0.070,0.800);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "CarUsage,0-(0.34*x)"
+2 = "WorkerProductivity,0-(0.22*x)"

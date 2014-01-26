@@ -1,0 +1,18 @@
+[dilemma]
+name=REWARDSFORFAILURE
+guiname=Curb Banking Bonuses
+description=There have been calls in the media for government to do something about the big bonus payments being made to company CEOs despite falling profits. In cases where companies have failed to make a profit, the government has been asked to force companies to withhold bonus payments from top executives.
+
+[influences]
+0 = _default_,0.9+(0*x)
+1 = GDP,0-(0.4*x)
+
+[option0]
+Name = Restrict bonuses
+Description = For too long, the bonus culture amongst CEOs has been left to run out of control. Bonuses are supposed to be a reward for business success, but top bank executives are taking unearned bonuses whilst cutting staff numbers. We need a law that prevents companies from paying a bonus in years where they failed to turn a profit.
+OnImplement = CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,Capitalist,-0.08,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,TradeUnionist,0.08,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,Socialist,0.08,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,Wealthy,-0.04,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,BrainDrain,0.073,0.9f);
+
+[option1]
+Name = Do nothing
+Description = It's easy to be critical of people earning large salaries and bonuses, but the fact is we live in a globalized world and top bonuses are needed to attract top talent. This is unnecessary interference by government in the corporate pay structure and will hurt our competitiveness.
+OnImplement = CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,Capitalist,0.02,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,TradeUnionist,-0.08,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,Socialist,-0.06,0.9f);CreateGrudge(Curb Banking Bonuses,REWARDSFORFAILURE,Wealthy,0.03,0.9f);

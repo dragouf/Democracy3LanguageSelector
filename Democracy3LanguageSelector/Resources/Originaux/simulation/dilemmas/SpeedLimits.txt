@@ -1,0 +1,17 @@
+[dilemma]
+name=SpeedLimits
+guiname=Speed Limits
+description=A major motorist's pressure group has lobbied government to get the speed limits on our major roads raised. These speed limits were set many years ago and both car speeds and braking performance has improved since then.
+
+[influences]
+0 = _random_,0.4,0.9
+
+[option0]
+Name = Raise speed limits
+Description = We have moved on since the times when men walked with red flags in front of motor cars. The national speed limits are stupidly low, and the limits are widely ignored. We cannot enforce the limits effectively, and until the limits are set as sensible values its just encouraging people to break the law. We need to raise the limits immediately.
+OnImplement = CreateGrudge(Speed Limits,SpeedLimits,Motorist,0.08,0.9f);CreateGrudge(Speed Limits,SpeedLimits,Parents,-0.08,0.9f);CreateGrudge(Speed Limits,SpeedLimits,CO2Emissions,0.02,0.9f);
+
+[option1]
+Name = No change
+Description = Speed limits exist for a reason. Enough people die on our roads as it is, and speed is often a factor in the survivability of car accidents. Its true people break the limit as it is, but raising it now will just encourage faster, dangerous driving. Leave it unchanged.
+OnImplement = CreateGrudge(Speed Limits,SpeedLimits,Motorist,-0.08,0.9f);CreateGrudge(Speed Limits,SpeedLimits,Parents,0.03,0.9f);

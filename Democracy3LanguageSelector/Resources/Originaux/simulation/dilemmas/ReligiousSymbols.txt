@@ -1,0 +1,17 @@
+[dilemma]
+name=ReligiousSymbols
+guiname=Religious Symbols In Schools
+description=There is pressure for us to introduce a law to ban the wearing of religious symbols in state schools by students. This would include wearing the hijab by female Muslim students, and the wearing of a cross by Christian students.
+
+[influences]
+0 = _random_,0.3,0.9
+
+[option0]
+Name = Introduce the ban
+Description = School is a place for children to learn, not to display religious allegiance. By ensuring all students dress the same, we can ensure there is equality and integration of all religions, with no discrimination. This is the logical extension of the separation of religion and state. People are free to dress how they like in churches and mosques, but not in state schools.
+OnImplement = CreateGrudge(Religious Symbols In Schools,ReligiousSymbols,Religious,-0.08,0.9f);CreateGrudge(Religious Symbols In Schools,ReligiousSymbols,Liberal,0.02,0.9f);
+
+[option1]
+Name = Reject the ban
+Description = This is nothing short of discrimination against Muslims. Nobody really expects this law to be used to prevent the wearing of Christian crosses, it exists purely as an excuse to ban Muslim students from dressing as they wish. This will cause division and segregation, and is a recipe for religious tension in schools.
+OnImplement = CreateGrudge(Religious Symbols In Schools,ReligiousSymbols,Liberal,-0.02,0.9f);CreateGrudge(Religious Symbols In Schools,ReligiousSymbols,Religious,0.03,0.9f);

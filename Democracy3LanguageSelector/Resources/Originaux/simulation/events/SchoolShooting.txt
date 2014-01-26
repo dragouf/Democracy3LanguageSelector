@@ -1,0 +1,16 @@
+[config]
+Name = SchoolShooting
+GUIName = School Shooting
+Texture = "event_schoolshooting.jpg"
+Description = 13 students have been killed in a shooting at one of our schools, before police arrived and shot and killed the perpetrators. Parents are outraged and the newspapers and TV are blaming the government for not doing enough to prevent firearms getting into the wrong hands.
+GUISound = d3_gunshots_police.ogg
+OnImplement = CreateGrudge(School Shooting,SchoolShooting,Parents,-0.350,0.750);CreateGrudge(School Shooting,SchoolShooting,Conservatives,-0.120,0.770);CreateGrudge(School Shooting,SchoolShooting,SchoolShooting,-0.800,0.800);
+[influences]
+0 = "_random_,0.000,0.220"
+1 = "ViolentCrimeRate,0+(0.8*x)"
+2 = "HandgunLaws,0-(0.5*x)"
+3 = "CommunityPolicing,0-(0.3*x)"
+4 = "_winning_,0.2*(x^2)"
+5 = "Health,0.05-(0.1*x)"
+
+

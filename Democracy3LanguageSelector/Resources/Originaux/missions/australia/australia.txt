@@ -1,0 +1,81 @@
+[config]
+currency = "$"
+population = 11131
+economic_cycle_start = 0.55
+min_income = 8343
+max_income = 156431
+min_gdp = 498400
+max_gdp = 1495200
+wealth_mod = 2.984
+starting_debt = 267979
+name  = australia
+guiname = "Australia"
+names_file = "data\names\australianames.txt"
+term_length = 20
+max_terms = -1
+details_image = "australia_details.jpg"
+description = "Australia is the world's sixth-largest country by total area and the worlds 12th largest economy. A relatively wealthy country, it has the world's fifth highest per capita income. Australia is a member of the G20, OECD, the commonwealth and the UN. The head of state is Queen Elizabeth II, but government is controlled by the Prime Minister. The Australian economy is characterised by low debt, continuing economic growth and low unemployment."
+flag = "flag_australia.jpg"
+apathy = 0.31
+jobtitle = "Prime Minister"
+GUID = 6
+
+[options]
+COMPULSORY_VOTING
+MONARCHY
+HURRICANES
+
+[stats]
+Population: = "22,262,501 (July 2013)"
+Size: = "7,692,024 sq km"
+Life expectancy: = "81.98 years"
+Gini(inequality): = "30.5"
+GDP per capita: = "$65,642"
+Poverty: = "12.8% (2010)"
+Ethnicity: = "92% white"
+Religion: = "Christian(91.2%)"
+Vegemite Consumption: = "22 million jars/year"
+Obesity Rate: = "21.7%"
+Big Mac Index: = "$4.62"
+
+[policies]
+CorporationTax = 0.23
+SalesTax = 0.22
+PetrolTax = 0.1
+UnemployedBenefit = 0.35
+StateHealthService = 0.7
+StateSchools = 0.55
+PropertyTax = 0.35
+TobaccoTax = 0.45
+CCTVCameras = 0.2
+StatePensions = 0.6
+CapitalGainsTax = 0.3
+AlcoholTax = 0.4
+StateHousing = 0.52
+ChildBenefit = 0.4
+PollutionControls = 0.3
+Narcotics = 0
+JuryTrial = 0.8
+LegalAid = 0.5
+ForeignAid = 0.2
+Recycling = 0.52
+ScienceFunding = 0.3
+IncomeTax = 0.25
+UniversityGrants = 0.68
+PublicLibraries = 0.6
+TechnologyColleges = 0.3
+AdultEducationSubsidies = 0.73
+ArmedPolice = 0.2
+Tasers = 0.5
+BorderControls = 0.75
+CitizenshipTests = 0.54
+ForeignInvestorTaxBreaks = 0.22
+Gambling = 0.82
+LegaliseProstitution = 0.23
+IntelligenceServices = 0.72
+PhoneTapping = 0.45
+TollRoads = 0.32
+MilitarySpending = 0.4
+RoadBuilding = 0.4
+StemCells =0.82
+CarbonTax = 0.4

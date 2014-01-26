@@ -1,0 +1,17 @@
+[dilemma]
+name=AppointAmbassador
+guiname=Appoint UN Ambassador
+description=Our ambassador to the UN retires this year and we need to name a successor as soon as possible. Much will be made of whether we appoint a hardliner who sticks up for the country or someone more able to compromise.
+
+[influences]
+0 = _random_,0,1.0
+
+[option0]
+Name = Appoint <FemaleName>
+Description = <FemaleName> is well known as a patriot who will fight tooth and claw to get our interests represented at the UN. Seen as a popular choice amongst patriotic and more conservative citizens, she is historically against foreign aid and a supporter of import tariffs. She is not popular internationally.
+OnImplement = CreateGrudge(Appoint UN Ambassador,AppointAmbassador,Socialist,-0.04,0.9);CreateGrudge(Appoint UN Ambassador,AppointAmbassador,Liberal,-0.05,0.9);CreateGrudge(Appoint UN Ambassador,AppointAmbassador,Patriot,0.09,0.9);CreateGrudge(Appoint UN Ambassador,AppointAmbassador,ForeignRelations,-0.1,0.9);
+
+[option1]
+Name = Appoint <MaleName>
+Description = <MaleName> is a popular figure on the international stage with a reputation for solving difficult problems through compromise and understanding. A true internationalist, he is popular with the liberals and socialists in our society, as well as foreign leaders.
+OnImplement = CreateGrudge(Appoint UN Ambassador,AppointAmbassador,Socialist,0.04,0.9);CreateGrudge(Appoint UN Ambassador,AppointAmbassador,Liberal,0.05,0.9);CreateGrudge(Appoint UN Ambassador,AppointAmbassador,Patriot,-0.09,0.9);CreateGrudge(Appoint UN Ambassador,AppointAmbassador,ForeignRelations,0.1,0.9);

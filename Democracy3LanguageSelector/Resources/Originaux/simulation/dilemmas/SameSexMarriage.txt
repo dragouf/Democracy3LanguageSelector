@@ -1,0 +1,17 @@
+[dilemma]
+name=SameSexmarriage
+guiname=Ban same sex marriage
+description=Until recently this hasn't been an issue, marriage has been a straightforward issue and a ceremony reserved for heterosexual couples, but increasingly the more liberal ministers have been carrying out same sex marriages. Should we ban this at the constitutional level?
+
+[influences]
+0 = _random_,0,1.0
+
+[option0]
+Name = Ban it
+Description = It's crazy to allow this travesty of a religious ceremony to take place. By standing by and doing nothing we are silently condoning the practice. The church will be outraged if we don't move quickly to put a stop to this.
+OnImplement = CreateGrudge(Ban same sex marriage,SameSexmarriage,Religious,0.21,0.9f);CreateGrudge(Ban same sex marriage,SameSexmarriage,Conservatives,0.12,0.9f);CreateGrudge(Ban same sex marriage,SameSexmarriage,Liberal,-0.17,0.9f);
+
+[option1]
+Name = Allow marriages
+Description = There are no good reasons to ban such marriages. It's no business of the state to interfere in the relationships between loving couples regardless of their gender. Placing a ban on the kinds of relationships our citizens can form is an unforgivable intrusion into peoples private lives.
+OnImplement = CreateGrudge(Ban same sex marriage,SameSexmarriage,Religious,-0.16,0.9f);CreateGrudge(Ban same sex marriage,SameSexmarriage,Conservatives,-0.12,0.9f);CreateGrudge(Ban same sex marriage,SameSexmarriage,Liberal,0.10,0.9f);

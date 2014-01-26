@@ -1,0 +1,11 @@
+[config]
+Name = OilPriceShock
+GUIName = Oil Price Shock
+Texture = "event_oil.jpg"
+Description = Worries about war in the middle east have resulted in many countries panicking and stockpiling supplies of oil due to the threat of future supply difficulties. As a result, the demand for oil has shot up, which could have negative impacts on motorists and our economy as the oil price rises to reflect the increased demand.
+MinimumTurn = 25
+GUISound = d3_crowd_angry_2.ogg
+OnImplement = CreateGrudge(Oil Price Shock,OilPriceShock,Capitalist,-0.120,0.800);CreateGrudge(Oil Price Shock,OilPriceShock,OilSupply,-0.85,0.93);CreateGrudge(Oil Price Shock,OilPriceShock,OilPriceShock,-0.800,0.950);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "_winning_,0+(0.9*x)"

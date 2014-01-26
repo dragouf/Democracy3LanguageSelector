@@ -1,0 +1,17 @@
+[dilemma]
+name=TRAVELLERS RIGHTS
+guiname=Travelers Rights
+description=A local council recently demolished some old abandoned housing, leaving empty land for travelers to park their caravans on, the local people are angry and wish to have them moved, the council are unsure what rights these people have and have turned to the government to clarify national policy.
+
+[influences]
+0 = PovertyRate,0+(0.92*x)
+
+[option0]
+Name = Allow travelers to stay
+Description = Everybody has the right to live somewhere, including these travelers. There is no evidence that they are causing problems, this is just a case of people not understanding the lifestyles of traveling people.
+OnImplement = CreateGrudge(Travelers Rights,TRAVELLERS RIGHTS,Conservatives,-0.10,0.9f);CreateGrudge(Travelers Rights,TRAVELLERS RIGHTS,Poor,0.09,0.9f);CreateGrudge(Travelers Rights,TRAVELLERS RIGHTS,Liberal,0.11,0.9f);
+
+[option1]
+Name = Evict the travelers
+Description = You must support the local people. These travelers have intruded on private property and upset local families. This is unacceptable. You cannot allow a small group of people to cause such disruption to otherwise peaceful communities.
+OnImplement = CreateGrudge(Travelers Rights,TRAVELLERS RIGHTS,Liberal,-0.09,0.9f);CreateGrudge(Travelers Rights,TRAVELLERS RIGHTS,Conservatives,0.10,0.9f);CreateGrudge(Travelers Rights,TRAVELLERS RIGHTS,Poor,-0.09,0.9f);

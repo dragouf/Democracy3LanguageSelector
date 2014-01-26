@@ -1,0 +1,18 @@
+[dilemma]
+name=RetailMerger
+guiname=Retail Merger
+description=A large retail chain store has announced plans to buy out one of its main competitors. This merger needs government approval, but if it goes ahead it will create one of the biggest companies in the country.
+
+[influences]
+0 = _random_,0.2,0.4
+1 = GDP,0+(0.6*x)
+
+[option0]
+Name = Allow merger
+Description = There is no good reason to prevent this merger. In an increasingly global market, our companies need to grow if they are to compete successfully. The bigger company will be more efficient and effective in the global marketplace.
+OnImplement = CreateGrudge(Retail Merger,RetailMerger,SelfEmployed,-0.08,0.9f);CreateGrudge(Retail Merger,RetailMerger,Capitalist,0.08,0.9f);CreateGrudge(Retail Merger,RetailMerger,GDP,0.01,0.9f);CreateGrudge(Retail Merger,RetailMerger,TradeUnionist,-0.06,0.9f);CreateGrudge(Retail Merger,RetailMerger,Unemployment,0.01,0.9f);
+
+[option1]
+Name = Block merger
+Description = The whole idea of the free market is based on competition. Allowing these two firms to merge will reduce both competition, and consumer choice and no doubt lead to redundancies. Its another example of government looking after big business and forgetting the little guy. Small businesses and trade unionists urge you to block this merger.
+OnImplement = CreateGrudge(Retail Merger,RetailMerger,SelfEmployed,0.08,0.9f);CreateGrudge(Retail Merger,RetailMerger,Capitalist,-0.03,0.9f);CreateGrudge(Retail Merger,RetailMerger,TradeUnionist,0.03,0.9f);

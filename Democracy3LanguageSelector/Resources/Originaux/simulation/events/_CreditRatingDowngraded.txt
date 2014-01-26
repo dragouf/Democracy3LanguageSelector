@@ -1,0 +1,10 @@
+[config]
+Name = CreditRatingDowngraded
+GUIName = Credit rating downgraded!
+Texture = "event_stockmarket.jpg"
+Description = "The major international credit agencies have downgraded the status of your governments debt. This is likely to have a knock-on effect on GDP as foreign companies become wary of investing in our economy, and it will also result in the interest rate we pay on our debt rising. there is a good chance this will upset our capitalist voters too. You should take action to regain credibility with the ratings agencies by reducing the level of debt as soon as possible. Your current Credit Rating is now '<CREDITRATING>'"
+GUISound = d3_stockmarket_angry.ogg
+OnImplement = CreateGrudge(Credit rating downgraded!,CreditRatingDowngraded,Capitalist,-0.050,0.70);CreateGrudge(Credit rating downgraded!,CreditRatingDowngraded,GDP,-0.030,0.75);
+Type = SPECIAL
+[influences]
+

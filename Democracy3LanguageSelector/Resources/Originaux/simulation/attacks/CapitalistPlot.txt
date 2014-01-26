@@ -1,0 +1,13 @@
+[config]
+Name = CapitalistPlot
+GUIName = Capitalist Plot!
+UsedBy = BattenburgGroup
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Our intelligence network has identified a potentially serious plot by a number of wealthy industrialists to force the overthrow of the government. The plot seems to be in the early stages, and we are not in a position to make arrests yet, but it is clear that some capitalists consider it desirable to engineer a replacement for the current government. You should be cautious."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

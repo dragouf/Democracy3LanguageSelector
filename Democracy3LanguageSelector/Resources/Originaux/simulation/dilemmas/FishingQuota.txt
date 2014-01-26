@@ -1,0 +1,17 @@
+[dilemma]
+name=FishingQuota
+guiname=Fishing Quotas
+description=Marine conservation groups are pushing for us to sign international laws restricting the quantity of certain fish that can be caught by our fishermen in any calendar year. This is an attempt to preserve the viability of fish stocks for future generations.
+
+[influences]
+0 = _random_,0,0.85
+
+[option0]
+Name = Agree to Quotas
+Description = This is just common sense. Modern technology has meant it has become far too cheap and easy to catch huge numbers of fish, reducing prices and causing a dangerous depletion in supply. It might be unpopular with the fishermen in the short term, but in the long run, we have to think of the marine environment. Environmental groups recommend signing the law.
+OnImplement = CreateGrudge(Fishing Quotas,FishingQuota,Environmentalist,0.08,0.9f);CreateGrudge(Fishing Quotas,FishingQuota,Unemployment,0.03,0.9f);CreateGrudge(Fishing Quotas,FishingQuota,Farmers,-0.22,0.9f);CreateGrudge(Fishing Quotas,FishingQuota,GDP,-0.04,0.9f);
+
+[option1]
+Name = Reject Quotas
+Description = In theory it all sounds very sensible, but in practice do we want to sign away control of our fishing economy to some international body? And although we can be sure our fishermen will abide by the deal, how can we be sure foreign fishermen will do the same? Signing this law is just going to be another nail in the coffin of the fishing trade, and its going to cost jobs! Reject the law!
+OnImplement = CreateGrudge(Fishing Quotas,FishingQuota,Environmentalist,-0.03,0.9f);CreateGrudge(Fishing Quotas,FishingQuota,Farmers,0.12,0.9f);

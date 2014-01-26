@@ -1,0 +1,12 @@
+[config]
+Name = TelecomsMeltdown
+GUIName = Telecoms Meltdown
+Texture = "event_fire.jpg"
+Description = "Our country has suffered from a sudden meltdown of the national telecoms infrastructure, causing short term chaos as we rush to fix the problem. This is being seen as a symptom of our countries dire state of technological competence and our long term lack of investment in modern science and technology."
+GUISound = d3_telecoms_meltdown.ogg
+OnImplement = CreateGrudge(Telecoms Meltdown,TelecomsMeltdown,TelecomsMeltdown,-0.900,0.920);CreateGrudge(Telecoms Meltdown,TelecomsMeltdown,GDP,-0.100,0.25);
+[influences]
+0 = "_random_,0.600,1.200"
+1 = "Education,0-(0.2*x)"
+2 = "Technology,0-(0.7*x)"
+

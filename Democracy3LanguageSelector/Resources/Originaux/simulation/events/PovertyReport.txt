@@ -1,0 +1,10 @@
+[config]
+Name = PovertyReport
+GUIName = Poverty Report
+Texture = "event_poverty.jpg"
+Description = The international commission for equality has issued a report that’s truly damning of your governments inability to control inequality. Your government has been singled out as one of the least egalitarian in the world which is causing outrage in the liberal and socialist press.
+GUISound = d3_media.ogg
+OnImplement = CreateGrudge(Poverty Report,PovertyReport,PovertyReport,-0.900,0.900);CreateGrudge(Poverty Report,PovertyReport,Liberal,-0.120,0.750);CreateGrudge(Poverty Report,PovertyReport,Socialist,-0.500,0.650);CreateGrudge(Poverty Report,PovertyReport,TradeUnionist,-0.400,0.640);
+[influences]
+0 = "_random_,0.000,0.150"
+1 = "PovertyRate,0+(x^4)"

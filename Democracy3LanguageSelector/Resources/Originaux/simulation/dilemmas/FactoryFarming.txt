@@ -1,0 +1,17 @@
+[dilemma]
+name=FactoryFarming
+guiname=Factory Farming Law
+description=A campaign for the tightening of animal welfare standards on farms is gaining momentum. A law has been proposed that would set higher minimum standards for the space, food and access to outdoors that is available to animals in intensive farming establishments.
+
+[influences]
+0 = _random_,0.1,0.9
+
+[option0]
+Name = Set tougher standards
+Description = It's about time we did something to ensure animals are not suffering in intensive farming. Most people would be horrified if they saw the conditions some animals are kept in. These standards would lead to more expensive food, but people would be happy to pay more if they knew the conditions in which animals are currently kept.
+OnImplement = CreateGrudge(Factory Farming Law,FactoryFarming,Farmers,-0.23,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,Capitalist,-0.03,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,Environmentalist,0.08,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,Liberal,0.05,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,GDP,-0.03,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,MadCowEpidemic,-0.20,0.9f);
+
+[option1]
+Name = Leave unchanged
+Description = Nobody forces people to buy processed meat from the cheapest source. There are organic and free range foods, but the free market shows clearly that people aren't prepared to pay more for a change in animal welfare. This is the government interfering in the market to appease a few campaigners.
+OnImplement = CreateGrudge(Factory Farming Law,FactoryFarming,Farmers,0.08,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,Capitalist,0.01,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,Environmentalist,-0.04,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,Liberal,-0.02,0.9f);CreateGrudge(Factory Farming Law,FactoryFarming,MadCowEpidemic,0.10,0.9f);

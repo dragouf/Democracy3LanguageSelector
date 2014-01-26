@@ -1,0 +1,11 @@
+[config]
+Name = CelebrityEndorsement
+GUIName = Celebrity Endorsement!
+Texture = "event_celebrity.jpg"
+Description = We live in a celebrity obsessed age. Normally we criticize this phenomena, but not today!  A top pop star has gone on the record as saying that you are doing a superb job! This is going to reflect very nicely in your approval ratings.
+GUISound = d3_celebrity.ogg
+OnImplement = CreateGrudge(Celebrity Endorsement!,CelebrityEndorsement,_All_,0.090,0.640);CreateGrudge(Celebrity Endorsement!,CelebrityEndorsement,Young,0.090,0.640);CreateGrudge(Celebrity Endorsement!,CelebrityEndorsement,CelebrityEndorsement,-0.800,0.800);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "_winning_,0.85-(0.85*x)"
+            

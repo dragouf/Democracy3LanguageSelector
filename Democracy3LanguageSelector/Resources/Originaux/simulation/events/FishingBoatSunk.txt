@@ -1,0 +1,10 @@
+[config]
+Name = FishingBoatSunk
+GUIName = Fishing Boat Sunk
+Texture = "event_trawler.jpg"
+Description = One of our fishing boats has been attacked and sunk with the loss of 5 of the crew. Piracy is blamed, and the fishermen's union has blamed the poor protection from our navy for this tragedy. Newspapers are also putting the blame on you for failing to give this country the military protection that it needs.
+GUISound = d3_boat_sunk.ogg
+OnImplement = CreateGrudge(Fishing Boat Sunk,FishingBoatSunk,FishingBoatSunk,-0.900,0.800);CreateGrudge(Fishing Boat Sunk,FishingBoatSunk,_All_,-0.230,0.720);CreateGrudge(Fishing Boat Sunk,FishingBoatSunk,Patriot,-0.500,0.700);
+[influences]
+0 = "_random_,0.000,0.220"
+1 = "MilitarySpending,0.8-(0.6*x)"

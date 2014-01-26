@@ -1,0 +1,18 @@
+[dilemma]
+name=AirportExpansion
+guiname=Airport Expansion
+description=Planning permission has been requested for the expansion of some of our country's largest airports. There is simply not enough capacity for the number of flights that want to land here.
+
+[influences]
+0 = _random_,0.2,0.4
+1 = GDP,0+(0.6*x)
+
+[option0]
+Name = Allow Expansion Plans
+Description = Our tourism industry is very dependent on air travel, and if we are to expand tourism, providing more jobs and growth in GDP, we must make more air capacity available. We need to act now to ensure we have the increased capacity in time.
+OnImplement = CreateGrudge(Airport Expansion,AirportExpansion,Environmentalist,-0.08,1.0);CreateGrudge(Airport Expansion,AirportExpansion,Tourism,0.06,1.0);CreateGrudge(Airport Expansion,AirportExpansion,AirTravel,0.11,1.0);
+
+[option1]
+Name = Reject Plans
+Description = Air travel is a pollution nightmare, both air and noise pollution cause problems, we should not be encouraging air travel. Also, the plans would mean the demolition of countless homes and vast inconvenience to people living near the airports. Reject the plans! 
+OnImplement = CreateGrudge(Airport Expansion,AirportExpansion,Environmentalist,0.07,1.0);CreateGrudge(Airport Expansion,AirportExpansion,Tourism,-0.08,1.0);CreateGrudge(Airport Expansion,AirportExpansion,Capitalist,-0.07,1.0);

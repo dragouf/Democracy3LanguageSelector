@@ -1,0 +1,10 @@
+[config]
+Name = FailedReligiousAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "Secret service earned their pay today, when they arrested a carload of what appear to be religious fanatics planning an attack on you and the cabinet. A van, filled with explosives, and small arms was stopped by our vigilant police, after intelligence intercepted by our security personnel. It seems there are a number of religious extremists determined to remove the current government. This lot called themselves 'The Army of God'."
+GUISound = d3_explosion.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

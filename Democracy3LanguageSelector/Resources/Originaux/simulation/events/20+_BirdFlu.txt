@@ -1,0 +1,16 @@
+[config]
+Name = BirdFlu
+GUIName = Bird Flu Outbreak
+Texture = "event_disease.jpg"
+Description = Scientists worries have been proven justified after a strain of avian flu has been discovered that can be passed from birds to humans. Although this disease is in a weaker form and is unlikely to kill, it is going to put serious strain on our health provision and may have a resulting impact on productivity and thus the economy.
+MinimumTurn = 20
+GUISound = d3_laboratory.ogg
+OnImplement = CreateGrudge(Bird Flu Outbreak,BirdFlu,_All_,-0.15,0.750);CreateGrudge(Bird Flu Outbreak,BirdFlu,Health,-0.42,0.82);CreateGrudge(Bird Flu Outbreak,BirdFlu,StateHealthService_cost,0.90,0.85);CreateGrudge(Bird Flu Outbreak,BirdFlu,BirdFlu,-0.800,0.950);CreateGrudge(Bird Flu Outbreak,BirdFlu,WorkerProductivity,-0.45,0.85);CreateGrudge(Bird Flu Outbreak,BirdFlu,Tourism,-0.85,0.90);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "_winning_,0+(0.64*x)"
+2 = "Tourism,0+(0.2*x)"
+3 = "AirTravel,0+(0.2*x)"
+4 = "Health,0.1-(0.2*x)"
+
+

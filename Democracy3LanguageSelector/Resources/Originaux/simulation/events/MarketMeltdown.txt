@@ -1,0 +1,11 @@
+[config]
+Name = MarketMeltdown
+GUIName = Market Meltdown
+Texture = "event_stockmarket.jpg"
+Description = "We may not have done anything wrong, but a crisis in confidence in the overseas mortgage market has led to a global meltdown for the stock market. Big financial institutions are panicking and there is likely to be a medium term drop in the strength of the global economy, with resultant impacts on us."
+GUISound = d3_stockmarket_angry.ogg
+OnImplement = CreateGrudge(Market Meltdown,MarketMeltdown,MarketMeltdown,-1.0,0.93);CreateGrudge(Market Meltdown,MarketMeltdown,Capitalist,-0.310,0.760);CreateGrudge(Market Meltdown,MarketMeltdown,_globaleconomy_,-0.8,0.92);CreateGrudge(Market Meltdown,MarketMeltdown,_global_socialism,0.075,0.9);
+[influences]
+0 = "_random_,0,0.2"
+1 = "GDP,0+(0.7*x)"
+2 = _winning_,0+(0.8*x)"

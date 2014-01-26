@@ -1,0 +1,18 @@
+[config]
+Name = GreenAssassination
+GUIName = Assassination
+UsedBy = WarriorsOfGaia
+Type = ASSASSINATION
+MinStrength = 40
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "You have been assassinated by Green Terrorists. This morning, whilst giving a speech to local party activists, the event was stormed by a small group of armed protesters. Security personnel opened fire, and in the ensuing firefight you were hit several times. We have captured the people responsible for your death, who identified themselves as members of the extremist eco-terror group known as the 'Warriors Of Gaia'. I'm afraid it's all over for you..."
+OnSuccess = GameOver(GreenAssassination);
+protaginist_texture = voter_environmentalist.dds
+GUISound = d3_gameover_firefight.ogg
+FailureText = ""
+OnFailure = CreateGrudge(GreenAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedGreenAssassination);
+
+[prereqs]
+GreenPlot

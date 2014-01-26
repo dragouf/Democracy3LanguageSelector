@@ -1,0 +1,71 @@
+[config]
+currency = "€"
+population = 32675
+economic_cycle_start = 0.96
+min_income = 8000
+max_income = 150000
+min_gdp = 581900
+max_gdp = 1745700
+wealth_mod = 3.37
+starting_debt = 670779
+name  = france
+guiname = "France"
+names_file = "data\names\frenchnames.txt"
+term_length = 20
+max_terms = 2
+details_image = "france_details.jpg"
+description = "France is a semi-presidential republic and the largest country in western Europe. Its claims to fame include being the most-visited country in the world, and the provider of the 'best overall health care' according to the World Health Organisation. It also has the worlds fifth largest military budget and the worlds third largest stockpile of nuclear weapons. It is one of the founding members of the United Nations, has a permanent seat on the UN Security Council and is a member of the G8, NATO, the OECD and the WTO."
+flag = "flag_france.jpg"
+apathy = 0.4
+jobtitle = "President"
+GUID = 2
+
+[options]
+
+[stats]
+Population: = "65,350,000"
+Size: = "674,843 sq km"
+Life-expectancy: = "81.56 years"
+Gini(inequality): = "32.7"
+Religion: = "Roman Catholic 83-88%"
+Internet Users: = "45.2 million"
+Population Growth Rate: = "0.47%"
+Obesity Rate: = "9.4% (#23 in world)
+Happiness Level: = "84%"
+Croissant Consumption: = "50 million/week"
+Cannabis use: = "4.7%"
+
+[policies]
+CorporationTax = 0.30
+SalesTax = 0.52
+PetrolTax = 0.3
+UnemployedBenefit = 0.75
+StateHealthService = 0.78
+StateSchools = 0.75
+PropertyTax = 0.73
+RailSubsidies = 0.86
+CCTVCameras = 0.5
+StatePensions = 0.88
+CapitalGainsTax = 0.3
+InheritanceTax = 0.31
+ChildBenefit = 0.7
+RaceDiscriminationAct = 0.8
+AgricultureSubsidies = 0.89
+PollutionControls = 0.5
+StateHousing = 0.72
+Narcotics = 0
+JuryTrial = 0.75
+LegalAid = 0.75
+IncomeTax = 0.62
+ForeignAid = 0.37
+ScienceFunding = 0.75
+MilitarySpending = 0.54
+LabourLaws = 0.85
+ArtsSubsidies = 0.36
+TollRoads = 0.4
+PoliceForce = 0.7
+UniversityGrants = 0.75
+MaternityLeave = 0.8
+Creationism = 0.75
+Tasers = 0.2
+DisabilityBenefit = 0.83

@@ -1,0 +1,29 @@
+[names]
+The Liberal Democrats
+The Social Democrats
+The Jehovah Party
+The Democratic Conservatives
+The Liberal Party
+The Conservatives
+The Republicans
+The Democrats
+The Justice Party
+The Freedom Party
+The National Unity Party
+The Green Party
+The Liberal Coalition
+The Peoples Party
+The Peoples Front
+The Popular Front
+The National Front
+The Peoples Popular Front
+The Labour Party
+The Independence Party
+The Reform Party
+The Democratic Union
+The Democratic Movement
+The Peoples Movement
+The Socialist Party
+The Socialist Coalition
+The Liberal Front
+The Secular Party

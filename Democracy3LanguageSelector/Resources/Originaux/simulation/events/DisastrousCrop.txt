@@ -1,0 +1,10 @@
+[config]
+Name = DisastrousCrop
+GUIName = Disastrous Crop
+Texture = "event_badcrops.jpg"
+Description = Unusually bad weather has ruined many of the crops that our citizens grow. This is very bad news for our farmers, who will lose millions in lost sales in the short term, and could suffer in the long term too as food retailers look to overseas providers to fill the gap. Its a big blow to the rural economy.
+GUISound = d3_crickets.ogg
+OnImplement = CreateGrudge(Disastrous Crop,DisastrousCrop,Farmers,-0.500,0.800);CreateGrudge(Disastrous Crop,DisastrousCrop,DisastrousCrop,-1.000,0.900);CreateGrudge(Disastrous Crop,DisastrousCrop,GDP,-0.100,0.800);
+[influences];CreateGrudge(Disastrous Crop,DisastrousCrop,Farmers_income,-0.2500,0.800);
+0 = "_random_,0,0.200"
+1 = "_winning_,0.8*(x^2)"

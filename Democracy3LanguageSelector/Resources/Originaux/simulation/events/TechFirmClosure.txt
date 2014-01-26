@@ -1,0 +1,11 @@
+[config]
+Name = TechFirmClosure
+GUIName = Tech Firm Closure
+Texture = "event_emptywarehouse.jpg"
+Description = Maybe its a global tech bubble bursting, but its still tragic news that InterGeek INC shut its doors and moved overseas today. Some people are saying that this is a major vote of no-confidence in the technological capabilities of our workforce, and in any case its bad news for the hundreds of people made redundant today.
+GUISound = d3_gate_slams.ogg
+OnImplement = CreateGrudge(Tech Firm Closure,TechFirmClosure,GDP,-0.090,0.780);CreateGrudge(Tech Firm Closure,TechFirmClosure,Capitalist,-0.450,0.700);CreateGrudge(Tech Firm Closure,TechFirmClosure,Unemployment,0.080,0.790);CreateGrudge(Tech Firm Closure,TechFirmClosure,TechFirmClosure,-0.700,0.750);
+[influences]
+0 = "_random_,0.450,0.890"
+1 = "Technology,0-(0.3*x)"
+2 = "WorkerProductivity,0-(0.6*x)"

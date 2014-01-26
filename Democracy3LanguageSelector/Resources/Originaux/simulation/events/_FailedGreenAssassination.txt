@@ -1,0 +1,10 @@
+[config]
+Name = FailedGreenAssassination
+GUIName = Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "There has been a failed attempt on your life by a Green Terrorist group known as 'The Green Brigade'. You were lucky that brave members of your intelligence forces managed to intercept them in time. In the future we may not be so lucky, so you might want to review security measures. This is a small fringe group of eco-terrorists, but the more we anger the wider environmental movement, the more attacks like this we will have to expect."
+GUISound = d3_ak47.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

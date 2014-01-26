@@ -1,0 +1,82 @@
+[config]
+currency = "$"
+population = 158334
+economic_cycle_start = 0.28
+min_income = 8000
+max_income = 150000
+min_gdp = 2021093
+max_gdp = 6063280
+wealth_mod = 23.41
+starting_debt = 3120000
+name  = usa
+guiname = "United States"
+names_file = "data\names\usanames.txt"
+term_length = 16
+max_terms = 2
+details_image = "usa_details.jpg"
+description = "The United States of America is a federal republic consisting of fifty states. The USA is the third largest country by land area and population, and is also the worlds largest national economy, with an estimated 19% of total global GDP when measured by 'purchasing-power-parity'. The country accounts for 39% of global military spending, despite containing only 4.46% of the global population. The US president acts as both head of state and the head of government, as well as commander-in-chief of the US Armed Forces."
+flag = "flag_usa.jpg"
+apathy = 0.58
+jobtitle = "President"
+GUID = 4
+
+[options]
+EARTHQUAKES
+HURRICANES
+
+[stats]
+Population: = "316,668,567 (July 2013)"
+Size: = "9,826,675 sq km"
+Life expectancy: = "78.62 years"
+Gini(inequality): = "47.7"
+GDP per capita: = "$49,800"
+Poverty: = "16% (2006)"
+Ethnicity: = "79.9% white"
+Religion: = "Christian(78.3%)"
+Obesity Rate: = "30.6%"
+Big Mac Index: = "$4.2"
+Beef Consumption: = "57.4lbs/person"
+
+[policies]
+CorporationTax = 0.30
+SalesTax = 0.31
+PetrolTax = 0.04
+UnemployedBenefit = 0.12
+StateHealthService = 0.1
+StateSchools = 0.35
+PropertyTax = 0.11
+RailSubsidies = 0.45
+TobaccoTax = 0.15
+ArmedPolice = 0.58
+StatePensions = 0.51
+PollutionControls = 0.33
+LabourLaws = 0.1
+MilitarySpending = 1.0
+FoodStamps = 0.82
+PrivatePrisons = 0.12
+TechnologyColleges = 0.82
+TechnologyGrants = 0.75
+SpaceProgram = 0.75
+SchoolBuses = 0.75
+LegalAid = 0.5
+JuryTrial = 0.73
+HybridCarsInitiative = 0.25
+GatedCommunities = 0.6
+ForeignAid = 0.22
+DeathPenalty = 0.05
+HandgunLaws = 0.2
+BiofuelSubsidies = 0.75
+IncomeTax = 0.34
+AlcoholLaw = 0.6
+CapitalGainsTax = 0.33
+CarTax = 0.2
+InheritanceTax = 0.2
+BorderControls = 0.4
+PoliceForce = 0.55
+IntelligenceServices = 0.78
+PrisonerTagging = 0.55
+SmallBusinessGrants = 0.6
+CitizenshipTests = 0.22
+SchoolVouchers = 0.2
+Narcotics = 0.1
+FoodStandards = 0.52

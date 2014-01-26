@@ -1,0 +1,13 @@
+[config]
+Name = ReligiousPlot
+GUIName = Religious Plot!
+UsedBy = CrusadersOfTheLord
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Our security services have been watching the group of religious extremists known as 'Crusaders of The Lord' for some time, and recent statements by their leader have given us cause for concern. The organization has become more militant, often advocating violence and direct attacks against enemies of god, and specifically, your government. We believe this represents a material threat to our security, and we should keep a close watch on them."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

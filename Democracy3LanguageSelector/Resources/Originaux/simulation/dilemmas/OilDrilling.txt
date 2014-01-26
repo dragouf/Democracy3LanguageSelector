@@ -1,0 +1,17 @@
+[dilemma]
+name=OilDrilling
+guiname=Oil Drilling Opportunity
+description=Oil companies are keen to get permission to drill for oil in part of the country protected as a wildlife refuge. The oil supplies under the refuge are considerable but the drilling would have a negative impact on the environment.
+
+[influences]
+0 = _random_,0.4,0.9
+
+[option0]
+Name = Allow Drilling
+Description = There are literally billions of barrels of oil right here on our soil, and current law is preventing us from drilling for it. Instead, we are importing oil from other countries. The environmental impact will be minimal when you consider the gains that drilling makes in terms of energy security. Nobody wants to spoil the environment, but the alternative is reliance on foreign oil.
+OnImplement = CreateGrudge(Oil Drilling Opportunity,OilDrilling,Capitalist,0.03,0.9f);CreateGrudge(Oil Drilling Opportunity,OilDrilling,Environmentalist,-0.08,0.9f);CreateGrudge(Oil Drilling Opportunity,OilDrilling,OilSupply,0.08,0.9f);
+
+[option1]
+Name = Prevent Drilling
+Description = This valuable wildlife refuge would be devastated by oil exploration. This is one of our nations great national treasures, and it would be criminal to wreck it just to boost domestic oil production. Drilling in this part of the country will not entirely remove our dependence on foreign oil, but it will spoil our natural environment for future generations.
+OnImplement = CreateGrudge(Oil Drilling Opportunity,OilDrilling,Capitalist,-0.04,0.9f);CreateGrudge(Oil Drilling Opportunity,OilDrilling,Environmentalist,0.06,0.9f);

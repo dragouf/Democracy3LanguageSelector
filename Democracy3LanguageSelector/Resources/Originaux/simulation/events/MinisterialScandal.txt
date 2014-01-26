@@ -1,0 +1,10 @@
+[config]
+Name = MinisterialScandal
+GUIName = Ministerial Scandal!
+Texture = "event_affair.jpg"
+Description = It might not be anything to do with your policies or your personal conduct, but the actions of your staff are going to reflect on you. One of your junior ministers has been found to have an 'improper' relationship with his secretary. Our more conservative citizens are bound to disapprove and this could make for a noticeable drop in our popularity.
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Ministerial Scandal!,MinisterialScandal,_All_,-0.10,0.740);CreateGrudge(Ministerial Scandal!,MinisterialScandal,Conservatives,-0.250,0.790);CreateGrudge(Ministerial Scandal!,MinisterialScandal,MinisterialScandal,-0.950,0.800);CreateGrudge(Ministerial Scandal!,MinisterialScandal,Religious,-0.200,0.700);
+[influences]
+0 = "_random_,0.200,0.400"
+1 = "_winning_,0+(0.7*x)"

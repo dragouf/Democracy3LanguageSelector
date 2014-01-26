@@ -1,0 +1,10 @@
+[config]
+Name = FailedLiberalAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "Apologies for rushing you out of the building in a hurry, but that explosion was an assassination attempt on you carried out by an extremist liberal splinter group known as 'The Freedom League'. They are apparently angry enough about your government's treatment of liberal issues to try and blow you to pieces. Thankfully our security services managed to discover the bomb before it went off. We might not be so lucky next time."
+GUISound = d3_explosion.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

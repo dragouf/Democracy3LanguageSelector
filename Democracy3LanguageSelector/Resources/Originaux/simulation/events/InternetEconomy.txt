@@ -1,0 +1,10 @@
+[config]
+Name = InternetEconomy
+GUIName = Internet Economy Takes off
+Texture = "event_datacenter.jpg"
+Description = Business leaders have declared that our country is one of the most internet and technology centered economies in the world. A record number of our citizens now shop and work over the internet, and broadband web access is now almost universal.
+GUISound = d3_computers.ogg
+OnImplement = CreateGrudge(Internet Economy Takes off,InternetEconomy,InternetEconomy,-0.900,0.970);
+[influences]
+0 = "_random_,0.000,0.080"
+1 = "Technology,0+(0.9*x)"

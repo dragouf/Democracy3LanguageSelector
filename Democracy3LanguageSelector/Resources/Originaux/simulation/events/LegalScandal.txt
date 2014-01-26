@@ -1,0 +1,12 @@
+[config]
+Name = LegalScandal
+GUIName = Legal Scandal!
+Texture = "event_law.jpg"
+Description = Confidence in our legal system has dropped through the floor after investigative journalists have discovered a number of serious 'miscarriages of justice' including people found guilty of murder despite minimal evidence. There is outrage amongst liberals who blame the government for completely inadequate provision of legal safeguards to ensure the rights of the accused.
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Legal Scandal!,LegalScandal,Liberal,-0.400,0.700);CreateGrudge(Legal Scandal!,LegalScandal,LegalScandal,-0.900,0.800);
+[influences]
+0 = "_random_,0.600,1.000"
+1 = "JuryTrial,0-(0.33*x)"
+2 = "LegalAid,0-(0.28*x)"
+3 = "_winning_,0.2*(x^2)"

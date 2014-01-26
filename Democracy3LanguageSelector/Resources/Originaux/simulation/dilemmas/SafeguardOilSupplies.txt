@@ -1,0 +1,18 @@
+[dilemma]
+name=SafeguardOilSupplies
+guiname=Safeguard Oil Supplies
+description=Representatives from oil companies based in our country have requested that the government deploy troops overseas at our oil refineries in the middle east to protect them from attack by terrorists. The governments involved are happy for our troops to be stationed on their soil for this purpose.
+
+[influences]
+0 = _random_,0.2,0.9
+
+[option0]
+Name = Send the troops
+Description = This is why we have a military, and we should not be afraid to use it. Foreign terrorists need to understand that we are prepared to take determined action to safeguard our oil supplies. This is not a 'foreign invasion', merely the provision of extra security for vital parts of our industry that happen to be overseas. If we do not deploy troops, the oil supply *will* suffer.
+OnImplement = CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,Patriot,0.13,0.96);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,Liberal,-0.19,0.96);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,ForeignRelations,-0.14,0.88);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,_Terrorism,0.06,0.96);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,Capitalist,0.13,0.96);PlaySound(march.ogg);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,EthnicMinorities,-0.16,0.92);
+
+[option1]
+Name = Do not deploy troops
+Description = It doesn't matter what our motivation is, the symbolism of our troops landing on foreign soil, heavily armed and prepared to use deadly force, is going to cause a major backlash in some countries. Its likely this will lead to both problems with international relations and the possibility of increased terrorism. Our troops are not the security wing of the oil companies, and this is no job for them.
+OnImplement = CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,Patriot,-0.12,0.85);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,Liberal,0.10,0.96);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,OilSupply,-0.17,0.92);CreateGrudge(Safeguard Oil Supplies,SafeguardOilSupplies,EthnicMinorities,0.1,0.92);
+

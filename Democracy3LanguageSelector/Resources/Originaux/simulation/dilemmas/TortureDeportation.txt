@@ -1,0 +1,17 @@
+[dilemma]
+name=TortureDeportation
+guiname=Torture Deportation
+description=Police officers have arrested a con-man who is a staying in our country illegally. Under normal circumstances, he would be eligible to be deported back to his country of origin. The man claims that if sent back to his homeland, it is likely he will be tortured by the government.
+
+[influences]
+0 = _random_,0.2,0.9
+
+[option0]
+Name = Deport him
+Description = This man has nobody to blame for his situation but himself. He arrived here illegally, and has operated as a criminal since he got here. If he had claimed political asylum when he arrived and not began a life of crime it would be a different matter. In the circumstances we must take his claims of torture threats with a pinch of salt.
+OnImplement = CreateGrudge(Torture Deportation,TortureDeportation,Patriot,0.04,0.9f);CreateGrudge(Torture Deportation,TortureDeportation,Liberal,-0.08,0.9f);
+
+[option1]
+Name = Keep him here
+Description = It's clear that this man is hardly a model citizen, but no confidence trickster deserves to be tortured. If we truly oppose the use of torture on principle, then despite the mans history, we need to ensure we are not willing participants to torture by sending him back home. If we deport him, it could effectively become a death sentence.
+OnImplement = CreateGrudge(Torture Deportation,TortureDeportation,Patriot,-0.08,0.9f);CreateGrudge(Torture Deportation,TortureDeportation,Liberal,0.02,0.9f);

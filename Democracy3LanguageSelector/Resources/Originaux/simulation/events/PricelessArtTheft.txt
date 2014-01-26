@@ -1,0 +1,10 @@
+[config]
+Name = PricelessArtTheft
+GUIName = Priceless Art Theft
+Texture = "event_arttheft.jpg"
+Description = A gang of expert thieves have stolen one of the most famous paintings from the national portrait gallery. The media are drawing attention to the inability of our police force to solve crimes such as this. Maybe this is a sign that we need to spend more money on law enforcement and crime prevention. The conservative media are especially outraged.
+GUISound = d3_siren.ogg
+OnImplement = CreateGrudge(Priceless Art Theft,PricelessArtTheft,Conservatives,-0.240,0.900);CreateGrudge(Priceless Art Theft,PricelessArtTheft,PricelessArtTheft,-0.900,0.900);
+[influences]
+0 = "CrimeRate,0+(1.0*x)"
+1 = "_random_,0.000,0.200"

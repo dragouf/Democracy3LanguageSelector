@@ -1,0 +1,19 @@
+[config]
+Name = ReligiousAssassination
+GUIName = Assassination!
+UsedBy = CrusadersOfTheLord
+Type = ASSASSINATION
+MinStrength = 40
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "Today is a dark day for Democracy, as a group of religious extremists calling themselves 'Crusaders of The Lord' succeeded in assassinating the democratically elected ruler of this country. A combined attack involving half a dozen gunman, and a powerful car bomb, overwhelmed our security services at a recent public speaking event. twelve people died, including you. Game Over."
+OnSuccess = GameOver(ReligiousAssassination);
+protaginist_texture = voter_religious.dds
+GUISound = d3_gameover_bombandguns.ogg
+FailureText = ""
+OnFailure = CreateGrudge(ReligiousAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedReligiousAssassination);
+
+[prereqs]
+ReligiousPlot
+

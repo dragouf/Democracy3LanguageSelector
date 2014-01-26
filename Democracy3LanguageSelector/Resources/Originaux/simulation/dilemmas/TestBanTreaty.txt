@@ -1,0 +1,17 @@
+[dilemma]
+name=TestBanTreaty
+guiname=Nuclear Test Ban Treaty
+description=The united nations is pushing for your country to sign a treaty that would ban us from carrying out any nuclear weapons tests for research purposes. Many other nations have already signed the treaty and are pressuring us to sign through diplomatic channels.
+
+[influences]
+0 = _random_,0.3,0.9
+
+[option0]
+Name = Sign the treaty
+Description = We have no real need to carry out further tests, it's not like the current generation of weapons do not work, or are not powerful enough. Signing the treaty will keep environmental campaigners happy and will raise our popularity on the international stage.
+OnImplement = CreateGrudge(Nuclear Test Ban Treaty,TestBanTreaty,Patriot,-0.03,0.9f);CreateGrudge(Nuclear Test Ban Treaty,TestBanTreaty,Environmentalist,0.06,0.9f);
+
+[option1]
+Name = Do not sign treaty
+Description = It's vital that we retain the right to carry out limited testing. We live in a dangerous world and our nuclear deterrent is vital to our defense. It's not for other nations to tell us how to defend ourselves. Besides, testing is required to ensure our weapons still remain usable.
+OnImplement = CreateGrudge(Nuclear Test Ban Treaty,TestBanTreaty,Patriot,0.07,0.9f);CreateGrudge(Nuclear Test Ban Treaty,TestBanTreaty,Environmentalist,-0.04,0.9f);

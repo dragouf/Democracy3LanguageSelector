@@ -1,0 +1,12 @@
+[config]
+Name = IslandInvaded
+GUIName = Island Invaded
+Texture = "event_soldier.jpg"
+Description = "You may have forgotten that technically we have sovereignty of the tiny pacific island of Marbudos. Well, the good news is that we still technically do, but the bad news is that as of 9AM this morning, we no longer have effective control of the island. Separatist rebels stormed the governors building and seized control of the entire island, meeting with very little opposition. If we had a stronger military we would have a better garrison on the island and this would not have happened. There is nothing we can do now, but Patriots are outraged you let this happen."
+GUISound = d3_army_march.ogg
+OnImplement = CreateGrudge(Island Invaded,IslandInvaded,IslandInvaded,-1.0,1.0);CreateGrudge(Island Invaded,IslandInvaded,_All_,-0.280,0.820);CreateGrudge(Island Invaded,IslandInvaded,Patriot,-0.55,0.80);CreateGrudge(Island Invaded,IslandInvaded,Patriot_freq,0.17,0.89);
+[influences]
+0 = "_random_,0.4,0.9"
+1 = "MilitarySpending,0-(0.91*x)"
+2 = _winning_,0+(0.6*x)"
+3 = "NationalService,"0-(x*0.3)"

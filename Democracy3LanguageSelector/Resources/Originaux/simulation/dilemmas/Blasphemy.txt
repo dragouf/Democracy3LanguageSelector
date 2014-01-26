@@ -1,0 +1,17 @@
+[dilemma]
+name=BLASPHEMY
+guiname=Blasphemy
+description=A book has been published which is highly critical of a religion followed by a cross section of our society. Religious leaders have described the book as blasphemy and demanded that it be removed from sale. There have been violent protests outside bookstores where copies of the book have been burned.
+
+[influences]
+0 = _random_,0,0.8
+
+[option0]
+Name = Ban the book
+Description = This book is highly offensive and we should take into account the views of our ethnic minorities. Its entirely reasonable to restrict the sale of material like this which is likely to cause a public disturbance. Ban the book.
+OnImplement = CreateGrudge(Blasphemy,BLASPHEMY,Liberal,-0.13,0.9);CreateGrudge(Blasphemy,BLASPHEMY,Religious,0.13,0.9);
+
+[option1]
+Name = Take no action
+Description = You cannot give in to the demands of a small group of extremists demanding that we ban a book. Before we know it there will be capitalists wanting to ban the works of Karl Marx. Freedom to express peoples views, even if those views are controversial is one of the basic freedoms of our society.
+OnImplement = CreateGrudge(Blasphemy,BLASPHEMY,Liberal,0.10,0.9);CreateGrudge(Blasphemy,BLASPHEMY,Religious,-0.21,0.9);

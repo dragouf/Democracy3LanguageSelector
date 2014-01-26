@@ -1,0 +1,11 @@
+[config]
+Name = StressEpidemic
+GUIName = Stress Epidemic
+Texture = "event_stress.jpg"
+Description = Doctors have warned that our businesses are working people too hard which is leading to dangerously high levels of stress for people with full time jobs. There are calls for limits on the hours that people work to be better enforced by central government.
+GUISound = d3_stressed.ogg
+OnImplement = CreateGrudge(Stress Epidemic,StressEpidemic,StressEpidemic,-0.800,0.950);
+[influences]
+0 = "_random_,0.000,0.120"
+1 = "WorkingWeek,0.2+(0.8*x)"
+2 = "MaternityLeave,-0.04-(0.12*x)"

@@ -1,0 +1,17 @@
+[dilemma]
+name=Euthanasia
+guiname=Euthanasia
+description=A once famous citizen, age 66 is suffering from a terminal disease and living in constant severe pain. Although modern medical techniques can keep him alive for many more years he has expressed a repeated desire to be allowed to take his own life.
+
+[influences]
+0 = _random_,0.2,0.9
+
+[option0]
+Name = Legalize euthanasia
+Description = It is incredibly cruel to keep people living in permanent pain when there is no hope of recovery and they have already expressed a will not to carry on with their life. As modern medical technology advances this is going to be more common as we are able to keep people alive in pain or in a coma for many years.
+OnImplement = CreateGrudge(Euthanasia,Euthanasia,Liberal,0.05,0.9f);CreateGrudge(Euthanasia,Euthanasia,Conservatives,-0.05,0.9f);CreateGrudge(Euthanasia,Euthanasia,Religious,-0.10,0.9f);
+
+[option1]
+Name = Leave law unchanged
+Description = Everyone has sympathy for those involved in these situations but changing the law is the wrong decision. This would be the thin end of the wedge, once the principle of helping people to die is in law the pressure will be on anyone with a terminal condition, especially where medical care is expensive. Don't change the law.
+OnImplement = CreateGrudge(Euthanasia,Euthanasia,Liberal,-0.05,0.9f);CreateGrudge(Euthanasia,Euthanasia,Conservatives,0.05,0.9f);CreateGrudge(Euthanasia,Euthanasia,Religious,0.05,0.9f);

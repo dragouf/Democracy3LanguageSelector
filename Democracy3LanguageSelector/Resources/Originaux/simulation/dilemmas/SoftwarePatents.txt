@@ -1,0 +1,18 @@
+[dilemma]
+name=SoftwarePatents
+guiname=Software Patents
+description=Software patents are a form of intellectual property law that allows companies to protect algorithms (pieces of computer code) that implement a new technology, such as a new type of translation software, or a system for purchasing online. They are generally popular with big business, but unpopular with those who fight for a 'free' internet, and those who think the patents are far too general, and stifle innovation.
+
+[influences]
+0 = _random_,0.0,0.5
+1 = Technology,0+(0.5*x)
+
+[option0]
+Name = Allow software patents
+Description = It's essential for our digital economy that we enact laws that encourage investment in new products and technologies. Without allowing software patents, we will be opening the doors to small companies, including those from overseas to step in and reap the benefits of large, expensive investments made by our technology firms. Nobody will invest in technology here without this kind of protection.
+OnImplement = CreateGrudge(Software Patents,SoftwarePatents,Liberal,-0.10,1.0);CreateGrudge(Software Patents,SoftwarePatents,Capitalist,0.05,1.0);CreateGrudge(Software Patents,SoftwarePatents,GDP,0.02,1.0);CreateGrudge(Software Patents,SoftwarePatents,Technology,0.04,1.0);
+
+[option1]
+Name = Reject software patents
+Description = Software patents sound reasonable, until you realize they can be used to stifle competition and innovation. Few of the ideas being patented are truly original discoveries, but simply a 'land grab' by lawyers to patent the obvious and ensure a virtual monopoly to the tech firms with the most lawyers. This is nothing but big-business protectionism.
+OnImplement = CreateGrudge(Software Patents,SoftwarePatents,Liberal,0.04,1.0);CreateGrudge(Software Patents,SoftwarePatents,Capitalist,-0.07,1.0);CreateGrudge(Software Patents,SoftwarePatents,GDP,-0.02,1.0);CreateGrudge(Software Patents,SoftwarePatents,Technology,-0.05,1.0);

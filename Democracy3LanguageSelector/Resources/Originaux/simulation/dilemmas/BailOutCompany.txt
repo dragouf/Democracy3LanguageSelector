@@ -1,0 +1,19 @@
+[dilemma]
+name=BAILOUTCOMPANY
+guiname=Bail Out Company
+description=Inter-Speed Autos Inc, one of the largest car companies in the country has run into serious financial difficulties and is on the verge of going under. The company executives think they can get new orders in and keep the company going if the government will provide an interest free loan to keep them running for the next few months. The final cost is estimated at <SPENDADJUST_600>.
+
+[influences]
+0 = _default_,0.9+(0*x)
+1 = GDP,0-(0.6*x)
+2 = WorkerProductivity,0-(0.15*x)
+
+[option0]
+Name = Help The Company
+Description = This company employs thousands of people and there are a lot of other companies that manufacture components for them who will also be affected if the company goes under. Just think of the effect it will have on the local economy if we let this company close down. We should provide a tax-free loan.
+OnImplement = CreateGrudge(Bail Out Company,BAILOUTCOMPANY,Capitalist,-0.08,0.9f);CreateGrudge(Bail Out Company,BAILOUTCOMPANY,TradeUnionist,0.12,0.9f);SpendAdjusted(600);
+
+[option1]
+Name = Do Nothing
+Description = This is called the free market. The Company is going under because it is not profitable. If it was sensible to lend them money the private sector would be doing so. This is just throwing good money after bad. Sure there will be short term unemployment, but you can't fight the free market.
+OnImplement = CreateGrudge(Bail Out Company,BAILOUTCOMPANY,Capitalist,0.06,0.9f);CreateGrudge(Bail Out Company,BAILOUTCOMPANY,TradeUnionist,-0.18,0.9f);CreateGrudge(Bail Out Company,BAILOUTCOMPANY,Unemployment,0.13,0.9f);

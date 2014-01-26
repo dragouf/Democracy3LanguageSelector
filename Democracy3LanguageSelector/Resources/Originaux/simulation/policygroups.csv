@@ -1,0 +1,8 @@
+token,name,start angle,stop angle,tile,width,height
+#,FOREIGNPOLICY,335,25,tile_foreignpolicy.bmp,300,72
+#,WELFARE,25,65,tile_welfare.bmp,216,72
+#,ECONOMY,65,120,tile_economy.bmp,226,72
+#,TAX,120,180,tile_tax.bmp,108,72
+#,PUBLICSERVICES,180,245,tile_publicservices.bmp,362,72
+#,LAWANDORDER,245,285,tile_lawandorder.bmp,300,72
+#,TRANSPORT,285,335,tile_transport.bmp,286,72

@@ -1,0 +1,19 @@
+[dilemma]
+name=SchoolSponsorship
+guiname=School Sponsorship
+description=A number of large corporations have expressed an interest in investing in our school system. Everything from free schoolbooks to entire sports centers is offered in return for some branding and promotional opportunities.
+
+[influences]
+0 = _random_,0,1.0
+1 = Education,0-(0.2*x)
+
+[option0]
+Name = Allow sponsorship
+Description = It would be crazy to turn down the offer of free educational materials. The government cannot provide the state of the art facilities that these companies are prepared to build in our schools. Having company logos on school books is a trivial price to pay for such large investment in education.
+OnImplement = CreateGrudge(School Sponsorship,SchoolSponsorship,Liberal,-0.08,0.9f);CreateGrudge(School Sponsorship,SchoolSponsorship,Education,0.04
+,0.9f);CreateGrudge(School Sponsorship,SchoolSponsorship,Socialist,-0.05,0.9f);CreateGrudge(School Sponsorship,SchoolSponsorship,Capitalist,0.05,0.9f);
+
+[option1]
+Name = Prevent sponsorship
+Description = Our schools are places for kids to be educated, not to be brainwashed in buying this or that brand of cola. Advertising is everywhere in society and schools are one of the last places we can escape from it. Keep big business out of education!
+OnImplement = CreateGrudge(School Sponsorship,SchoolSponsorship,Liberal,0.05,0.9f);CreateGrudge(School Sponsorship,SchoolSponsorship,Socialist,0.02,0.9f);

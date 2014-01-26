@@ -1,0 +1,17 @@
+[dilemma]
+name=FlagBurning
+guiname=Flag Burning Law
+description=A proposal has been made to make it a specific criminal offence to burn the flag of our nation. Patriots are concerned that people are whipping up anti-government hysteria by burning the flag of our nation in public, with the police powerless to act.
+
+[influences]
+0 = _random_,0,0.8
+
+[option0]
+Name = Ban flag burning
+Description = Many people are insulted by the thought of people burning the flag of their nation. The flag does not represent a specific political party, it represents the country itself. Burning the flag is a deeply unpatriotic act and anyone who would do such a thing should not be in this country in the first place.
+OnImplement = CreateGrudge(Flag Burning Law,FlagBurning,Patriot,0.13,0.9f);CreateGrudge(Flag Burning Law,FlagBurning,Liberal,-0.08,0.9f);
+
+[option1]
+Name = Allow flag burning
+Description = We cannot claim to be a free society whilst at the same time denying the right of people who oppose our government to express that view, even if that means burning the flag. At the end of the day, the flag is just a peace of cloth and how can we make it a criminal offence to burn a piece of cloth?
+OnImplement = CreateGrudge(Flag Burning Law,FlagBurning,Patriot,-0.22,0.9f);CreateGrudge(Flag Burning Law,FlagBurning,Liberal,0.08,0.9f);

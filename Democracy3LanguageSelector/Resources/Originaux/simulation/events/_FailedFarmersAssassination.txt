@@ -1,0 +1,10 @@
+[config]
+Name = FailedFarmersAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "At 10.21AM today our security people arrested a man trying to get his way into a press briefing with a loaded shotgun. Apparently he was from 'The Farmers Alliance', an extremist group formed to fight government policies on agriculture. Security forces have been watching this organization for some time, and it's clear that as long as government policies do not change, we are going to have to expect more attacks like this. This time, we got lucky."
+GUISound = d3_siren.wav
+OnImplement = 
+Type = SPECIAL
+[influences]
+

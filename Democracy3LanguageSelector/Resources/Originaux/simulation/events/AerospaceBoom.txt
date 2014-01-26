@@ -1,0 +1,12 @@
+[config]
+Name = AerospaceBoom
+GUIName = Aerospace Contract Won!
+Texture = "event_airplane.jpg"
+Description = One of our aircraft manufacturers has just won a huge contract to produce new planes. This is great news for the industry, and superb news for employment and the economy as a whole! Pundits are saying a business-friendly tax system is one reason we got the contract
+GUISound = d3_airplane.ogg
+OnImplement = CreateGrudge(Aerospace Contract Won!,AerospaceBoom,Unemployment,-0.080,0.650);CreateGrudge(Aerospace Contract Won!,AerospaceBoom,GDP,0.030,0.880);CreateGrudge(Aerospace Contract Won!,AerospaceBoom,AerospaceBoom,-0.950,0.970);
+[influences]
+0 = "_random_,0.000,1.000"
+1 = "CorporationTax,0-(0.4*x)"
+2 = "SalesTax,0-(0.44*x)"
+3 = "_winning_,-0.4*(x^4)"

@@ -1,0 +1,13 @@
+[names]
+Parti socialiste (PS)
+Union pour un mouvement populaire (UMP)
+Union des Democrates et Independants (UDI)
+Europe Ecologie Les Verts (EELV)
+Parti radical de gauche (PRG)
+Front de gauche (FG)
+Mouvement republicain et citoyen (MRC)
+Front national (FN)
+Mouvement democrate (MoDem)
+Debout la Republique (DLR)
+Mouvement unitaire progressiste (MUP)
+Mouvement pour la France (MPF)

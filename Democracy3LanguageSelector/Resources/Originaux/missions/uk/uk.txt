@@ -1,0 +1,77 @@
+[config]
+currency = "£"
+population = 31523
+economic_cycle_start = 0.43
+min_income = 8000
+max_income = 150000
+min_gdp = 800000
+max_gdp = 2400000
+wealth_mod = 4.79
+starting_debt = 800000
+name  = uk
+guiname = "United Kingdom"
+names_file = "data\names\uknames.txt"
+term_length = 16
+max_terms = -1
+details_image = "uk_details.jpg"
+description = "The United Kingdom of Great Britain and Northern Ireland, commonly known as the UK or Britain, is one of five permanent members of the UN Security Council, and a founding member of NATO and the Commonwealth. The UK is also an active member of the EU, although it chose to retain its sovereign currency rather than join the Euro. The UK is a constitutional Monarchy, where the Monarch's power is effectively ceremonial. A parliamentary system is used to elect the House of Commons under a constituency-based 'first-pass-the-post' system."
+flag = "flag_uk.jpg"
+apathy = 0.4
+jobtitle = "Prime Minister"
+GUID = 1
+
+[options]
+MONARCHY
+FOXES
+
+[stats]
+Population: = "63,047,162 (July 2012)"
+Size: = "243,610 sq km"
+Life expectancy: = "80.17 years"
+Gini(inequality): = "41"
+GDP per capita: = "$36,700"
+Poverty: = "14% (2006)"
+Ethnicity: = "92.1% white"
+Religion: = "Christian(71.6%)"
+Tea Consumption: = "2.3kgs/person"
+Obesity Rate: = "23%"
+Big Mac Index: = "$3.32"
+
+[policies]
+CorporationTax = 0.22
+SalesTax = 0.44
+PetrolTax = 0.3
+UnemployedBenefit = 0.21
+StateHealthService = 0.68
+StateSchools = 0.36
+PropertyTax = 0.4
+RailSubsidies = 0.63
+TobaccoTax = 0.2
+CommunityPolicing = 0.63
+CCTVCameras = 0.8
+StatePensions = 0.6
+CapitalGainsTax = 0.2
+InheritanceTax = 0.3
+AlcoholTax = 0.25
+ChildBenefit = 0.7
+RaceDiscriminationAct = 0.8
+BusLanes = 0.5
+AgricultureSubsidies = 0.4
+PollutionControls = 0.5
+StateHousing = 0.5
+Narcotics = 0
+JuryTrial = 0.5
+LegalAid = 0.5
+IncomeTax = 0.45
+ForeignAid = 0.4
+CleanEnergySubsidies = 0.58
+Recycling = 0.23
+ScienceFunding = 0.3
+FoodStandards = 0.6
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+[config]
+Name = ReligiousCondemnation
+GUIName = Religious Condemnation
+Description = The head of the church has called upon you to resign and told his followers not to vote for you or support your party. You have been described as an amoral and spiritually corrupt leader who should not be given the support of the church.
+Texture = "event_religion.jpg"
+GUISound = d3_church.ogg
+OnImplement = "CreateGrudge(Religious Condemnation,ReligiousCondemnation,ReligiousCondemnation,-0.900,0.900)"
+
+[influences]
+0 = "_random_,0.100,0.150"
+1 = "Religious,0.14-(1.0*x)"

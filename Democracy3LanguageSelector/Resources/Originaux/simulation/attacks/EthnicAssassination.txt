@@ -1,0 +1,18 @@
+[config]
+Name = EthnicAssassination
+GUIName = Assassination!
+UsedBy = BlackPowerGroup
+MinStrength = 40
+Type = ASSASSINATION
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "Today, at approximately 5AM, a group of armed extremists, accusing the government of 'widespread racism' burst into government buildings and executed yourself and the rest of your cabinet in cold blood. The group claimed to be the 'Black Power Group' and said your governments conduct towards ethnic minorities had left them with no choice. What a tragic end to your political career."
+OnSuccess = GameOver(EthnicAssassination);
+protaginist_texture = voter_ethnicminorities.dds
+GUISound = d3_gameover_shots.ogg
+FailureText = ""
+OnFailure = CreateGrudge(EthnicAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedEthnicAssassination);
+
+[prereqs]
+EthnicPlot

@@ -1,0 +1,19 @@
+[dilemma]
+name=ChildLabourLaw
+guiname=Child labor law
+description=Too many of our younger citizens are leaving school early in order to take up low paying jobs. Some are even skipping school to work full time when they should be learning. The law is currently very weak with regards to preventing companies from employing under 16s in full time positions. This proposed law would make it a criminal offence to knowingly employ someone under 16 for more than 5 hours a week.
+
+[influences]
+0 = _random_,0,0.85
+1 = _LowIncome,0-(0.4*x)
+
+[option0]
+Name = Criminalize child labor
+Description = We can make speeches about how children should be in school until we are blue in the face, but unless we back up our words with legislation and  the threat of criminal action, our children will continue skipping school to earn money. We must back this law for the sake of the children!
+OnImplement = CreateGrudge(Child labor law,ChildLabourLaw,Liberal,0.1,0.9);CreateGrudge(Child labor law,ChildLabourLaw,Socialist,0.09,0.9);CreateGrudge(Child labor law,ChildLabourLaw,Parents,0.13,0.9);CreateGrudge(Child labor law,ChildLabourLaw,GDP,-0.01,0.9f);CreateGrudge(Child labor law,ChildLabourLaw,TradeUnionist,0.08,0.9);CreateGrudge(Child labor law,ChildLabourLaw,Education,0.04
+,0.9);
+
+[option1]
+Name = Leave law unchanged
+Description = This law is unnecessary. The children who are skipping school are unlikely to be those who would pay attention in class anyway, and they are contributing to the economy by working instead. Also we are running the risk of criminalizing small businessmen who may not know the age of the people they employ on a casual basis.
+OnImplement = CreateGrudge(Child labor law,ChildLabourLaw,Liberal,-0.02,0.9);CreateGrudge(Child labor law,ChildLabourLaw,Socialist,-0.06,0.9);CreateGrudge(Child labor law,ChildLabourLaw,Parents,-0.11,0.9);CreateGrudge(Child labor law,ChildLabourLaw,TradeUnionist,-0.05,0.9);

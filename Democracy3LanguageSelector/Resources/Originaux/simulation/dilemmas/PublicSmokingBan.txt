@@ -1,0 +1,18 @@
+[dilemma]
+name=PUBLIC SMOKING BAN
+guiname=Public smoking ban
+description=There are a number of suspected links between smoking and poor heath. Pressure groups have called for a ban on all smoking in public as an encouragement to smokers to give up.
+
+[influences]
+0 = _default_,0.55 +(0*x)
+1 = Health,0.5-(0.7*x)
+
+[option0]
+Name = Ban public smoking
+Description = This is a major step towards cutting the number of people in this country who die from smoking related illness. It is the duty of the state to pass laws like this in the interests of peoples health.
+OnImplement = CreateGrudge(Public smoking ban,PUBLIC SMOKING BAN,Environmentalist,0.05,0.9f);CreateGrudge(Public smoking ban,PUBLIC SMOKING BAN,Liberal,-0.08,0.9f);CreateGrudge(Public smoking ban,PUBLIC SMOKING BAN,TobaccoUse,-0.22,0.9f);
+DravenX
+[option1]
+Name = Leave law unchanged
+Description = It's not the job of the state to tell people how they live their lives. This is a total over-reaction and an attack on civil liberties. Its legal to smoke, so you should be free to do so in public. People must be free to make their own decisions about health.
+OnImplement = CreateGrudge(Public smoking ban,PUBLIC SMOKING BAN,Environmentalist,-0.05,0.9f);CreateGrudge(Public smoking ban,PUBLIC SMOKING BAN,Liberal,0.08,0.9f);

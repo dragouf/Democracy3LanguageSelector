@@ -1,0 +1,18 @@
+[dilemma]
+name=Freedomofinformation
+guiname=Freedom of information
+description=There have been calls for a law to increase the availability of information held on databases about citizens without their knowledge. These include the records held by private medical companies, insurance companies and debt collection agencies, as well as information held by government departments.
+
+[influences]
+0 = _default_,0.5+(0*x)
+1 = _random_,0,0.5
+
+[option0]
+Name = Reject proposal
+Description = Nobody likes the idea of the government holding information about them, but in some circumstances this needs to be done. The government isn't out to spy on everyone, but passing this law will just make it harder for the intelligence services to keep a watch on serious criminals and terrorists. It will also affect a large number of businesses who have customer databases, who will be swamped with yet more bureaucracy.
+OnImplement = CreateGrudge(Freedom of information,Freedomofinformation,Liberal,-0.13,1.0);CreateGrudge(Freedom of information,Freedomofinformation,StateEmployees,0.05,1.0);CreateGrudge(Freedom of information,Freedomofinformation,_security_,0.10,1.0);
+
+[option1]
+Name = Propose freedom act
+Description = It's essential that we have this law passed as it is one of the checks and balances required in any truly free society. The average law abiding citizen should not be spied on or monitored by multinational corporations with computer databases, and the potential for abuse by government agencies if the citizens cannot view what data is being stored is huge.
+OnImplement = CreateGrudge(Freedom of information,Freedomofinformation,Liberal,0.10,1.0);CreateGrudge(Freedom of information,Freedomofinformation,StateEmployees,-0.07,1.0);CreateGrudge(Freedom of information,Freedomofinformation,_security_,-0.04,1.0);

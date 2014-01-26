@@ -1,0 +1,10 @@
+[config]
+Name = SpyScandal
+GUIName = Spy Scandal
+Texture = "event_secretservice.jpg"
+Description = One of our senior intelligence officials has turned out to be a double agent for an unfriendly nation. This has opened up our intelligence services to ridicule, patriotic citizens are outraged and there are suggestions that national security is not being taken seriously by the current government
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Spy Scandal,SpyScandal,SpyScandal,-1.000,0.900);CreateGrudge(Spy Scandal,SpyScandal,Patriot,-0.400,0.700);CreateGrudge(Spy Scandal,SpyScandal,_All_,-0.070,0.800);
+[influences]
+0 = "_random_,0.000,0.920"
+1 = "IntelligenceServices,0-(0.42*x)"

@@ -1,0 +1,18 @@
+[dilemma]
+name=HUNGER STRIKE
+guiname=Hunger strike
+description=A convicted terrorist has gone on hunger strike demanding he be allowed visits from people thought to be associated with terrorist groups. We do not have the evidence to arrest his colleagues, and are currently banning all visits for this prisoner, but it looks like he will go through with his hunger strike threat and may well die in his cell.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = _random_,0,0.5
+
+[option0]
+Name = Allow visits
+Description = We might not like this man or what he stands for but we cannot allow him to die in a cell. Doing so would only reduce us to the level of the terrorist, and would also almost certainly make a martyr out of him. We should let him have visitors whilst in prison.
+OnImplement = CreateGrudge(Hunger strike,HUNGER STRIKE,Religious,0.15,0.9f);CreateGrudge(Hunger strike,HUNGER STRIKE,Liberal,0.22,0.9f);
+
+[option1]
+Name = Prevent visits
+Description = You do not negotiate with terrorists. Its as simple as that. They will only perceive any negotiation or relaxation of the rules on our part as a sign of weakness. If he dies in prison, then that's his decision and we should not be concerned.
+OnImplement = CreateGrudge(Hunger strike,HUNGER STRIKE,Religious,-0.15,0.9f);CreateGrudge(Hunger strike,HUNGER STRIKE,Liberal,-0.15,0.9f);

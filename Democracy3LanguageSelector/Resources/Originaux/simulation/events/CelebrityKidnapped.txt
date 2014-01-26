@@ -1,0 +1,10 @@
+[config]
+Name = CelebrityKidnapped
+GUIName = Celebrity Kidnapped
+Texture = "event_kidnapped.jpg"
+Description = The national newspapers are outraged at the news that one of our top sports stars has been kidnapped by a gang demanding ransom money. People see this as yet further evidence that our police force have just lost control. This is going to upset our citizens, who already feel at risk from crime. Maybe we should consider some measures to improve law enforcement?
+GUISound = d3_siren.ogg
+OnImplement = CreateGrudge(Celebrity Kidnapped,CelebrityKidnapped,Wealthy,-0.250,0.800);CreateGrudge(Celebrity Kidnapped,CelebrityKidnapped,Conservatives,-0.600,0.800);CreateGrudge(Celebrity Kidnapped,CelebrityKidnapped,CelebrityKidnapped,-0.800,0.900);
+[influences]
+0 = "PoliceForce,0-(0.4*x)"
+1 = "CCTVCameras,0-(0.22*x)"

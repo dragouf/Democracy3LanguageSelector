@@ -1,0 +1,12 @@
+[config]
+Name = TerroristsCaptured
+GUIName = Terrorists captured!
+Texture = "event_soldier.jpg"
+Description = Some of our brave soldiers fighting abroad have located and captured some terrorists who were planning an attack against us. This is a great day for the security and freedom of our country.
+GUISound = d3_army_march.ogg
+OnImplement = "CreateGrudge(Terrorists captured!,TerroristsCaptured,_All_,0.180,0.600);CreateGrudge(Terrorists captured!,TerroristsCaptured,Patriot,0.450,0.700);CreateGrudge(Terrorists captured!,TerroristsCaptured,Patriot_freq,0.800,0.700);CreateGrudge(Terrorists captured!,TerroristsCaptured,TerroristsCaptured,-0.900,0.900);"
+
+[influences]
+0 = "_random_,0.100,0.250"
+1 = "IntelligenceServices,0+(0.52*x)"
+2 = "MilitarySpending,-0.2+(0.5*x)"

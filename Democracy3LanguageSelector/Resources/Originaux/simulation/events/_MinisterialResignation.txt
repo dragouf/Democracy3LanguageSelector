@@ -1,0 +1,10 @@
+[config]
+Name = _MinisterialResignation
+GUIName = <dynamic>
+Texture = "event_resign.jpg"
+Description = <dynamic>
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Ministerial Resignation,minister_resigns,_All_,-0.10,0.7);
+Type = SPECIAL
+[influences]
+

@@ -1,0 +1,17 @@
+[dilemma]
+name=Fracking
+guiname=Fracking
+description=Hydraulic fracturing, better known as 'fracking' is a new drilling technology that allows energy companies to exploit previously unreachable deposits of shale gas. The technique is relatively new, and requires the government to give permission to use. On the one hand it opens up potentially huge supplies of energy, on the other hand, there are serious environmental concerns about the process.
+
+[influences]
+0 = _random_,0.3,0.9
+
+[option0]
+Name = Allow Fracking
+Description = This bill will give the go-ahead to energy companies to carry out commercial level fracking operations on our soil. This is great news for consumers as it will drive energy prices down, and will reduce our dependence on foreign imports of oil and gas. Plus it will be a boost for the economy. what's not to like?
+OnImplement = CreateGrudge(Fracking,Fracking,Environmentalist,-0.10,1.0);CreateGrudge(Fracking,Fracking,Capitalist,0.05,1.0);CreateGrudge(Fracking,Fracking,OilSupply,0.10,1.0);CreateGrudge(Fracking,Fracking,GDP,0.04,1.0);
+
+[option1]
+Name = Ban fracking
+Description = Fracking poses a number of dangers, not least the possibility that it is linked to earthquakes, and the very real danger of contaminating the water supply, as it involves pumping huge quantities of dangerous chemicals into the rock at very high pressures. Plus, this is just another way to perpetuate our reliance on ever dwindling supplies of climate-damaging fossil fuels.
+OnImplement = CreateGrudge(Fracking,Fracking,Environmentalist,0.08,1.0);CreateGrudge(Fracking,Fracking,Capitalist,-0.05,1.0);

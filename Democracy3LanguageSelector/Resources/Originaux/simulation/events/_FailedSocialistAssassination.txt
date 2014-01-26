@@ -1,0 +1,10 @@
+[config]
+Name = FailedSocialistAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "Earlier today, our excellent secret service personnel arrested five armed men converging on government headquarters apparently with a plan to assassinate you. We are currently interrogating the men, but so far all we know is that they are part of an extreme left-wing movement called 'The Socialist Army'. If it was not for our brave boys in the security services, you would be in the morgue right now sir..."
+GUISound = d3_siren.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

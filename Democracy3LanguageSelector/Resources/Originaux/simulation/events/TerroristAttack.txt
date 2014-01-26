@@ -1,0 +1,11 @@
+[config]
+Name = TerroristAttack
+GUIName = Terrorist Attack!
+Texture = "event_carbomb.jpg"
+Description = Disastrous news! A terrorist cell have successfully set off a car bomb in the middle of our capital, killing 3, wounding dozens and spreading fear throughout the country. Many people are calling for an immediate investigation into why the intelligence services could not do more to prevent such an atrocity. Patriots are also outraged that we have let these foreign terrorists get the upper hand.
+GUISound = d3_explosion.ogg
+OnImplement = CreateGrudge(Terrorist Attack!,TerroristAttack,Patriot,-0.600,0.750);CreateGrudge(Terrorist Attack!,TerroristAttack,Conservatives,-0.500,0.750);CreateGrudge(Terrorist Attack!,TerroristAttack,TerroristAttack,-1.000,0.900);CreateGrudge(Terrorist Attack!,TerroristAttack,Patriot_freq,0.200,0.75);CreateGrudge(Terrorist Attack!,TerroristAttack,Tourism,-0.23,0.8);
+[influences]
+0 = "_random_,0.0,0.22"
+1 = "_winning_,0+(0.3*x)"
+2 = "_Terrorism,0+(1.0*x)"

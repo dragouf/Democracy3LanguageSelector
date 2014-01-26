@@ -1,0 +1,13 @@
+[config]
+Name = ConservativePlot
+GUIName = Conservative Plot!
+UsedBy = TheMoralCrusade
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Are you aware of the growth in power of a group known as 'The Moral Crusade'? Apparently they are made up of the more obsessed members from the conservative values group known as the 'Traditional Values Alliance', and it looks like they aren't happy. We have intercepted various chatter that suggests these people might be angry enough to make an attempt on toppling the government, maybe even a suicide attack against you. Make sure you keep on your toes."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

@@ -1,0 +1,18 @@
+[dilemma]
+name=CHILDRENS FOOD
+guiname=Children's Food
+description=A law has been proposed to regulate the fat content and nutritional value of food sold to children, including food sold in fast food restaurants and of course, food served in schools. This is likely to incur costs for the food retailers.
+
+[influences]
+0 = _random_,0,0.3
+1 = Health,0.8-(0.6*x)
+
+[option0]
+Name = Leave law unchanged
+Description = You cannot interfere with the free market. This is the state interfering in peoples lives. If kids want to eat fatty junk food and the parents do not mind, then who are politicians to tell people not to eat hamburgers?
+OnImplement = CreateGrudge(Children's Food,CHILDRENS FOOD,Health,-0.05,0.9f);CreateGrudge(Children's Food,CHILDRENS FOOD,Liberal,0.10,0.9f);CreateGrudge(Children's Food,CHILDRENS FOOD,Parents,-0.06,0.9f);CreateGrudge(Children's Food,CHILDRENS FOOD,Obesity,0.05,0.9f);
+
+[option1]
+Name = Regulate Children's Food
+Description = Obesity is a major problem, which has a severe impact on peoples health. Marketing unhealthy food to people at such an early age is unacceptable and we should pass the law now to safeguard the future health of our citizens
+OnImplement = CreateGrudge(Children's Food,CHILDRENS FOOD,Health,0.07,0.9f);CreateGrudge(Children's Food,CHILDRENS FOOD,Capitalist,-0.04,0.9f);CreateGrudge(Children's Food,CHILDRENS FOOD,Parents,0.19,0.9f);CreateGrudge(Children's Food,CHILDRENS FOOD,Obesity,-0.09,0.9f);

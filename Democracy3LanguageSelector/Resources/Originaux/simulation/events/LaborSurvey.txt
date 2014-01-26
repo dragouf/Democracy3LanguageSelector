@@ -1,0 +1,10 @@
+[config]
+Name = LaborSurvey
+GUIName = Labor Survey
+Texture = "event_happyworkers.jpg"
+Description = The latest annual Labor survey shows that unemployment in our country is extremely low, made up mostly of people between jobs or retraining rather than actually unable to find work.This is being attributed to shrewd economic policies by your government.
+GUISound = d3_crowd_cheer.ogg
+OnImplement = CreateGrudge(Labor Survey,LaborSurvey,LaborSurvey,-0.900,0.800);
+[influences]
+0 = "_random_,0.000,0.120"
+1 = "Unemployment,0-(1.0*x)"

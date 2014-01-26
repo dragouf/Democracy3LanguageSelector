@@ -1,0 +1,10 @@
+[config]
+Name = CreditRatingUpgraded
+GUIName = Credit rating upgraded!
+Texture = "event_stockmarket.jpg"
+Description = "The major international credit agencies have increased the credit worthiness of your government. This is great news! It should result in lower interest rates for our debt, and also may result in a boost to GDP from a higher level of confidence by foreign investors. This news is also likely to please capitalist voters. Your current Credit Rating is now '<CREDITRATING>'"
+GUISound = d3_crowd_applause.ogg
+OnImplement = CreateGrudge(Credit rating upgraded!,CreditRatingUpgraded,Capitalist,0.050,0.70);CreateGrudge(Credit rating upgraded!,CreditRatingUpgraded,GDP,0.030,0.75);
+Type = SPECIAL
+[influences]
+

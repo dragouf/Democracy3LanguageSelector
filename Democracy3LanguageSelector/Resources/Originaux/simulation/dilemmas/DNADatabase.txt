@@ -1,0 +1,18 @@
+[dilemma]
+name=DNADatabase
+guiname=DNA Database
+description=Police chiefs are requesting that they be allowed to build up a global database of everyone's DNA to assist them in fighting crime. DNA evidence allows many previously unsolvable crimes to be tracked to the perpetrators, although there are privacy concerns.
+
+[influences]
+0 = _default_,0.5+(0*x)
+1 = Technology,0+(0.4*x)
+
+[option0]
+Name = Allow database
+Description = This is likely to be an invaluable weapon in the fight against crime. For too long, criminals have been able to deny responsibility for their crimes, and with DNA evidence we can substantially cut police time used to locate criminals such as murderers and rapists. Unless people have something to hide, they cannot possibly oppose such a measure.
+OnImplement = CreateGrudge(DNA Database,DNADatabase,Conservatives,0.09,0.9f);CreateGrudge(DNA Database,DNADatabase,Liberal,-0.10,0.9f);CreateGrudge(DNA Database,DNADatabase,CrimeRate,-0.03,0.9f);CreateGrudge(DNA Database,DNADatabase,ViolentCrimeRate,-0.05,0.9f);
+
+[option1]
+Name = Prevent database
+Description = This is a fundamental breach of our citizens human rights. We have to maintain an individuals presumption of innocence till proven guilty, and building up a 'big brother' style database of everyone makes us all feel like criminals. Are we really going to 'force' our citizens to provide DNA samples to the state or face jail?
+OnImplement = CreateGrudge(DNA Database,DNADatabase,Conservatives,-0.09,0.9f);CreateGrudge(DNA Database,DNADatabase,Liberal,0.10,0.9f);

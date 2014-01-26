@@ -1,0 +1,12 @@
+[config]
+Name = MediaBacklash
+GUIName = Media Backlash!
+Texture = "event_media.jpg"
+Description = One of our countries most popular newspapers has launched a major campaign criticizing your policies so far. This is bound to have a negative effect on your approval rating with all of this newspapers readers. Political insiders think angry capitalist newspaper owners are behind this move.
+GUISound = d3_media.ogg
+OnImplement = CreateGrudge(Media Backlash!,MediaBacklash,_All_,-0.220,0.840);CreateGrudge(Media Backlash!,MediaBacklash,MediaBacklash,-0.800,0.840);
+[influences]
+0 = "_random_,0.00,0.100"
+1 = "_winning_,0+(0.25*x)"
+2 = "Capitalist,0-(x^3)"
+3 = "Wealthy,-0.6*(x^3)"

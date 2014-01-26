@@ -1,0 +1,13 @@
+[config]
+Name = SocialistPlot
+GUIName = Socialist Plot!
+UsedBy = RevolutionaryArmy
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Dissatisfaction with your governments policies amongst some extreme socialists is pushing more and more of them into the arms of the extremist group known as 'The Revolutionary Army'. This organization is pledged to secure a socialist state by any means necessary, and we have heard rumors that they are currently procuring arms from foreign sympathizers. This is a real, material threat we need to be aware of."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

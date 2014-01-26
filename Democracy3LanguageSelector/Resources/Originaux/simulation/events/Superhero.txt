@@ -1,0 +1,12 @@
+[config]
+Name = Superhero
+GUIName = Superhero???
+Texture = "event_superhero.jpg"
+Description = News stations are buzzing with reports that a 'caped man' has been seen fighting crime in our cities. Already a number of high profile arrests have been unofficially attributed to the 'masked stranger'. Its a sign of how bad things have become on our streets that our citizens are turning to super heroes for help.
+GUISound = d3_crowd_cheer.ogg
+OnImplement = CreateGrudge(Superhero???,Superhero,CrimeRate,-0.200,0.900);CreateGrudge(Superhero???,Superhero,ViolentCrimeRate,-0.200,0.900);CreateGrudge(Superhero???,Superhero,Superhero,-0.900,0.800);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "CrimeRate,0+(0.92*x)"
+2 = "ViolentCrimeRate,0+(0.3*x)"
+1 = "_winning_,0.85-(x^0.2)"

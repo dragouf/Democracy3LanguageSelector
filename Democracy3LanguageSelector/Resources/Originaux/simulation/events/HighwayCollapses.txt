@@ -1,0 +1,10 @@
+[config]
+Name = HighwayCollapses
+GUIName = Highway Collapses
+Texture = "event_brokenroad.jpg"
+Description = One of the on ramps for a major highway has suffered a catastrophic collapse, injuring several motorists, and causing traffic chaos for miles. It transpires that warnings were issued months ago about the condition of the road, but government have not made enough funds available for maintenance. Commuters and motorists are outraged.
+GUISound = d3_demolition.ogg
+OnImplement = CreateGrudge(Highway Collapses,HighwayCollapses,Motorist,-0.320,0.800);CreateGrudge(Highway Collapses,HighwayCollapses,Commuter,-0.200,0.660);CreateGrudge(Highway Collapses,HighwayCollapses,HighwayCollapses,-0.800,0.800);
+[influences]
+0 = "_random_,0.000,1.000"
+1 = "RoadBuilding,0-(0.5*x)"

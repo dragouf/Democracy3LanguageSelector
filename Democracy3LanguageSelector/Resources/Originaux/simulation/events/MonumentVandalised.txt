@@ -1,0 +1,10 @@
+[config]
+Name = MonumentVandalised
+GUIName = Monument Vandalized
+Texture = "event_monument.jpg"
+Description = Vandalism on our streets has reached new heights today when a gang of young thugs damaged our scared war memorial. It seems that crime has got completely out of control and no place is safe from the thugs and the vandals. Conservative voters are likely to be especially disappointed that things have got this bad.
+GUISound = d3_monument_smashed.ogg
+OnImplement = CreateGrudge(Monument Vandalized,MonumentVandalised,Conservatives,-0.440,0.800);CreateGrudge(Monument Vandalized,MonumentVandalised,MonumentVandalised,-0.900,0.980);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "CrimeRate,0+(0.92*x)"

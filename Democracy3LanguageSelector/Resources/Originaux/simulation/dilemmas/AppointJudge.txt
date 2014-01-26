@@ -1,0 +1,17 @@
+[dilemma]
+name=AppointJudge
+guiname=Appoint Senior Judge
+description=One of our most senior and respected judges has died, and we now need to make a choice for his replacement amongst the nominated candidates. This individual will sit in our courts for a very long time so we must make the right decision.
+
+[influences]
+0 = _random_,0.2,0.9
+
+[option0]
+Name = Appoint <MaleName>
+Description = <MaleName> has been a strong supporter of human rights, making many landmark rulings in favor of individuals rights and liberties. He is also seen as being strongly pro-consumer, and not afraid to challenge large corporations.
+OnImplement = CreateGrudge(Appoint Senior Judge,AppointJudge,Socialist,0.04,0.9f);CreateGrudge(Appoint Senior Judge,AppointJudge,Liberal,0.10,0.9f);CreateGrudge(Appoint Senior Judge,AppointJudge,TradeUnionist,0.09,0.9f);
+
+[option1]
+Name = Appoint <FemaleName>
+Description = <FemaleName> is a household name thanks to her many famous rulings concerning violent crimes and her often outspoken views on the harsh sentences that she feels should be applied to thieves, muggers and shoplifters.
+OnImplement = CreateGrudge(Appoint Senior Judge,AppointJudge,Patriot,0.11,0.9f);CreateGrudge(Appoint Senior Judge,AppointJudge,Conservatives,0.11,0.9f);CreateGrudge(Appoint Senior Judge,AppointJudge,CrimeRate,-0.08,0.9f);CreateGrudge(Appoint Senior Judge,AppointJudge,ViolentCrimeRate,-0.05,0.9f);CreateGrudge(Appoint Senior Judge,AppointJudge,Liberal,-0.05,0.9f);

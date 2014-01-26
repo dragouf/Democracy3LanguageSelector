@@ -1,0 +1,19 @@
+[dilemma]
+name=MINIMUM WAGE
+guiname=Minimum wage
+description=At the moment we don't have a minimum wage and there is a proposal to introduce a limit below which it would be illegal to employ someone. This is designed to prevent people working for slave labor wage levels.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = PovertyRate,0+(0.6*x)
+2 = _LowIncome,0-(0.5*x)
+
+[option0]
+Name = Introduce law
+Description = We should introduce a minimum wage immediately. There are far too many cases where small companies are employing people to work in the construction or food industry for appallingly low wages. By setting a minimum wage we can ensure all working citizens have a good quality of life.
+OnImplement = CreateGrudge(Minimum wage,MINIMUM WAGE,_LowIncome,0.16,1.0);CreateGrudge(Minimum wage,MINIMUM WAGE,PovertyRate,-0.10,1.0);CreateGrudge(Minimum wage,MINIMUM WAGE,Socialist,0.19,1.0);CreateGrudge(Minimum wage,MINIMUM WAGE,Capitalist,-0.08,1.0);CreateGrudge(Minimum wage,MINIMUM WAGE,TradeUnionist,0.22,1.0);CreateGrudge(Minimum wage,MINIMUM WAGE,Wages,0.25,1.0);
+
+[option1]
+Name = Reject Law
+Description = This is free market interference at it's very worst. Nobody is forcing people to work for these wages, they are the wages that the market has settled on. Making it illegal to pay these levels will just destroy jobs and hurt the smaller companies in particular. The government should not interfere in the market.
+OnImplement = CreateGrudge(Minimum wage,MINIMUM WAGE,Socialist,-0.18,0.9f);CreateGrudge(Minimum wage,MINIMUM WAGE,Capitalist,0.10,1.0);CreateGrudge(Minimum wage,MINIMUM WAGE,TradeUnionist,-0.18,1.0);

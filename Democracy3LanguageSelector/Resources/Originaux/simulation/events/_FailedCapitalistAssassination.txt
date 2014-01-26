@@ -1,0 +1,10 @@
+[config]
+Name = FailedCapitalistAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "Secret service agents today saved you from a highly organized attempt to assassinate you. A lone sniper, with a high-tech rifle was arrested just 200 feet from where you were planning on meeting some teachers at a school opening ceremony. The assassin has confirmed intelligence service suspicions that he was hired by a top secret group of hyper-rich industrialists known as 'The Battenburg Group'. It seems there are a number of extremist capitalists who want you dead, and your government out of office. Be careful."
+GUISound = d3_failed_sniper.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

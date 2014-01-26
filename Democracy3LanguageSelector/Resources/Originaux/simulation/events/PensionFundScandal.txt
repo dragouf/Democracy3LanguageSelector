@@ -1,0 +1,9 @@
+[config]
+Name = PensionFundScandal
+GUIName = Pension Fund Scandal
+Texture = "event_pensions.jpg"
+Description = One of our largest manufacturing companies has just been investigated by the fraud department and a major pension fraud has been discovered. As well as putting this company out of business, this scandal also renders the pensions of thousands of people completely worthless. This is going to really upset our retired citizens, who will fear for their own pension arrangements.
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Pension Fund Scandal,PensionFundScandal,Retired,-0.720,0.600);CreateGrudge(Pension Fund Scandal,PensionFundScandal,PensionFundScandal,-0.900,0.900);CreateGrudge(Pension Fund Scandal,PensionFundScandal,Retired_income,-0.400,0.90);
+[influences]
+0 = "_random_,0.000,0.840"

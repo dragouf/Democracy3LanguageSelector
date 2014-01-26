@@ -1,0 +1,13 @@
+[config]
+Name = LiberalPlot
+GUIName = Liberal Plot!
+UsedBy = FreedomLeague
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Our intel department has uncovered cause for concern. Apparently a hardcore offshoot of the Human Rights Society called the 'Freedom League' might be taking their liberal agenda a bit too far. They are apparently looking at ways to topple the government, and they aren't going to attempt it by writing angry letters. Some of these extremists have got guns and our undercover agents suggest they may be serious. Be cautious."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

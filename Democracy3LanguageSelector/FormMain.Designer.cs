@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBoxForceDl = new System.Windows.Forms.CheckBox();
+            this.linkLabelRestore = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // comboBoxLanguages
@@ -221,11 +222,23 @@
             this.checkBoxForceDl.Text = "Force download translation file if unchanged";
             this.checkBoxForceDl.UseVisualStyleBackColor = true;
             // 
+            // linkLabelRestore
+            // 
+            this.linkLabelRestore.AutoSize = true;
+            this.linkLabelRestore.Location = new System.Drawing.Point(444, 175);
+            this.linkLabelRestore.Name = "linkLabelRestore";
+            this.linkLabelRestore.Size = new System.Drawing.Size(96, 13);
+            this.linkLabelRestore.TabIndex = 15;
+            this.linkLabelRestore.TabStop = true;
+            this.linkLabelRestore.Text = "Restore Originals...";
+            this.linkLabelRestore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRestore_LinkClicked);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 212);
+            this.Controls.Add(this.linkLabelRestore);
             this.Controls.Add(this.checkBoxForceDl);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -273,6 +286,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBoxForceDl;
+        private System.Windows.Forms.LinkLabel linkLabelRestore;
     }
 }
 

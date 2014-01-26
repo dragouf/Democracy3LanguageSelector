@@ -1,0 +1,18 @@
+[config]
+Name = FarmersAssasination
+GUIName = Assassination!
+UsedBy = TheLandArmy
+MinStrength = 40
+Type = ASSASSINATION
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "Farmers Assassination","Nobody can quite believe how they managed it, but somehow a group of extremists claiming to be from 'The Land Army' turned up at a press briefing today and managed to get into the meeting with a shotgun. They only managed to fire one shot before being dealt with, but that's all they needed. I'm sure heads will roll in the security services once we find out how this was possible, but that will be no consolation to your relatives. Game Over... "
+OnSuccess = GameOver(FarmersAssasination);
+protaginist_texture = voter_farmers.dds
+GUISound = d3_gameover_shotgun.ogg
+FailureText = 
+OnFailure = CreateGrudge(FarmersAssasination,Assassination attempt,0.06,0.8);TriggerEvent(FailedFarmersAssassination);
+
+[prereqs]
+FarmersPlot

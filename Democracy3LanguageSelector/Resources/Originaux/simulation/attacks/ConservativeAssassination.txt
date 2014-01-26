@@ -1,0 +1,18 @@
+[config]
+Name = ConservativeAssassination
+GUIName = Assassination!
+UsedBy = TheMoralCrusade
+MinStrength = 40
+Type = ASSASSINATION
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "It looks like the extremist group known as 'The Moral Crusade' have finally got their wish. Those gunshots you heard were from one of their members who somehow got into this government building and opened fire on you. I'm afraid the doctors say there is nothing they can do, and you best say your goodbyes. If only the intelligence services had more resources and powers, maybe they might have been able to stop those conservative extremists before they got this far. Rest in peace."
+protaginist_texture = voter_conservatives.dds
+GUISound = d3_gameover_shots.ogg
+OnSuccess = GameOver(ConservativeAssassination);
+FailureText = ""
+OnFailure = CreateGrudge(ConservativeAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedConservativeAssassination);
+
+[prereqs]
+ConservativePlot

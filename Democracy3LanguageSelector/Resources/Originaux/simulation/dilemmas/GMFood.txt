@@ -1,0 +1,17 @@
+[dilemma]
+name=GMFood
+guiname=GM Food proposal
+description=A number of large agricultural companies are interested in growing genetically modified (GM) food on our soil. Some food can be genetically manipulated to allow for longer shelf life and both disease and herbicide resistance. Opponents are concerned about the potential risks associated with altering the food chain. Farmers are divided on the issue.
+
+[influences]
+0 = _random_,0,1.0
+
+[option0]
+Name = Allow GM crops
+Description = GM crops have huge potential benefits. Not only do they increase shelf life and thus reduce costs for the sellers, but they can also reduce the need for pesticides, thus meaning less harmful chemicals in use during their production. It's also possible for foods to be created with other benefits such as improved vitamin content.
+OnImplement = CreateGrudge(GM Food proposal,GMFood,Environmentalist,-0.14,0.9f);CreateGrudge(GM Food proposal,GMFood,GDP,0.01,0.9f);CreateGrudge(GM Food proposal,GMFood,Capitalist,0.03,0.9f);
+
+[option1]
+Name = Ban the sale of GM food
+Description = There is no need for GM food. The benefits are great for the producers, but not for the consumers. We simply do not know enough about the long term effects of genetically modifying the food chain. Scientific research is all well and good, but once released into the environment, these organisms cannot be recalled. We should act now to protect the food chain from GM.
+OnImplement = CreateGrudge(GM Food proposal,GMFood,Environmentalist,0.13,0.9f);CreateGrudge(GM Food proposal,GMFood,GDP,-0.03,0.9f);CreateGrudge(GM Food proposal,GMFood,Capitalist,-0.03,0.9f);

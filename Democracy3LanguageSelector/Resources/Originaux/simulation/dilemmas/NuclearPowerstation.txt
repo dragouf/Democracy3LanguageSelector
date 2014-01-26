@@ -1,0 +1,18 @@
+[dilemma]
+name=NuclearPowerstation
+guiname=Nuclear Powerstation
+description=A large energy company wants to construct a new nuclear power station. The power station is needed as our economy grows and the company has built similar plants before so there shouldn't be any problems with its construction.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = _random_,0,0.5
+
+[option0]
+Name = Build powerstation
+Description = We should give the go-ahead immediately. Nuclear power stations are in use all over the world without problems and it would be mad to turn our backs on such a clean source of energy. Nuclear power emits no greenhouse gases so it's far preferable to expanding an existing coal-fired power station.
+OnImplement = CreateGrudge(Nuclear Powerstation,NuclearPowerstation,Environmentalist,-0.23,0.9f);CreateGrudge(Nuclear Powerstation,NuclearPowerstation,GDP,0.06,0.9f);CreateGrudge(Nuclear Powerstation,NuclearPowerstation,Unemployment,-0.03,0.9f);CreateGrudge(Nuclear Powerstation,NuclearPowerstation,OilDemand,-0.08,0.9f);
+
+[option1]
+Name = Prevent construction
+Description = Nuclear power may be generally safe, but the potential nightmare situation if there are problems means it's just not worth the risk. There are cleaner, safer forms of energy like wind, solar and wave power that we should be encouraging. Turn down this application and we can be certain the power will be found from other sources.
+OnImplement = CreateGrudge(Nuclear Powerstation,NuclearPowerstation,Environmentalist,0.07,0.9f);CreateGrudge(Nuclear Powerstation,NuclearPowerstation,GDP,-0.01,0.9f);CreateGrudge(Nuclear Powerstation,NuclearPowerstation,OilDemand,0.05,0.9f);

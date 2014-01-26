@@ -1,0 +1,9 @@
+[config]
+Name = OilPipelineAttacked
+GUIName = Oil Pipeline Attacked
+Texture = "event_pipeline.jpg"
+Description = We have just heard that there has been an attack on an oil pipeline in a neighboring country, apparently by a rebel faction, and that oil supplies to our country may be under threat. Other nations look like they will be stockpiling oil as a result, to insulate themselves against the effects of repeat attacks, and as a result, the supply of oil to us has fallen and may take a while to recover.
+GUISound = d3_explosion.ogg
+OnImplement = CreateGrudge(Oil Pipeline Attacked,OilPipelineAttacked,OilPipelineAttacked,-0.900,0.800);CreateGrudge(Oil Pipeline Attacked,OilPipelineAttacked,OilSupply,-0.250,0.800);CreateGrudge(Oil Pipeline Attacked,OilPipelineAttacked,Patriot,-0.210,0.800);
+[influences]
+0 = "_random_,0.400,1.000"

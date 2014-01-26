@@ -1,0 +1,13 @@
+[config]
+Name = EthnicPlot
+GUIName = Ethnic Plot!
+UsedBy = BlackPowerGroup
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Our latest security reports indicate a growing threat from an extremist organization known as the 'Black Power Group'. it looks like a number of people are angry about the way government policy is affecting ethnic minorities, and see eliminating the current government by force as the only way to change things. You might want to be careful about further angering ethnic minorities if you don't want to suffer an attack on your person."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

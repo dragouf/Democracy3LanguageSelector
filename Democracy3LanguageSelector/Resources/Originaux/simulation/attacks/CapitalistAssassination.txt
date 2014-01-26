@@ -1,0 +1,18 @@
+[config]
+Name = CapitalistAssassination
+GUIName = Assassination!
+UsedBy = BattenburgGroup
+MinStrength = 40
+Type = ASSASSINATION
+Cost = 30
+MinSize = 4
+SuccessChance = 0.5
+SuccessText = "You have been the victim of a carefully planned assassination. A highly skilled gunman put a bullet right through your skull using a hi-tech sniper rifle when you appeared at an event to open a new school. All the clues lead to the assassin being hired by a secretive group known as 'The Battenburg group', thought to be controlled by a number of hyper-wealthy capitalists. It seems you let your government get on the wrong side of some very powerful and rich men, and you paid the ultimate price."
+protaginist_texture = voter_capitalist.dds
+GUISound = d3_gameover_sniper.ogg
+OnSuccess = GameOver("CapitalistAssassination");
+FailureText = ""
+OnFailure = CreateGrudge(CapitalistAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedCapitalistAssassination);
+
+[prereqs]
+CapitalistPlot

@@ -1,0 +1,11 @@
+[config]
+Name = PiratesCaptureOilTanker
+GUIName = Pirates Capture Oil Tanker
+Texture = "event_tanker.jpg"
+Description = News has broken that an oil tanker heading for our shores has been captured by Somali pirates demanding a substantial ransom. This will put pressure on the oil price and worry big business, whilst also highlighting the need for more spending on the military to ensure our vessels are protected against similar attacks in future.
+GUISound = d3_piracy.ogg
+OnImplement = CreateGrudge(Pirates Capture Oil Tanker,PiratesCaptureOilTanker,PiratesCaptureOilTanker,-0.900,0.800);CreateGrudge(Pirates Capture Oil Tanker,PiratesCaptureOilTanker,_All_,-0.130,0.720);CreateGrudge(Pirates Capture Oil Tanker,PiratesCaptureOilTanker,Patriot,-0.500,0.700);CreateGrudge(Pirates Capture Oil Tanker,PiratesCaptureOilTanker,Capitalist,-0.2500,0.720);CreateGrudge(Pirates Capture Oil Tanker,PiratesCaptureOilTanker,OilPrice,0.200,0.700);
+[influences]
+0 = "_random_,0.000,0.220"
+1 = "MilitarySpending,0.82-(0.6*x)"
+2 = "OilPrice,0+(0.1*x)"

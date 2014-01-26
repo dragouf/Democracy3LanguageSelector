@@ -1,0 +1,17 @@
+[dilemma]
+name=EXTRADITE TERROR SUSPECT
+guiname=Extradite terror Suspect?
+description=A middle east country with which we have no formal extradition treaty has requested that we extradite an immigrant living here to them to face charges of terrorism. They accuse him of being responsible for car bombings in their capital city, but the only evidence they have of this is the confessions of other terror suspects, which may have been made under 'duress'.
+
+[influences]
+0 = _random_,0.2,0.9
+
+[option0]
+Name = Extradite suspect
+Description = We should send this terrorist back to his home country immediately. There may be some minor concerns about the justice system in his home country, but they are fighting terrorists, and if the situation were reversed we would be outraged at any refusal to send terrorists to face trial. This is no time to be squeamish about interrogation methods.
+OnImplement = CreateGrudge(Extradite terror Suspect?,EXTRADITE TERROR SUSPECT,Patriot,0.09,0.9f);CreateGrudge(Extradite terror Suspect?,EXTRADITE TERROR SUSPECT,Liberal,-0.13,0.9f);
+
+[option1]
+Name = Keep him here
+Description = If we extradite this man there is a chance he will face the death penalty. We have no way of knowing if he will get a fair trial, and we cannot be sure that he is the right man. We cannot extradite people just on the say-so of foreign governments, we need to see evidence of criminal activity before we possibly send a man to his death.
+OnImplement = CreateGrudge(Extradite terror Suspect?,EXTRADITE TERROR SUSPECT,Patriot,-0.12,0.9f);CreateGrudge(Extradite terror Suspect?,EXTRADITE TERROR SUSPECT,Liberal,0.10,0.9f);

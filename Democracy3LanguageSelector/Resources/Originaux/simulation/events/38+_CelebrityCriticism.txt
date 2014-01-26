@@ -1,0 +1,12 @@
+[config]
+Name = CelebrityCriticism
+GUIName = Celebrity Criticism
+Texture = "event_celebrity.jpg"
+Description = "An incredibly popular and trendy pop star has given an interview where she expresses furious opposition to your government, and has continued to defend her views online over a sustained period. As a result, many young people are likely to develop negative views about your current policies."
+MinimumTurn = 38
+GUISound = d3_celebrity.ogg
+OnImplement = CreateGrudge(Celebrity Criticism,CelebrityCriticism,Young,-0.25,0.80);CreateGrudge(Celebrity Criticism,CelebrityCriticism,CelebrityCriticism,-0.800,0.80);
+[influences]
+0 = "_random_,0.000,0.3"
+1 = "_winning_,0+(0.8*x)"
+

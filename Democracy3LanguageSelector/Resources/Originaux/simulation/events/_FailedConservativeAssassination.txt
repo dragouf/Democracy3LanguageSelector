@@ -1,0 +1,10 @@
+[config]
+Name = FailedConservativeAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "It looks like the extremist wing of the conservative 'Traditional Values Alliance' have taken it upon themselves to eliminate you as head of the government. Apparently this splinter group are known as 'The Moral Crusade' and today's bungled assassination attempt will not be their last. You must really be rattling the cages of conservatives to drive them to take actions like this."
+GUISound = d3_ak47.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

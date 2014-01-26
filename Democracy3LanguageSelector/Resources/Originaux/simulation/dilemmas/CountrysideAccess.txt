@@ -1,0 +1,18 @@
+[dilemma]
+name=CountrysideAccessLaw
+guiname=Countryside Access Law
+description=Much of our countryside is still privately owned, with access to walk on the land restricted by the landowners. There is a strong campaign to bring in laws forcing landowners to make their land accessible to ramblers and walkers to enjoy the countryside within certain guidelines.
+
+[influences]
+0 = _default_,0.8+(0*x)
+1 = Equality,-0.4+(0.4*x)
+
+[option0]
+Name = Block this law
+Description = Private land is private land. This is the very basis of private ownership and capitalism. If the owners wish to restrict access to their land, this is entirely up to them. This is nothing more than a thinly disguised class war attempt by disgruntled socialists.
+OnImplement = CreateGrudge(Countryside Access Law,CountrysideAccessLaw,Farmers,0.1,0.9f);CreateGrudge(Countryside Access Law,CountrysideAccessLaw,Socialist,-0.12,0.9f);
+
+[option1]
+Name = Support the law
+Description = It's crazy to have so much open and often entirely unused land in private hands while our cities are so overcrowded. This law will allow all citizens to enjoy the beauty of our countryside, whilst retaining the final property rights and ownership privileges of the landowner. It's a good compromise.
+OnImplement = CreateGrudge(Countryside Access Law,CountrysideAccessLaw,Equality,0.05,0.9f);CreateGrudge(Countryside Access Law,CountrysideAccessLaw,Socialist,0.11,0.9f);CreateGrudge(Countryside Access Law,CountrysideAccessLaw,Farmers,-0.15,0.9f);

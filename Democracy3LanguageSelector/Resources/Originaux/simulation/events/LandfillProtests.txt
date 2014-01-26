@@ -1,0 +1,11 @@
+[config]
+Name = LandfillProtests
+GUIName = Rubbish Tip Protests
+Texture = "event_landfill.jpg"
+Description = Green protesters have staged a noisy protest at the location of a proposed landfill site on the outskirts of one of our cities. Local people are also angry at the placement of the site. Campaigners say the government needs to do more to encourage recycling and reduce waste unless they want to find yet more sites for landfill and face more protests.
+GUISound = d3_crowd_angry_2.ogg
+OnImplement = CreateGrudge(Rubbish Tip Protests,LandfillProtests,Environmentalist,-0.120,0.670);CreateGrudge(Rubbish Tip Protests,LandfillProtests,LandfillProtests,-0.900,0.920);
+[influences]
+0 = "_random_,0.500,0.870"
+1 = "Recycling,-0.1-(0.17*x)"
+2 = "PlasticBagTax,-0.05-(0.09*x)"

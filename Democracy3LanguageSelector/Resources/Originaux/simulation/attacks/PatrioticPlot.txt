@@ -1,0 +1,13 @@
+[config]
+Name = PatrioticPlot
+GUIName = Patriotic Plot!
+UsedBy = PatriotArmy
+MinStrength = 12
+Type = PLOT
+Cost = 0
+MinSize = 4
+SuccessChance = 1.0
+SuccessText = "Although we have always considered extreme patriots such as the members of 'The Patriot Army' to be a bit crazed, the rhetoric coming from this organization in recent weeks has taken a turn for the worse. Many of them now seem certain that a military attack against their own government is justified and desirable. We do not believe that they are currently planning such an attack, but these are dangerous people and we need to keep a close watch on them."
+OnSuccess = 
+FailureText = ""
+OnFailure = 

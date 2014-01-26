@@ -1,0 +1,14 @@
+[config]
+Name = NaturalDisaster2
+GUIName = Hurricane!
+Texture = "event_storm.jpg"
+Description = A severe hurricane has hit our country causing major destruction. In the short term this is going to cause a drop in GDP as businesses hit by the hurricane have to rebuild.
+GUISound = d3_storm.ogg
+OnImplement = CreateGrudge(Hurricane!,NaturalDisaster2,GDP,-0.160,0.810);CreateGrudge(Hurricane!,NaturalDisaster2,NaturalDisaster2,-0.900,0.900);CreateGrudge(Hurricane!,NaturalDisaster2,_All_,-0.090,0.700);
+
+[prereqs]
+HURRICANES
+
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "_winning_,0+(0.75*x)"

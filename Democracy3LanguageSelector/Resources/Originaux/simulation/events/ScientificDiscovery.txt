@@ -1,0 +1,11 @@
+[config]
+Name = ScientificDiscovery
+GUIName = Scientific Discovery!
+Texture = "event_science.jpg"
+Description = For years we have wondered why those scientists spend so much time in underground tunnels mumbling about quarks and mesons, but today a major scientific discovery was announced concerning new particles, colliders and other physics mumbo-jumbo. While its true that teleportation and hyperspace aren't with us yet, this is still great news for high tech industry and a superb payoff for such an educated workforce.
+GUISound = d3_laboratory.ogg
+OnImplement = CreateGrudge(Scientific Discovery!,ScientificDiscovery,Patriot,0.160,0.700);CreateGrudge(Scientific Discovery!,ScientificDiscovery,GDP,0.060,0.770);CreateGrudge(Scientific Discovery!,ScientificDiscovery,ScientificDiscovery,-0.790,0.850);
+[influences]
+0 = "_random_,0.000,0.400"
+1 = "UniversityGrants,0+(0.4*x)"
+2 = "ScienceFunding,0+(0.4*x)"

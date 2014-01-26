@@ -1,0 +1,19 @@
+[config]
+Name = PatrioticAssassination
+GUIName = Assassination!
+UsedBy = PatriotArmy
+Type = ASSASSINATION
+MinStrength = 40
+Cost = 30
+MinSize = 8
+SuccessChance = 0.5
+SuccessText = "At 07.54 this morning, four men claiming to be from the ultra-nationalist organization 'The Patriot Army', burst into the parliament building with machine guns and launched an attack on the very heart of government. Among the 14 deaths that occurred before our security teams could take them down, was our President (You). Game Over..."
+OnSuccess = GameOver(PatrioticAssassination);
+protaginist_texture = voter_patriot.dds
+GUISound = d3_gameover_mgs.ogg
+FailureText = 
+OnFailure = CreateGrudge(PatrioticAssassination,Assassination attempt,_All_,0.06,0.8);TriggerEvent(FailedPatrioticAssassination);
+
+[prereqs]
+PatrioticPlot
+

@@ -1,0 +1,18 @@
+[dilemma]
+name=HousingExpansion
+guiname=Housing Expansion
+description=There is a shortage of homes in our country, and the government is under pressure to relax planning laws and allow previously restricted 'green-belt' land to be built on.
+
+[influences]
+0 = _random_,0.2,0.6
+1 = GDP,0+(0.6*x)
+
+[option0]
+Name = Relax planning law
+Description = House prices  are rising far faster than earnings, due mainly to the shortage of supply. In the long term, the only solution is to build more housing. It's no good providing housing where there are no jobs, and if that means building on a small proportion of 'green-belt' land then that's a price we have to pay.
+OnImplement = CreateGrudge(Housing Expansion,HousingExpansion,Environmentalist,-0.09,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,Farmers,-0.13,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,Capitalist,0.06,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,GDP,0.02,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,Homelessness,-0.08,0.9f);
+
+[option1]
+Name = Keep planning restrictions
+Description = There is always pressure to build new homes on 'green field sites', because housing companies find it cheaper and easier to build on them. There are plenty of urban sites that should be reused before we resort to carving up the countryside. A sudden expansion into the green belt would have a dreadful impact on the rural communities.
+OnImplement = CreateGrudge(Housing Expansion,HousingExpansion,Environmentalist,0.07,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,Farmers,0.09,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,Capitalist,-0.04,0.9f);CreateGrudge(Housing Expansion,HousingExpansion,Homelessness,0.08,0.9f);

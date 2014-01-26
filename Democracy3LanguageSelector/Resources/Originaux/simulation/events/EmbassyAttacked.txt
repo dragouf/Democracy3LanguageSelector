@@ -1,0 +1,13 @@
+[config]
+Name = EmbassyAttacked
+GUIName = Embassy Attacked
+Texture = "event_soldier.jpg"
+Description = Our Embassy in the middle east country of Niraqh has been attacked by extremists armed with rocket-propelled grenades. 17 Embassy staff, including 6 local interpreters have been killed, and 20 more injured. Television news is implying that it is government cut-backs in defense spending that are to blame for the poor level of security at our Embassies. Naturally, patriotic citizens are outraged.
+GUISound = d3_embassy.ogg
+OnImplement = CreateGrudge(Embassy Attacked,EmbassyAttacked,EmbassyAttacked,-0.900,0.800);CreateGrudge(Embassy Attacked,EmbassyAttacked,_All_,-0.180,0.720);CreateGrudge(Embassy Attacked,EmbassyAttacked,Patriot,-0.45,0.80);CreateGrudge(Embassy Attacked,EmbassyAttacked,Patriot_freq,0.21,0.80);
+[influences]
+0 = "_random_,0.70,1.220"
+1 = "MilitarySpending,0-(1.0*x)"
+2 = "ForeignRelations,"0.1-(x*0.2)"
+3 = "NationalService,"0.1-(x*0.1)"
+

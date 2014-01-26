@@ -1,0 +1,18 @@
+[dilemma]
+name=STOP AND SEARCH POLICE POWERS
+guiname=Stop and search
+description=There are demands from the police for the power to stop and search people on the street if they believe that individual may be guilty of a crime. Currently our police cannot search someone without formally arresting them.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = CrimeRate,0+(0.7*x)
+
+[option0]
+Name = Introduce powers
+Description = This will be a valuable weapon in the fight against crime and should have a noticeable impact on violent and street crime especially. If our citizens have nothing to hide, then they have nothing to fear from this law.
+OnImplement = CreateGrudge(Stop and search,STOP AND SEARCH POLICE POWERS,CrimeRate,-0.07,0.9f);CreateGrudge(Stop and search,STOP AND SEARCH POLICE POWERS,Liberal,-0.11,0.9f);
+
+[option1]
+Name = Leave unchanged
+Description = This is a very dangerous move. Its wide open to abuse on racial grounds, and will further distance the police from the community. Our citizens should be free to go about their lawful business without interference from the authorities!
+OnImplement = CreateGrudge(Stop and search,STOP AND SEARCH POLICE POWERS,Liberal,0.11,0.9f);

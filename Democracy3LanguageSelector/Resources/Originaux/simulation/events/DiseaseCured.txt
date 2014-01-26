@@ -1,0 +1,10 @@
+[config]
+Name = DiseaseCured
+GUIName = Disease Cured!
+Texture = "event_disease.jpg"
+Description = Scientists throughout the land have cracked open champagne to celebrate the cure of another infectious disease. This fantastic breakthrough has been made possible by our steady investment in Health and a team of highly educated and skilled scientists. This is excellent 'feel-good' news which should help our poll ratings.
+GUISound = d3_laboratory.ogg
+OnImplement = CreateGrudge(Disease Cured!,DiseaseCured,Parents,0.400,0.800);CreateGrudge(Disease Cured!,DiseaseCured,DiseaseCured,-0.900,0.700);EarnAdjusted(2000);
+[influences]
+0 = "StateHealthService,0+(0.6*x)"
+1 = "PrivateHealthcare,0+(0.4*x)"

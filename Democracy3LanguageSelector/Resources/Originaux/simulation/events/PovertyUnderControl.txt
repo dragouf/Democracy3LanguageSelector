@@ -1,0 +1,10 @@
+[config]
+Name = PovertyUnderControl
+GUIName = Poverty Under Control
+Texture = "event_happyworkers.jpg"
+Description = Charities have happily announced that Poverty is not a serious issue anywhere in our country. A series of government measures have managed to get poverty easily under control, and these charities say our poverty rates compare fantastically with many of our neighboring countries.
+GUISound = d3_crowd_applause.ogg
+OnImplement = CreateGrudge(Poverty Under Control,PovertyUnderControl,_All_,0.040,0.700);CreateGrudge(Poverty Under Control,PovertyUnderControl,PovertyUnderControl,-0.900,0.800);
+[influences]
+0 = "_random_,-0.100,0.100"
+1 = "PovertyRate,0.9-(x*0.85)"

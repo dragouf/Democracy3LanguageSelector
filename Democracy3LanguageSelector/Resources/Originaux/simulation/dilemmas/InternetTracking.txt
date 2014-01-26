@@ -1,0 +1,19 @@
+[dilemma]
+name=InternetTracking
+guiname=Internet Tracking
+description=The increasing capability of large corporations to use customer databases and 'big data' to analyze consumer behavior has led to concerns about privacy. The companies insist that such data is anonymous in many cases and is being used purely to provide a better service, whereas campaigners suggest big faceless corporations are creating 'big brother' style databases of consumers without their consent.
+
+[influences]
+0 = _random_,0,0.5
+1 = Technology,0+(0.5*x)
+
+[option0]
+Name = Ban Tracking
+Description = This sort of behavior is nothing short of creepy, as well as posing a potential risk of identity theft for consumers. Companies have managed well enough all these years without tracking and storing information on every single decision a customer makes, and can easily get by without it. People have the right to buy things without effectively being followed by digital spies wherever they go.
+OnImplement = CreateGrudge(Internet Tracking,InternetTracking,Liberal,0.04,0.9f);CreateGrudge(Internet Tracking,InternetTracking,Capitalist,-0.05,0.9f);CreateGrudge(Internet Tracking,InternetTracking,GDP,-0.01,0.9f);
+
+[option1]
+Name = Allow Tracking
+Description = Opponents of internet tracking make it sound far more sinister than it is. All we are talking about is allowing companies to record accurate information on consumer preferences so they can make better products and target their advertising effectively, something that is harmless and also essential to a modern economy. There is no real cry for the government to intervene here.
+OnImplement = CreateGrudge(Internet Tracking,InternetTracking,Liberal,-0.05,0.9f);CreateGrudge(Internet Tracking,InternetTracking,Capitalist,0.04,0.9f);CreateGrudge(Internet Tracking,InternetTracking,GDP,0.01,0.9f);
+

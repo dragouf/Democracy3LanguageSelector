@@ -1,0 +1,11 @@
+[config]
+Name = CreditCrunch
+GUIName = Credit Crunch!
+Texture = "event_stockmarket.jpg"
+Description = A worldwide squeeze on the availability of credit, caused by concerns about the economic viability of several governments, has resulted in massive spikes in interest rates being demanded by the bond market to finance government debt. This is likely to cause us severe financial issues if we are running a high debt or deficit.
+GUISound = d3_stockmarket_angry.ogg
+MinimumTurn = 13
+OnImplement = CreateGrudge(Credit Crunch,CreditCrunch,_global_interest_rates_,0.500,0.90);CreateGrudge(Credit Crunch,CreditCrunch,CreditCrunch,-0.790,0.850);CreateGrudge(Market Meltdown,MarketMeltdown,_global_socialism,0.1,0.8);
+[influences]
+0 = "_random_,0,0.3"
+1 = "_winning_,0+(0.7*x)"

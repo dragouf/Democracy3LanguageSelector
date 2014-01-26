@@ -1,0 +1,11 @@
+[config]
+Name = ImmigrationScandal
+GUIName = Immigration Scandal
+Texture = "event_passport.jpg"
+Description = A random check of the food packaging industry has found  a shocking number of people doing low paid jobs without work permits. Opponents of immigration are outraged that the government has been unable to control our borders, and the unemployed are angry that foreigners are taking their jobs. The media are running strongly worded editorials about the governments immigration policy.
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Immigration Scandal,ImmigrationScandal,Conservatives,-0.100,0.700);CreateGrudge(Immigration Scandal,ImmigrationScandal,RacialTension,0.180,0.700);CreateGrudge(Immigration Scandal,ImmigrationScandal,Patriot,-0.100,0.700);CreateGrudge(Immigration Scandal,ImmigrationScandal,Poor,-0.400,0.770);CreateGrudge(Immigration Scandal,ImmigrationScandal,ImmigrationScandal,-0.800,0.900);
+[influences]
+0 = "_random_,0.0,0.500"
+1 = "BorderControls,0-(0.5*x)"
+2 = "Immigration,0+(1.0*x)"

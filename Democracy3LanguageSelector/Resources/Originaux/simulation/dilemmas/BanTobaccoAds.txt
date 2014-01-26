@@ -1,0 +1,19 @@
+[dilemma]
+name=Ban Tobacco Adverts
+guiname=Ban Tobacco Adverts
+description=There is a proposal for a law to outlaw the advertising of tobacco on television. Although it would remain legal to advertise on billboards and other means, a TV ban is seen as a potential way to reduce smoking by our citizens.
+
+[influences]
+0 = _default_,0.8+(0*x)
+1 = Health,0-(0.5*x)
+2 = TobaccoUse,0+(0.4*x)
+
+[option0]
+Name = Reject Ban
+Description = There is no direct 100% proven evidence that tobacco is anywhere near as harmful as some pressure groups claim. Millions of our citizens enjoy a smoke without any serious ill effects, and this is an example of the 'nanny state' trying to tell people what to do. It's their bodies, and their decision!
+OnImplement = CreateGrudge(Ban Tobacco Adverts,Ban Tobacco Adverts,Liberal,0.13,0.9);
+
+[option1]
+Name = Approve Ban
+Description = Smoking kills millions of people prematurely every year, and is highly addictive. Any steps the government can take towards reducing the number of people suffering smoking related illness is welcome. People will still have the right to smoke, but this reduces the chances of the next generation taking it up.
+OnImplement = CreateGrudge(Ban Tobacco Adverts,Ban Tobacco Adverts,Liberal,-0.19,0.9);CreateGrudge(Ban Tobacco Adverts,Ban Tobacco Adverts,TobaccoUse,-0.19,1.0);

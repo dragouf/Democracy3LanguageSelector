@@ -1,0 +1,17 @@
+[dilemma]
+name=ToxicWasteDump
+guiname=Toxic Waste Dump
+description=A proposal has been put forward to construct a major toxic waste dump in our country. This facility will be very large, potentially creating many jobs in its construction, but there are concerns about its effect on the environment.
+
+[influences]
+0 = _random_,0.3,0.9
+
+[option0]
+Name = Allow the dump
+Description = Nobody exactly WANTS toxic waste in their back garden, but we would be fools to turn our backs on the economic gains from setting up this facility, not to mention the potential jobs. Besides, we can place the dump in the countryside where the jobs are needed and the risks are low.
+OnImplement = CreateGrudge(Toxic Waste Dump,ToxicWasteDump,Environmentalist,-0.23,0.9f);CreateGrudge(Toxic Waste Dump,ToxicWasteDump,GDP,0.02,0.9f);CreateGrudge(Toxic Waste Dump,ToxicWasteDump,Unemployment,-0.01,0.9f);
+
+[option1]
+Name = Prevent construction
+Description = It doesn't matter how many jobs and how much money is involved, we cannot just take the attitude of renting out our country as a rubbish pit for other nations. The effects of this toxic waste could last for generations, is this really the legacy we want to leave for our children?
+OnImplement = CreateGrudge(Toxic Waste Dump,ToxicWasteDump,Environmentalist,0.07,0.9f);

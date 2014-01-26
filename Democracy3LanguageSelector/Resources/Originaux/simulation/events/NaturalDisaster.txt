@@ -1,0 +1,14 @@
+[config]
+Name = NaturalDisaster
+GUIName = Earthquake!
+Texture = "event_earthquake.jpg"
+Description = Last night our country experienced its worst earthquake for years, many businesses have seen their premises wrecked, many people have lost their homes. The cleanup cost will be high and this is likely to have a detrimental effect on our economy for quite a while. We can expect a dramatic drop in GDP over the short term, which is going to eat into our tax income. However, we have built up a strategic reserve of cash right?
+GUISound = d3_earthquake.ogg
+OnImplement = CreateGrudge(Earthquake!,NaturalDisaster,GDP,-0.180,0.850);CreateGrudge(Earthquake!,NaturalDisaster,NaturalDisaster,-0.900,0.900);CreateGrudge(Earthquake!,NaturalDisaster,_All_,-0.200,0.700);
+
+[prereqs]
+EARTHQUAKES
+
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "_winning_,0+(0.75*x)"

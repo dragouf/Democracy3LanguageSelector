@@ -1,0 +1,11 @@
+[config]
+Name = NobelPrize
+GUIName = Nobel Prize
+Texture = "event_prize.jpg"
+Description = One of our brightest citizens has won the Nobel Prize for chemistry. This just goes to show that we have some of the best educated and brightest people in the modern world, and is being reported as a superb vindication of our education policies. Its also likely to encourage investment into the country now we are seen as such innovators!
+GUISound = d3_crowd_applause.ogg
+OnImplement = CreateGrudge(Nobel Prize,NobelPrize,GDP,0.030,0.770);CreateGrudge(Nobel Prize,NobelPrize,Patriot,0.300,0.740);CreateGrudge(Nobel Prize,NobelPrize,Liberal,0.120,0.880);CreateGrudge(Nobel Prize,NobelPrize,NobelPrize,-0.900,0.950);CreateGrudge(Nobel Prize,NobelPrize,Patriot_freq,0.100,0.900);
+[influences]
+0 = "_random_,0.000,0.400"
+1 = "Education,0+(x^4)"
+2 = "UniversityGrants,0+(0.28*x)"

@@ -1,0 +1,18 @@
+[dilemma]
+name=CONTROVERSIAL MARCH
+guiname=Controversial march
+description=An extreme right wing political group is planning a march through our capital city. The group has strong racist tendencies and the police are convinced that if the march goes ahead there will be violent confrontations between the marchers and people who will show up to oppose them. The police recommend banning the march.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = _random_,0,0.5
+
+[option0]
+Name = Ban the march
+Description = The police have given us a good enough reason to ban this march. We must take into account the views of the vast majority of our society who do not want or need the violence and trouble this march will cause. Freedom of speech does not mean freedom to riot. Ban this march.
+OnImplement = CreateGrudge(Controversial march,CONTROVERSIAL MARCH,Liberal,-0.23,0.9f);
+
+[option1]
+Name = Allow the march
+Description = One of the basic freedoms in our society must be the right to freely assemble and put forward a political view, even if it is an unpopular or minority view. The marchers are only expressing their views, and opponents are free to make a peaceful protest. It is an awkward situation but banning a political demonstration is a very dictatorial thing to do.
+OnImplement = CreateGrudge(Controversial march,CONTROVERSIAL MARCH,CrimeRate,0.07,0.9f);CreateGrudge(Controversial march,CONTROVERSIAL MARCH,Liberal,0.15,0.9f);CreateGrudge(Controversial march,CONTROVERSIAL MARCH,RacialTension,0.31,0.85f);

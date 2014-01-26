@@ -1,0 +1,10 @@
+[config]
+Name = FailedEthnicAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_secretservice.jpg"
+Description = "You were woken in a panic this morning by news that armed extremists had made an attempt on your life. A group of armed anti-government protesters, claiming to be from the 'Black Power Group' opened fire on government buildings this morning, breaking windows and injuring some staff, but luckily causing no fatalities. The group accused the government of racism, and said they represented the anger of this country's ethnic minorities. We should be wary of the potential for future such attacks."
+GUISound = d3_ak47.ogg
+OnImplement = 
+Type = SPECIAL
+[influences]
+

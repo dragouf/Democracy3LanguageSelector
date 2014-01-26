@@ -1,0 +1,11 @@
+[config]
+Name = MilitaryWhistleblower
+GUIName = Military Whistleblower
+Texture = "event_military.jpg"
+Description = A corporal in our armed forces has left the army and spoken out to the media about drastic shortages and lack of basic training being provided to our military. Naturally this is outraging the more patriotic sections of the media, and there is widespread concern throughout society that we have let our armed forces degenerate so badly.
+GUISound = d3_army_march.ogg
+OnImplement = CreateGrudge(Military Whistleblower,MilitaryWhistleblower,_All_,-0.120,0.750);CreateGrudge(Military Whistleblower,MilitaryWhistleblower,Patriot,-0.200,0.750);CreateGrudge(Military Whistleblower,MilitaryWhistleblower,MilitaryWhistleblower,-0.900,0.900);
+[influences]
+0 = "_random_,0.200,1.200"
+1 = "MilitarySpending,0-(0.5*x)"
+2 = "NationalService,0-(0.2*x)"

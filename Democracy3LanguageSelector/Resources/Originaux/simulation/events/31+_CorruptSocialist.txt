@@ -1,0 +1,12 @@
+[config]
+Name = CorruptSocialist
+GUIName = Corrupt Socialist
+Texture = "event_law.jpg"
+Description = "A high profile arrest and trial has taken place of a leading socialist campaigner. The campaigner has been found guilty of tax evasion and funneling money from campaign groups into a Swiss bank account. The public have been thoroughly shocked, and this is likely to have a negative effect on the general perception of socialism for some time."
+MinimumTurn = 31
+GUISound = d3_crowd_whisper.ogg
+OnImplement = CreateGrudge(Corrupt Socialist,CorruptSocialist,Capitalist,-0.10,0.800);CreateGrudge(Corrupt Socialist,CorruptSocialist,_global_socialism,-0.25,0.80);CreateGrudge(Corrupt Socialist,CorruptSocialist,CorruptSocialist,-0.800,0.950);
+[influences]
+0 = "_random_,0.000,0.3"
+1 = "_winning_,0+(0.8*x)"
+
