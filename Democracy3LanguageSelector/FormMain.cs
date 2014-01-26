@@ -38,9 +38,6 @@ namespace Democracy3LanguageSelector
             LoadGamePath();
             LoadAppSettings();
             LoadLanguagesList();
-
-            // Test 
-            IsFirstLaunch();
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -57,6 +54,9 @@ namespace Democracy3LanguageSelector
                     MessageBox.Show("Please select a valid game path...", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                // Test if restore original files needed
+                IsFirstLaunch();
 
                 // if force download redownload
                 if (this.checkBoxForceDl.Checked)
