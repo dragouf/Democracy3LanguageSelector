@@ -15,7 +15,7 @@ namespace Democracy3LanguageSelector
         Mods,
         None
     }
-    class DemocracyStringHandling
+    public class DemocracyStringHandling
     {
         public string TransifexFilePath { get; set; }
         public string OutputExtractFolderPath { get; set; }
@@ -97,7 +97,7 @@ namespace Democracy3LanguageSelector
                 {
                     ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 2 });
                 }
-                else if (fileName == "situations.csv")
+                else if (fileName == "sliders.csv")
                 {
                     ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 5, 6, 7, 8, 9, 10 });
                 }
@@ -244,6 +244,10 @@ namespace Democracy3LanguageSelector
                     {
                         InjectCsv(filePath, fileName, fileSection);
                     }
+                    else if (fileName == "sliders.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
                 }
             }
 
@@ -331,11 +335,11 @@ namespace Democracy3LanguageSelector
                 var key = csv.GetField(keyIndex);
                 foreach (var valueIndex in listValueIndex)
                 {
-                    var value = csv.GetField(valueIndex).SurroundWithQuotes();
+                    var value = csv.GetField(valueIndex);
                     if (!string.IsNullOrWhiteSpace(value))
                     {
                         if (!string.IsNullOrWhiteSpace(key))
-                            iniData.Sections.GetSectionData(fileName).Keys.AddKey(valueIndex + "@" + fileName + "@" + key, value);
+                            iniData.Sections.GetSectionData(fileName).Keys.AddKey(valueIndex + "@" + fileName + "@" + key, value.SurroundWithQuotes());
                     }
                 }
             }
@@ -479,10 +483,6 @@ namespace Democracy3LanguageSelector
             {
                 fileType = FileType.MainSentences;
             }
-            //else if (!transifexInidata.Sections.Select(s => s.SectionName).Contains("strings.ini") && !transifexInidata.Sections.Select(s => s.SectionName).Contains("mods") && transifexInidata.Sections.Select(s => s.SectionName).Contains("tutorial.csv"))
-            //{
-            //    fileType = FileType.Titles;
-            //}
             else if (transifexInidata.Sections.Select(s => s.SectionName).Contains("mods"))
             {
                 fileType = FileType.Mods;
