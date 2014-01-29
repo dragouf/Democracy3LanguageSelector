@@ -95,7 +95,7 @@ namespace Democracy3LanguageSelector
                 }
                 else if (fileName == "votertypes.csv")
                 {
-                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 2 });
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 2, 3 });
                 }
                 else if (fileName == "sliders.csv")
                 {
@@ -377,7 +377,7 @@ namespace Democracy3LanguageSelector
                         {
                             if (ligne.Any(k => k == key))
                             {
-                                ligne[valueIndex] = sectionKey.Value.RemoveSurroundedQuotes().SanitizeQuotes();
+                                ligne[valueIndex] = sectionKey.Value.RemoveSurroundedQuotes().SanitizeQuotes().Trim();
                                 if (this.RemoveSpecialsChars)
                                     ligne[valueIndex] = ligne[valueIndex].DeleteAccentAndSpecialsChar().RemoveDiacritics();
                             }
@@ -450,7 +450,7 @@ namespace Democracy3LanguageSelector
             {
                 var section = sectionKey.KeyName.Split('@').First();
                 var key = sectionKey.KeyName.Split('@').Last();
-                var value = sectionKey.Value.SanitizeQuotes();
+                var value = sectionKey.Value.SanitizeQuotes().Trim();
                 if (this.RemoveSpecialsChars)
                     value = value.DeleteAccentAndSpecialsChar().RemoveDiacritics();
 
