@@ -15,6 +15,8 @@ If you want to help for translation you can join here : https://www.transifex.co
 
 Enjoy the game in your language!
 
+Note : force download checkbox is to force to download transifex translation time each time you click on "Apply translation". It's useful when you just change already translated text without adding any new translation because in this case program won't detect this change since its base on translation progression. 
+
 ## Screenshot
 <p align="center">
 <img src="https://raw2.github.com/dragouf/Democracy3LanguageSelector/master/docs/screenshot.png" alt="democracy 3 language selector screenshot" />
