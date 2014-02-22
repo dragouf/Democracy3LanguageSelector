@@ -15,6 +15,14 @@ namespace Democracy3LanguageSelector
         Mods,
         None
     }
+    public class ModDetails
+    {
+        public string DisplayName { get; set; }
+        public string Author { get; set; }
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string File { get; set; }
+    }
     public class DemocracyStringHandling
     {
         public string TransifexFilePath { get; set; }
@@ -36,6 +44,114 @@ namespace Democracy3LanguageSelector
         }
 
         #region Extraction
+        public void ExtractMod(string modPath)
+        {
+            if (!Directory.Exists(this.OutputExtractFolderPath))
+            {
+                throw new InvalidOperationException("You must choose an extraction path");
+            }
+
+            string outputFilePath = this.OutputExtractFolderPath + "\\Democracy3ModExtractedText.ini";
+            if (File.Exists(outputFilePath))
+                File.Delete(outputFilePath);
+
+            var iniData = new IniParser.Model.IniData();
+
+            // MOD RACINE
+            string modBasePath = this.GameFolderPath.Replace("data", "") + "\\" + modPath + "\\data";
+
+            if (!Directory.Exists(modBasePath))
+                throw new InvalidOperationException("Mod is not installed");
+
+            iniData.Sections.AddSection("Mod__" + modPath);
+
+            // SIMULATION
+            var path = modBasePath + "\\simulation\\";
+            var files = Directory.GetFiles(path);
+            foreach (var filePath in files)
+            {
+                var fileName = filePath.Replace(path, "");
+                if (fileName == "achievements.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 2 });
+                }
+                else if (fileName == "policies.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 2 });
+                }
+                else if (fileName == "pressuregroups.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 3, 9, 10 });
+                }
+                else if (fileName == "simulation.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 3, 2 });
+                }
+                else if (fileName == "situations.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 3, 2, 6, 7 });
+                }
+                else if (fileName == "votertypes.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 8, 2, 3 });
+                }
+                else if (fileName == "sliders.csv")
+                {
+                    ParseCsv(filePath, fileName, iniData, 1, new List<int> { 4, 5, 6, 7, 8, 9, 10 });
+                }
+            }
+
+            // Attacks
+            path = modBasePath + "\\simulation\\attacks\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetFiles(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "");
+                    ParseIni(filePath, fileName, iniData, new List<string> { "SuccessText", "GUIName" });
+                }
+            }
+
+            // Dilemmas
+            path = modBasePath + "\\simulation\\dilemmas\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetFiles(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "");
+                    ParseIni(filePath, fileName, iniData, new List<string> { "description", "guiname", "name" });
+                }
+            }
+
+            // Events
+            path = modBasePath + "\\simulation\\events\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetFiles(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "");
+                    ParseIni(filePath, fileName, iniData, new List<string> { "description", "guiname" });
+                }
+            }
+
+            // Missions
+            path = modBasePath + "\\missions\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetDirectories(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "") + ".txt";
+                    ParseIni(filePath + "\\" + fileName, fileName, iniData, new List<string> { "description", "guiname" });
+                }
+            }
+
+            var parser = new IniParser.FileIniDataParser();
+            parser.WriteFile(outputFilePath, iniData, Encoding.UTF8);
+        }
         public void ExtractAllSentences()
         {
             //this.textBoxOutputFolder.Text == OutputExtractFolderPath
@@ -174,7 +290,11 @@ namespace Democracy3LanguageSelector
                 InjectMain();
             else if (type == FileType.Mods)
             {
-                //InjectTitles();
+                var transifexFileParser = new IniParser.FileIniDataParser();
+                var transifexInidata = transifexFileParser.ReadFile(this.TransifexFilePath, Encoding.UTF8);
+
+                var modPath = transifexInidata.Sections.Where(s => s.SectionName.Contains("Mod__")).First().SectionName.Replace("Mod__", "");
+                InjectMod(modPath);
             }
             else
             {
@@ -304,6 +424,131 @@ namespace Democracy3LanguageSelector
 
             // Missions
             path = this.GameFolderPath + "\\missions\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetDirectories(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "") + ".txt";
+                    // try to find file section in transifex file
+                    if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
+                    {
+                        var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
+                        InjectIni(filePath + "\\" + fileName, fileName, fileSection);
+                    }
+                }
+            }
+
+            //MessageBox.Show("Main game sentences are now translated.", "Injection finished...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void InjectMod(string modPath)
+        {
+            var transifexFileParser = new IniParser.FileIniDataParser();
+            var transifexInidata = transifexFileParser.ReadFile(this.TransifexFilePath, Encoding.UTF8);
+
+            // MOD RACINE
+            string modBasePath = this.GameFolderPath.Replace("data", "") + "\\" + modPath + "\\data";
+
+            if (!Directory.Exists(modBasePath))
+                return;
+
+
+            // SIMULATION
+            var path = modBasePath + "\\simulation\\";
+            var files = Directory.GetFiles(path);
+            foreach (var filePath in files)
+            {
+                var fileName = filePath.Replace(path, "");
+                // try to find file section in transifex file
+                if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
+                {
+                    var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
+
+                    if (fileName == "achievements.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                    else if (fileName == "policies.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                    else if (fileName == "pressuregroups.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                    else if (fileName == "simulation.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                    else if (fileName == "situations.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                    else if (fileName == "votertypes.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                    else if (fileName == "sliders.csv")
+                    {
+                        InjectCsv(filePath, fileName, fileSection);
+                    }
+                }
+            }
+
+            // Attacks
+            path = modBasePath + "\\simulation\\attacks\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetFiles(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "");
+                    // try to find file section in transifex file
+                    if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
+                    {
+                        var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
+                        InjectIni(filePath, fileName, fileSection);
+                    }
+                }
+            }
+
+            // Dilemmas
+            path = modBasePath + "\\simulation\\dilemmas\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetFiles(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "");
+                    // try to find file section in transifex file
+                    if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
+                    {
+                        var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
+                        InjectIni(filePath, fileName, fileSection);
+                    }
+                }
+            }
+
+            // Events
+            path = modBasePath + "\\simulation\\events\\";
+            if (Directory.Exists(path))
+            {
+                files = Directory.GetFiles(path);
+                foreach (var filePath in files)
+                {
+                    var fileName = filePath.Replace(path, "");
+                    // try to find file section in transifex file
+                    if (transifexInidata.Sections.Any(s => s.SectionName == fileName))
+                    {
+                        var fileSection = transifexInidata.Sections.First(s => s.SectionName == fileName);
+                        InjectIni(filePath, fileName, fileSection);
+                    }
+                }
+            }
+
+            // Missions
+            path = modBasePath + "\\missions\\";
             if (Directory.Exists(path))
             {
                 files = Directory.GetDirectories(path);
@@ -469,6 +714,42 @@ namespace Democracy3LanguageSelector
         #endregion
 
         #region Tools
+        public List<ModDetails> ListMods()
+        {
+            var modsList = new List<ModDetails>();
+
+            var stringIniParser = new IniParser.FileIniDataParser();
+            stringIniParser.Parser.Configuration.AllowDuplicateKeys = true;
+            stringIniParser.Parser.Configuration.SkipInvalidLines = true;
+            stringIniParser.Parser.Configuration.CommentRegex = new System.Text.RegularExpressions.Regex("^;.*");
+
+            // list mod files
+            var modsPath = "{0}\\mods".FormatWith(this.GameFolderPath);
+            var listModsFiles = Directory.EnumerateFiles(modsPath);
+            foreach (var file in listModsFiles)
+            {
+                string ext = Path.GetExtension(file);
+                if (ext == ".txt")
+                {
+                    // read mod path
+                    var stringInidata = stringIniParser.ReadFile(file, Encoding.Default);
+                    var configSection = stringInidata.Sections.FirstOrDefault();
+                    if (configSection != null)
+                    {
+                        var modDetails = new ModDetails();
+                        modDetails.DisplayName = configSection.Keys.First(k => k.KeyName.ToLower().Trim() == "guiname").Value.Replace("\"", "");
+                        modDetails.Author = configSection.Keys.First(k => k.KeyName.ToLower().Trim() == "author").Value.Replace("\"", "");
+                        modDetails.Name = configSection.Keys.First(k => k.KeyName.ToLower().Trim() == "name").Value.Replace("\"", "");
+                        modDetails.Path = configSection.Keys.First(k => k.KeyName.ToLower().Trim() == "path").Value.Replace("\"", "");
+                        modDetails.File = file.Replace(modsPath, "");
+
+                        modsList.Add(modDetails);
+                    }
+                }
+            }
+
+            return modsList;
+        }
         public static FileType DetectFileType(string transifexFilePath)
         {
             if (!File.Exists(transifexFilePath))
@@ -483,7 +764,7 @@ namespace Democracy3LanguageSelector
             {
                 fileType = FileType.MainSentences;
             }
-            else if (transifexInidata.Sections.Select(s => s.SectionName).Contains("mods"))
+            else if (transifexInidata.Sections.Select(s => s.SectionName).Any(s => s.Contains("Mod__")))
             {
                 fileType = FileType.Mods;
             }
