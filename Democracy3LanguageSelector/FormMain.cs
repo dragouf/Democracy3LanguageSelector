@@ -20,6 +20,24 @@ namespace Democracy3LanguageSelector
         public TranslationDetails CurrentTranslationInfo { get; set; }
         public Dictionary<string, bool> DownloadingResources { get; set; }
 
+        private DateTime _LastBackupDate;
+        public DateTime LastBackupDate
+        {
+            set
+            {
+                _LastBackupDate = value;
+                var dateText = "Directly download from transifex. If not will use a backup made on {0}".FormatWith(_LastBackupDate.ToShortDateString());
+                this.checkBoxLiveUpdate.Invoke((MethodInvoker)delegate
+                {
+                    this.checkBoxLiveUpdate.Text = dateText; 
+                });
+            }
+            get
+            {
+                return _LastBackupDate;
+            }
+        }
+
         public FormMain()
         {
             InitializeComponent();
@@ -38,6 +56,7 @@ namespace Democracy3LanguageSelector
             LoadGamePath();
             LoadAppSettings();
             LoadLanguagesList();
+            LoadBackupDate();
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -127,7 +146,7 @@ namespace Democracy3LanguageSelector
                     // Check if new translations occured (if force download, download will happen when user click apply...)
                     if (previousProgression != this.CurrentTranslationInfo.Translated_segments && !this.checkBoxForceDl.Checked)
                     {
-                        await this.DownloadTranslationFile(langCode, this.CurrentTranslationInfo.Total_segments);
+                        await this.DownloadTranslationFile(langCode, this.CurrentTranslationInfo.Total_segments);                       
                     }
                 }
 
@@ -177,12 +196,43 @@ namespace Democracy3LanguageSelector
             };
 
             // Download file
-            await TransifexConnector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
+            if (this.checkBoxLiveUpdate.Checked)
+            {
+                // from transifex website
+                try
+                {
+                    await TransifexConnector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
+                }
+                catch
+                {
+                    var dialogResult = MessageBox.Show(
+                        "Transifex website reject download request.\r\nLast available translation can't be download\r\nDo you want to download backup ?", 
+                        "Revert changes success", 
+                        MessageBoxButtons.YesNo, 
+                        MessageBoxIcon.Error);
+                    if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                    {
+                    }
+                }
+            }
+            else
+            {
+                // backuo available in dropbox
+                await DropboxConnector.DownloadTranslationResources(langCode, this.ProjectInfo.Resources, progress);
+            }
 
             this.DownloadingResources[langCode] = false;
         }
         #endregion
 
+        #region Dropbox Data
+        private async void LoadBackupDate()
+        {
+            this.LastBackupDate = await DropboxConnector.GetBackupDate();
+        }
+        #endregion
+
+        #region Labels Link
         private void linkLabelGamePath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.folderBrowserDialogGameSource.SelectedPath = this.labelGameSourcePath.Text;
@@ -222,6 +272,7 @@ namespace Democracy3LanguageSelector
                 System.Diagnostics.Process.Start("https://www.transifex.com/projects/p/democracy-3/language/{0}/".FormatWith(langCode));
             }
         }
+        #endregion
 
         #region App Settings
         private void LoadAppSettings()

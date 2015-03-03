@@ -49,6 +49,8 @@
             this.linkLabelRestore = new System.Windows.Forms.LinkLabel();
             this.linkLabelOnline = new System.Windows.Forms.LinkLabel();
             this.folderBrowserDialogGameSource = new Democracy3LanguageSelector.FolderBrowserDialogEx();
+            this.label7 = new System.Windows.Forms.Label();
+            this.checkBoxLiveUpdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // comboBoxLanguages
@@ -87,7 +89,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 111);
+            this.label2.Location = new System.Drawing.Point(12, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 14);
             this.label2.TabIndex = 3;
@@ -97,7 +99,7 @@
             // 
             this.labelGameSourcePath.AutoSize = true;
             this.labelGameSourcePath.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGameSourcePath.Location = new System.Drawing.Point(106, 111);
+            this.labelGameSourcePath.Location = new System.Drawing.Point(106, 144);
             this.labelGameSourcePath.MaximumSize = new System.Drawing.Size(326, 14);
             this.labelGameSourcePath.Name = "labelGameSourcePath";
             this.labelGameSourcePath.Size = new System.Drawing.Size(162, 14);
@@ -108,7 +110,7 @@
             // linkLabelGamePath
             // 
             this.linkLabelGamePath.AutoSize = true;
-            this.linkLabelGamePath.Location = new System.Drawing.Point(489, 111);
+            this.linkLabelGamePath.Location = new System.Drawing.Point(489, 144);
             this.linkLabelGamePath.Name = "linkLabelGamePath";
             this.linkLabelGamePath.Size = new System.Drawing.Size(51, 13);
             this.linkLabelGamePath.TabIndex = 5;
@@ -120,7 +122,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 143);
+            this.label3.Location = new System.Drawing.Point(12, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 14);
             this.label3.TabIndex = 6;
@@ -130,7 +132,7 @@
             // 
             this.labelProgression.AutoSize = true;
             this.labelProgression.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgression.Location = new System.Drawing.Point(106, 143);
+            this.labelProgression.Location = new System.Drawing.Point(106, 176);
             this.labelProgression.MaximumSize = new System.Drawing.Size(330, 14);
             this.labelProgression.Name = "labelProgression";
             this.labelProgression.Size = new System.Drawing.Size(93, 14);
@@ -142,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 175);
+            this.label4.Location = new System.Drawing.Point(12, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 14);
             this.label4.TabIndex = 8;
@@ -152,7 +154,7 @@
             // 
             this.labelResourcesInfo.AutoSize = true;
             this.labelResourcesInfo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResourcesInfo.Location = new System.Drawing.Point(106, 175);
+            this.labelResourcesInfo.Location = new System.Drawing.Point(106, 208);
             this.labelResourcesInfo.MaximumSize = new System.Drawing.Size(330, 14);
             this.labelResourcesInfo.Name = "labelResourcesInfo";
             this.labelResourcesInfo.Size = new System.Drawing.Size(0, 14);
@@ -161,7 +163,7 @@
             // 
             // progressBarDownlodResources
             // 
-            this.progressBarDownlodResources.Location = new System.Drawing.Point(109, 175);
+            this.progressBarDownlodResources.Location = new System.Drawing.Point(109, 208);
             this.progressBarDownlodResources.Name = "progressBarDownlodResources";
             this.progressBarDownlodResources.Size = new System.Drawing.Size(317, 14);
             this.progressBarDownlodResources.TabIndex = 10;
@@ -173,7 +175,7 @@
             this.checkBoxRemoveSC.Checked = true;
             this.checkBoxRemoveSC.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRemoveSC.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxRemoveSC.Location = new System.Drawing.Point(109, 47);
+            this.checkBoxRemoveSC.Location = new System.Drawing.Point(109, 80);
             this.checkBoxRemoveSC.Name = "checkBoxRemoveSC";
             this.checkBoxRemoveSC.Size = new System.Drawing.Size(169, 17);
             this.checkBoxRemoveSC.TabIndex = 11;
@@ -184,7 +186,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 47);
+            this.label5.Location = new System.Drawing.Point(12, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 14);
             this.label5.TabIndex = 12;
@@ -194,7 +196,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 79);
+            this.label6.Location = new System.Drawing.Point(12, 112);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 14);
             this.label6.TabIndex = 13;
@@ -204,7 +206,7 @@
             // 
             this.checkBoxForceDl.AutoSize = true;
             this.checkBoxForceDl.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxForceDl.Location = new System.Drawing.Point(109, 79);
+            this.checkBoxForceDl.Location = new System.Drawing.Point(109, 112);
             this.checkBoxForceDl.Name = "checkBoxForceDl";
             this.checkBoxForceDl.Size = new System.Drawing.Size(234, 17);
             this.checkBoxForceDl.TabIndex = 14;
@@ -214,7 +216,7 @@
             // linkLabelRestore
             // 
             this.linkLabelRestore.AutoSize = true;
-            this.linkLabelRestore.Location = new System.Drawing.Point(444, 175);
+            this.linkLabelRestore.Location = new System.Drawing.Point(444, 208);
             this.linkLabelRestore.Name = "linkLabelRestore";
             this.linkLabelRestore.Size = new System.Drawing.Size(96, 13);
             this.linkLabelRestore.TabIndex = 15;
@@ -225,7 +227,7 @@
             // linkLabelOnline
             // 
             this.linkLabelOnline.AutoSize = true;
-            this.linkLabelOnline.Location = new System.Drawing.Point(422, 143);
+            this.linkLabelOnline.Location = new System.Drawing.Point(422, 176);
             this.linkLabelOnline.Name = "linkLabelOnline";
             this.linkLabelOnline.Size = new System.Drawing.Size(118, 13);
             this.linkLabelOnline.TabIndex = 16;
@@ -245,11 +247,36 @@
             this.folderBrowserDialogGameSource.ShowFullPathInEditBox = true;
             this.folderBrowserDialogGameSource.ShowNewFolderButton = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 14);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Live update";
+            // 
+            // checkBoxLiveUpdate
+            // 
+            this.checkBoxLiveUpdate.AutoSize = true;
+            this.checkBoxLiveUpdate.Checked = true;
+            this.checkBoxLiveUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxLiveUpdate.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLiveUpdate.Location = new System.Drawing.Point(109, 47);
+            this.checkBoxLiveUpdate.Name = "checkBoxLiveUpdate";
+            this.checkBoxLiveUpdate.Size = new System.Drawing.Size(180, 17);
+            this.checkBoxLiveUpdate.TabIndex = 17;
+            this.checkBoxLiveUpdate.Text = "Directly download from transifex";
+            this.checkBoxLiveUpdate.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 212);
+            this.ClientSize = new System.Drawing.Size(546, 234);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.checkBoxLiveUpdate);
             this.Controls.Add(this.linkLabelOnline);
             this.Controls.Add(this.linkLabelRestore);
             this.Controls.Add(this.checkBoxForceDl);
@@ -269,8 +296,8 @@
             this.Controls.Add(this.comboBoxLanguages);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(562, 251);
-            this.MinimumSize = new System.Drawing.Size(562, 251);
+            this.MaximumSize = new System.Drawing.Size(562, 273);
+            this.MinimumSize = new System.Drawing.Size(562, 273);
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Democracy 3 Language Selector";
@@ -301,6 +328,8 @@
         private System.Windows.Forms.CheckBox checkBoxForceDl;
         private System.Windows.Forms.LinkLabel linkLabelRestore;
         private System.Windows.Forms.LinkLabel linkLabelOnline;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkBoxLiveUpdate;
     }
 }
 

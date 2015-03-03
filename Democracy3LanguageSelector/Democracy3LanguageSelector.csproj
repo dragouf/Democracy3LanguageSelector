@@ -27,7 +27,7 @@
     <InstallUrl>https://dl.dropboxusercontent.com/u/260255445/Democracy%25203/ClickOnce/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -58,7 +58,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BD0A229BB3188AB8D2352CB9300DA7ECF58DD13B</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B00547BF0C04AEB3BAE9261040C7D6078E2DC734</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Democracy3LanguageSelector_TemporaryKey.pfx</ManifestKeyFile>
@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Classes\DemocracyStringHandling.cs" />
     <Compile Include="Classes\Secure.cs" />
+    <Compile Include="Classes\DropboxConnector.cs" />
     <Compile Include="FolderBrowserDialogEx.cs">
       <SubType>Component</SubType>
     </Compile>
