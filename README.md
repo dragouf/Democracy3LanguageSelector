@@ -19,5 +19,5 @@ Note : force download checkbox is to force to download transifex translation fil
 
 ## Screenshot
 <p align="center">
-<img src="https://raw2.github.com/dragouf/Democracy3LanguageSelector/master/docs/screenshot.png" alt="democracy 3 language selector screenshot" />
+<img src="https://raw.githubusercontent.com/dragouf/Democracy3LanguageSelector/master/docs/screenshot.png" alt="democracy 3 language selector screenshot" />
 </p>
