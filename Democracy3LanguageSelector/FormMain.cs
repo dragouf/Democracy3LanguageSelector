@@ -163,7 +163,7 @@ namespace Democracy3LanguageSelector
         {
             this.ProjectInfo = await TransifexConnector.ProjectDetails();
 
-            this.ProjectInfo.Teams.ForEach(t => this.DownloadingResources.Add(t, false));
+            this.ProjectInfo.Teams.ForEach(t => { if(!this.DownloadingResources.ContainsKey(t)) { this.DownloadingResources.Add(t, false); } });
 
             this.CreateLangueCacheFolderIfNOtExist(this.ProjectInfo.Teams);
             this.comboBoxLanguages.DataSource = new BindingSource(this.ProjectInfo.Languages, null);
